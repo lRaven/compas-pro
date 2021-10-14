@@ -208,19 +208,19 @@
 			</ul>
 			<div class="services__navigation">
 				<div class="labels">
-					<span class="label show"></span>
-					<span class="label "></span>
-					<span class="label "></span>
-					<span class="label "></span>
-					<span class="label "></span>
-					<span class="label "></span>
-					<span class="label "></span>
-					<span class="label "></span>
+					<span class="label show" onclick="scrollNav(1)"></span>
+					<span class="label " onclick="scrollNav(2)"></span>
+					<span class="label " onclick="scrollNav(3)"></span>
+					<span class="label " onclick="scrollNav(4)"></span>
+					<span class="label " onclick="scrollNav(5)"></span>
+					<span class="label " onclick="scrollNav(6)"></span>
+					<span class="label " onclick="scrollNav(7)"></span>
+					<span class="label " onclick="scrollNav(8)"></span>
 				</div>
-				{{-- <div class="buttons">--}}
-					{{-- <button id="button-prev" class="button prev"></button>--}}
-					{{-- <button id="button-next" class="button next"></button>--}}
-					{{-- </div>--}}
+				<div class="buttons">
+					<button id="button-prev" class="button prev" onclick="scrollBtn(2)"></button>
+					<button id="button-next" class="button next" onclick="scrollBtn(1)"></button>
+				</div>
 			</div>
 		</div>
 	</section>
