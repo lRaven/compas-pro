@@ -91,6 +91,11 @@
 					<div class="service">
 						<div class="service__header">
 							<h3 class="service__title">Создание сложных сайтов для бизнеса</h3>
+							<span class="service__subtitle">
+								Проект рассчитан на корректную работу
+								при крупном
+								количестве посетителей единовременно и высоких нагрузках на сервер.
+							</span>
 						</div>
 						<a class="service__button" href="https://telegram.im/@compass_pro">
 							<span>Заказать</span>
@@ -104,6 +109,10 @@
 					<div class="service">
 						<div class="service__header">
 							<h3 class="service__title">Сайты агрегаторы</h3>
+							<span class="service__subtitle">
+								Сайт, который агрегирует (собирает) и классифицирует информацию и предложения разных компаний на одном
+								ресурсе.
+							</span>
 						</div>
 						<a class="service__button" href="https://telegram.im/@compass_pro">
 							<span>Заказать</span>
@@ -117,6 +126,11 @@
 					<div class="service">
 						<div class="service__header">
 							<h3 class="service__title">Система взаимодействия и администрирования</h3>
+							<span class="service__subtitle">
+								Механизм, позволяющий пользователям одной информационной базы систем общаться друг с
+								другом в режиме
+								реального времени.
+							</span>
 						</div>
 						<a class="service__button" href="https://telegram.im/@compass_pro">
 							<span>Заказать</span>
@@ -130,7 +144,7 @@
 					<div class="service">
 						<div class="service__header">
 							<h3 class="service__title">CRM</h3>
-							<span class="service__subtitle">(Системы управления взаимоотношений с клиентами)</span>
+							<span class="service__subtitle">Системы управления взаимоотношений с клиентами</span>
 						</div>
 						<a class="service__button" href="https://telegram.im/@compass_pro">
 							<span>Заказать</span>
@@ -158,6 +172,9 @@
 					<div class="service">
 						<div class="service__header">
 							<h3 class="service__title">Дизайн и внедрение</h3>
+							<span class="service__subtitle">
+								Проектирование пользовательских веб-интерфейсов для сайтов или веб-приложений
+							</span>
 						</div>
 						<a class="service__button" href="https://telegram.im/@compass_pro">
 							<span>Заказать</span>
@@ -203,6 +220,24 @@
 						</a>
 					</div>
 				</li>
+				<li class="services__list__item">
+					<div class="service">
+						<div class="service__header">
+							<h3 class="service__title">
+								Marketplace / Marketplace Management
+							</h3>
+							<span class="service__subtitle">
+								Система администрирования, осуществляющая управление и обеспечивающая настройки параметров процессов
+							</span>
+						</div>
+						<a class="service__button" href="https://telegram.im/@compass_pro">
+							<span>Заказать</span>
+							<svg>
+								<use xlink:href="/img/sprite.svg#arrow"></use>
+							</svg>
+						</a>
+					</div>
+				</li>
 			</ul>
 			<div class="services__navigation">
 				<div class="labels">
@@ -214,6 +249,7 @@
 					<span class="label " onclick="servicesScrollNav(6)"></span>
 					<span class="label " onclick="servicesScrollNav(7)"></span>
 					<span class="label " onclick="servicesScrollNav(8)"></span>
+					<span class="label " onclick="servicesScrollNav(9)"></span>
 				</div>
 				<div class="buttons">
 					<button id="button-prev" class="button prev" onclick="servicesScrollBtn(2)"></button>
@@ -401,13 +437,21 @@
 				<li class="compas-pro__list__item">
 					<div class="compas-pro__info">
 						<h3>Дружный коллектив профессиональных разработчиков</h3>
-						<span></span>
+						<span>
+							Формирование правильной
+							мотивации,
+							системы поощрений, а также используют специальные методы управления персоналом.
+						</span>
 					</div>
 				</li>
 				<li class="compas-pro__list__item">
 					<div class="compas-pro__info">
 						<h3>Комфортные условия организации труда</h3>
-						<span></span>
+						<span>
+							Современные компьютеры.
+							Чистый светлый офис, в тихом месте. Зона столовой, имеется собственная кухня. Зона кофе. Вкуснейший
+							зерновой кофе, печеньки и конфетки за наш счет.
+						</span>
 					</div>
 				</li>
 			</ul>

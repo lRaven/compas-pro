@@ -173,6 +173,20 @@
 		}
 	}
 }
+@media (max-width: 1060px) and (min-width: 851px) {
+	.training {
+		&::before {
+			background-size: 50% 100%;
+		}
+	}
+}
+@media (max-width: 850px) {
+	.training {
+		&::before {
+			background-size: 45% 100%;
+		}
+	}
+}
 @media screen and (max-width: 768px) {
 	.training {
 		&::before {

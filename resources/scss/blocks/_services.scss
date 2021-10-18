@@ -120,8 +120,9 @@
 				&__title {
 					font-weight: 600;
 					font-size: var(--text-22);
-					line-height: 2.6rem;
+					line-height: 0.8;
 					transition: all 0.2s ease;
+					margin-bottom: 0.5rem;
 				}
 				&__description {
 					font-weight: 250;
@@ -171,7 +172,6 @@
 				cursor: pointer;
 				transition: all 0.23s ease;
 				&.show {
-					cursor: inherit;
 					width: 49px;
 					height: 8px;
 					border-radius: 0.5rem;

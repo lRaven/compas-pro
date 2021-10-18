@@ -167,6 +167,9 @@
 		height: 100%;
 		padding: 3rem;
 		background-color: rgba(255, 255, 255, 0.65);
+		h3 {
+			line-height: 0.9;
+		}
 	}
 	.address {
 		border-radius: 1rem;
@@ -189,6 +192,20 @@
 					transition: all 0.2s ease;
 				}
 			}
+		}
+	}
+}
+@media (max-width: 1060px) and (min-width: 851px) {
+	.compas-pro {
+		&::before {
+			background-size: 50% 100%;
+		}
+	}
+}
+@media (max-width: 850px) {
+	.compas-pro {
+		&::before {
+			background-size: 45% 100%;
 		}
 	}
 }
