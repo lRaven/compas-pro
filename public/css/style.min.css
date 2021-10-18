@@ -1238,7 +1238,7 @@ template {
   overflow-x: scroll;
   padding-left: 1rem;
 }
-.services__list__item {
+site adaptive is finished .services__list__item {
   transition: all 0.3s ease;
   width: 27rem;
   background-color: #fff;
@@ -1248,31 +1248,31 @@ template {
   overflow: hidden;
   transition: all 0.2s ease;
 }
-.services__list__item:hover {
+site adaptive is finished .services__list__item:hover {
   border-color: transparent;
   transition: all 0.3s ease;
 }
-.services__list__item:hover .service {
+site adaptive is finished .services__list__item:hover .service {
   outline: 0.5rem solid var(--blue);
   transition: all 0.2s ease;
 }
-.services__list__item:hover .service__title {
+site adaptive is finished .services__list__item:hover .service__title {
   color: var(--blue);
   transition: all 0.3s ease;
 }
-.services__list__item:hover .service__button {
+site adaptive is finished .services__list__item:hover .service__button {
   transform: translateX(80%);
   transition: all 0.3s ease;
 }
-.services__list__item:hover .service__button span {
+site adaptive is finished .services__list__item:hover .service__button span {
   color: var(--blue);
   transition: all 0.3s ease;
 }
-.services__list__item:hover .service__button svg {
+site adaptive is finished .services__list__item:hover .service__button svg {
   stroke: var(--blue);
   transition: all 0.3s ease;
 }
-.services__list__item .service {
+site adaptive is finished .services__list__item .service {
   display: grid;
   grid-auto-flow: row;
   grid-gap: 1.5rem;
@@ -1285,18 +1285,18 @@ template {
   overflow: hidden;
   transition: all 0.2s ease;
 }
-.services__list__item .service__title {
+site adaptive is finished .services__list__item .service__title {
   font-weight: 600;
   font-size: var(--text-22);
   line-height: 2.6rem;
   transition: all 0.2s ease;
 }
-.services__list__item .service__description {
+site adaptive is finished .services__list__item .service__description {
   font-weight: 250;
   font-size: var(--text-16);
   line-height: 2.4rem;
 }
-.services__list__item .service__button {
+site adaptive is finished .services__list__item .service__button {
   font-weight: 500;
   font-size: var(--text-18);
   line-height: 2.1rem;
@@ -1307,10 +1307,10 @@ template {
   grid-gap: 1rem;
   transition: all 0.2s ease;
 }
-.services__list__item .service__button span {
+site adaptive is finished .services__list__item .service__button span {
   transition: all 0.2s ease;
 }
-.services__list__item .service__button svg {
+site adaptive is finished .services__list__item .service__button svg {
   height: 1rem;
   width: 1.55em;
   fill: var(--dark);
