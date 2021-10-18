@@ -62,20 +62,27 @@
 			line-height: 2.8rem;
 		}
 		&__button {
-			grid-area: 3/1/4/2;
+			grid-area: 4/1/4/2;
 			font-weight: bold;
 			font-size: var(--text-22);
 			line-height: 2.7rem;
-			color: var(--blue);
-			background-color: var(--white);
+			color: var(--white);
+			background-color: var(--blue);
+			border-radius: 1rem;
 			padding: 2.2rem 5.5rem;
 			font-weight: 500;
 			font-size: var(--text-18);
 			line-height: 2.1rem;
 			padding: 1.5rem 3rem;
+			transition: all 0.2s ease;
+			&:hover {
+				background-color: var(--white);
+				color: var(--blue);
+				transition: all 0.3s ease;
+			}
 		}
 		&__arrows {
-			grid-area: 3/2/4/3;
+			grid-area: 4/2/4/3;
 			display: grid;
 			grid-auto-flow: column;
 			grid-gap: 4rem;
@@ -94,9 +101,12 @@
 				display: inline-block;
 				width: 1.8rem;
 				height: 1.8rem;
-				border: 0.3rem solid var(--white);
+				border: 0.3rem solid var(--dark);
 				border-radius: 0.1rem;
 				transform: rotate(45deg);
+				&:active {
+					transform: rotate(45deg) scale(0.9, 0.9);
+				}
 			}
 			.arrow.prev {
 				border-right: none;
@@ -131,10 +141,7 @@
 			border-radius: 1rem;
 			overflow: hidden;
 			box-shadow: 0 0 0.5rem 0 rgb(211, 211, 211);
-			&:hover {
-				transform: scale(1.06);
-				transition: all 0.2s ease;
-			}
+
 			svg {
 				width: 6rem;
 				height: 6rem;
@@ -165,48 +172,75 @@
 		border-radius: 1rem;
 		overflow: hidden;
 		margin-left: clamp(1px, calc((100% - 117rem) / 2), 100rem);
-		max-width: 42%;
+		width: 74rem;
 		box-shadow: 0 0 0.7rem 0 rgb(143, 143, 143);
+	}
+}
+
+@media (min-width: 768px) {
+	.compas-pro {
+		&__list {
+			&__item {
+				user-select: none;
+				width: 27rem;
+				min-height: 27rem;
+				&:hover {
+					transform: scale(1.06);
+					transition: all 0.2s ease;
+				}
+			}
+		}
 	}
 }
 @media screen and (max-width: 768px) {
 	.compas-pro {
 		&::before {
-			background-size: cover;
+			background-size: 100% auto;
 		}
 		&__list {
+			height: auto;
 			grid-area: 2/1;
 			grid-auto-flow: row;
+			padding: 0;
 			&__item {
-				width: 35rem;
-				margin: auto;
+				width: 100%;
+				height: auto;
 			}
 		}
 
 		&__card {
 			grid-area: 1/1;
 			display: grid;
-			width: 37rem;
 			height: 100%;
+			color: var(--white);
+			border-radius: 1rem;
 			padding: 7.5rem 4rem;
 			grid-auto-flow: row;
 			grid-gap: 1.5rem;
+			text-align: center;
 			justify-items: start;
-			background: linear-gradient(0deg, rgba(49, 172, 216, 0.8), rgba(49, 172, 216, 0.8));
-			backdrop-filter: blur(11px);
+			background: linear-gradient(139.29deg, #2b3c56 3.64%, #01132e 99.85%),
+				linear-gradient(125.72deg, #33b5e5 22.62%, #377bdf 150.23%), #f7f7fa;
 			&__title {
-				grid-area: 1/1;
+				margin: auto;
 				&::before {
 					content: none;
 				}
 			}
 			&__description {
-				grid-area: 2/1;
 				font-weight: 400;
+			}
+			&__button {
+				grid-area: 4/1/4/3;
+				margin: auto;
+				width: 95%;
+			}
+			&__arrows {
+				display: none;
 			}
 		}
 		.address {
-			max-width: 100vw;
+			max-width: 100%;
 		}
 	}
 }

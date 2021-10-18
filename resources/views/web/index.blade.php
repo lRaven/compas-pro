@@ -7,13 +7,11 @@
 @endsection
 
 @section('content')
-
-
-
-
-
 <main>
-	<section class="home --home-3" id="home">
+	<section class="home" id="home">
+		<div id="bg-canvas">
+			<canvas id="canvas"></canvas>
+		</div>
 		<div class="wrapper">
 			<div class="home__content">
 				<h1 class="home__title">compas-pro</h1>
@@ -83,7 +81,7 @@
 	<section class="services" id="services">
 		<div class="services__content">
 			<div class="services__card">
-				<h2 class="services__card__title">Услуги</h2>
+				<h1 class="services__card__title">Услуги</h1>
 				<span class="services__card__description">специализируемся на направлении - интернет для бизнеса с внедрением в
 					структуру бизнес-модели нейросетей и искусственного интеллекта.</span>
 				{{-- <a class="services__card__button" href="#">Узнать больше</a>--}}
@@ -208,18 +206,18 @@
 			</ul>
 			<div class="services__navigation">
 				<div class="labels">
-					<span class="label show" onclick="scrollNav(1)"></span>
-					<span class="label " onclick="scrollNav(2)"></span>
-					<span class="label " onclick="scrollNav(3)"></span>
-					<span class="label " onclick="scrollNav(4)"></span>
-					<span class="label " onclick="scrollNav(5)"></span>
-					<span class="label " onclick="scrollNav(6)"></span>
-					<span class="label " onclick="scrollNav(7)"></span>
-					<span class="label " onclick="scrollNav(8)"></span>
+					<span class="label show" onclick="servicesScrollNav(1)"></span>
+					<span class="label " onclick="servicesScrollNav(2)"></span>
+					<span class="label " onclick="servicesScrollNav(3)"></span>
+					<span class="label " onclick="servicesScrollNav(4)"></span>
+					<span class="label " onclick="servicesScrollNav(5)"></span>
+					<span class="label " onclick="servicesScrollNav(6)"></span>
+					<span class="label " onclick="servicesScrollNav(7)"></span>
+					<span class="label " onclick="servicesScrollNav(8)"></span>
 				</div>
 				<div class="buttons">
-					<button id="button-prev" class="button prev" onclick="scrollBtn(2)"></button>
-					<button id="button-next" class="button next" onclick="scrollBtn(1)"></button>
+					<button id="button-prev" class="button prev" onclick="servicesScrollBtn(2)"></button>
+					<button id="button-next" class="button next" onclick="servicesScrollBtn(1)"></button>
 				</div>
 			</div>
 		</div>
@@ -229,7 +227,6 @@
 		<div class="wrapper">
 			<div class="technologies__content">
 				<h2 class="technologies__title">Технологии</h2>
-
 				{{-- <a href="#" class="technologies__link">Узнать больше</a>--}}
 				<hr>
 				<ul class="technologies__list">
@@ -281,6 +278,11 @@
 					<li class="technologies__list__item">
 						<img src="./img/scrapy.png" alt="">
 					</li>
+					<li class="technologies__list__item">
+						<span>
+							Amazon Kendra
+						</span>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -307,13 +309,13 @@
 					рабочее место и лояльная система организации рабочего
 					процесса.
 				</span>
-				{{-- <a href="https://telegram.im/@compass_pro" class="training__card__button">Оставить заявку</a>--}}
-				{{-- <div class="training__card__arrows">--}}
-					{{-- <button id="arrow-prev" class="arrow prev"></button>--}}
-					{{-- <button id="arrow-next" class="arrow next"></button>--}}
-					{{-- </div>--}}
+				<a href="https://telegram.im/@compass_pro" class="training__card__button">Оставить заявку</a>
+				<div class="training__card__arrows">
+					<button id="arrow-prev" class="arrow prev" onclick="trainingScrollBtn(2)"></button>
+					<button id="arrow-next" class="arrow next" onclick="trainingScrollBtn(1)"></button>
+				</div>
 			</div>
-			<ul class="training__list" id="services-list">
+			<ul class="training__list" id="traning-list">
 				<li class="training__list__item show">
 					<div class="training__item">
 						<svg>
@@ -373,8 +375,13 @@
 					Мы имеем собственную проектную деятельность с
 					портфолио проектов
 				</span>
+				<a href="https://telegram.im/@compass_pro" class="compas-pro__card__button">Оставить заявку</a>
+				<div class="compas-pro__card__arrows">
+					<button id="arrow-prev" class="arrow prev" onclick="compassScrollBtn(2)"></button>
+					<button id="arrow-next" class="arrow next" onclick="compassScrollBtn(1)"></button>
+				</div>
 			</div>
-			<ul class="compas-pro__list" id="services-list">
+			<ul class="compas-pro__list" id="compas-pro-list">
 				<li class="compas-pro__list__item show">
 					<div class="compas-pro__info">
 						<h3>Карьерный рост</h3>
@@ -412,6 +419,4 @@
 		</div>
 	</section>
 </main>
-
-
 @stop

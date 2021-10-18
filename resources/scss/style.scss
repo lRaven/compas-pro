@@ -1,3 +1,19 @@
-@import 'base/*';
-@import 'blocks/*';
-@import 'global/*';
+@import "base/*";
+@import "blocks/*";
+@import "global/*";
+* {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	&::-webkit-scrollbar {
+		width: 0;
+		height: 0;
+	}
+}
+section {
+	overflow: hidden;
+	padding: 0 1.5rem;
+}
+.header,
+.footer {
+	padding: 1.5rem;
+}

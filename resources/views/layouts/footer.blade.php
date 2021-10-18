@@ -25,6 +25,14 @@
 			<use xlink:href="./img/sprite.svg#messenger-dark"></use>
 		</svg>
 	</a>
+	<ul class="footer__partners">
+		<li>
+			<img src="/img/huawei.png" alt="">
+		</li>
+		<li>
+			<img src="/img/ibm-business.png" alt="">
+		</li>
+	</ul>
 	<hr>
 	<div class="footer__copyright"> Создание и продвижение сайтов © 2015-{{\Carbon\Carbon::now()->format('Y')}} </div>
 </footer>
