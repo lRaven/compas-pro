@@ -1,7 +1,7 @@
 @extends("layouts.site")
 
 @section('meta')
-<title>Компас ПРО</title>
+<title> Компас ПРО </title>
 <meta name="description" content="">
 <meta name="keywords" content="">
 @endsection
@@ -14,9 +14,9 @@
 		</div>
 		<div class="wrapper">
 			<div class="home__content">
-				<h1 class="home__title">compas-pro</h1>
-				<span class="home__description">Компетентная цифровизация бизнеса и автоматизация бизнес процессов</span>
-				{{-- <a href="#" class="home__button">Узнать больше</a>--}}
+				<h1 class="home__title"> compas-pro </h1>
+				<span class="home__description"> Компетентная цифровизация бизнеса и автоматизация бизнес процессов </span>
+				{{-- <a href="#" class="home__button"> Узнать больше </a>--}}
 			</div>
 		</div>
 	</section>
@@ -25,11 +25,13 @@
 		<div class="wrapper">
 			<div class="about__content">
 				<div class="about__info">
-					<h1 class="about__info__title">Web-Consulting</h1>
-					<span class="about__info__description">обсудим ваш проект, бесплатно составим техническое задание, сформируем
+					<h1 class="about__info__title"> Web-Consulting </h1>
+					<span class="about__info__description">
+						обсудим ваш проект, бесплатно составим техническое задание, сформируем
 						цену, закрепим за проектом специалистов и приступим к работе, осуществляя контроль за всеми последующими
-						этапами работ. </span>
-					<i class="about__info__subtitle">Мы профилируемся на создании сложных систем и сервисов</i>
+						этапами работ.
+					</span>
+					<i class="about__info__subtitle"> Наш профиль - создание сложных систем и сервисов </i>
 				</div>
 				<div class="about__advantages">
 					<div class="advantage">
@@ -38,10 +40,11 @@
 								<use xlink:href="/img/sprite.svg#badge"></use>
 							</svg>
 						</i>
-						<span class="advantage__title"> Качественная работа </span>
-						<span class="advantage__description"> Профессиональный подход к каждому проекту и выполнению отдельных
-							задач.
-							Реализуем все идеи и сделаем Ваш бизнес доходным </span>
+						<span class="advantage__title"> Качество </span>
+						<span class="advantage__description">
+							Профессиональный подход к каждому проекту и выполнению отдельных задач.
+							Реализуем все идеи и сделаем Ваш бизнес доходным.
+						</span>
 					</div>
 					<div class="advantage">
 						<i class="advantage__icon">
@@ -50,8 +53,10 @@
 							</svg>
 						</i>
 						<span class="advantage__title"> Цена </span>
-						<span class="advantage__description"> Работая с нами, вы сэкономите свой бюджет и получите качественный
-							результат за приемлемые сроки </span>
+						<span class="advantage__description">
+							Вы сэкономите свой бюджет и получите отличный
+							результат в приемлемые сроки
+						</span>
 					</div>
 					<div class="advantage">
 						<i class="advantage__icon">
@@ -60,8 +65,9 @@
 							</svg>
 						</i>
 						<span class="advantage__title"> Получение прибыли </span>
-						<span class="advantage__description">Грамотно сделанный проект будет приносить вам прибыль в самые короткие
-							сроки, благодаря слаженной работе нашей команды</span>
+						<span class="advantage__description">
+							Грамотно сделанный проект будет приносить вам прибыль, благодаря слаженной работе нашей команды
+						</span>
 					</div>
 					<div class="advantage">
 						<i class="advantage__icon">
@@ -69,9 +75,11 @@
 								<use xlink:href="/img/sprite.svg#badge"></use>
 							</svg>
 						</i>
-						<span class="advantage__title"> Работа в краткие сроки </span>
-						<span class="advantage__description"> Выполним работу без отклонения от сроков технического задания, с
-							контролем выполнения промежуточных этапов заказчиком задания </span>
+						<span class="advantage__title"> Работа </span>
+						<span class="advantage__description">
+							Выполним работу без отклонения от технического задания, с
+							контролем выполнения промежуточных этапов заказчиком задания
+						</span>
 					</div>
 				</div>
 			</div>
@@ -81,16 +89,18 @@
 	<section class="services" id="services">
 		<div class="services__content">
 			<div class="services__card">
-				<h1 class="services__card__title">Услуги</h1>
-				<span class="services__card__description">специализируемся на направлении - интернет для бизнеса с внедрением в
-					структуру бизнес-модели нейросетей и искусственного интеллекта.</span>
+				<h1 class="services__card__title"> Услуги </h1>
+				<span class="services__card__description">
+					специализируемся на направлении - интернет для бизнеса с внедрением в
+					структуру бизнес-модели нейросетей и искусственного интеллекта.
+				</span>
 				{{-- <a class="services__card__button" href="#">Узнать больше</a>--}}
 			</div>
 			<ul class="services__list" id="services-list">
 				<li class="services__list__item show">
 					<div class="service">
 						<div class="service__header">
-							<h3 class="service__title">Создание сложных сайтов для бизнеса</h3>
+							<h3 class="service__title"> Создание сложных сайтов для бизнеса </h3>
 							<span class="service__subtitle">
 								Проект рассчитан на корректную работу
 								при крупном
@@ -98,7 +108,7 @@
 							</span>
 						</div>
 						<a class="service__button" href="https://telegram.im/@compass_pro">
-							<span>Заказать</span>
+							<span> Заказать </span>
 							<svg>
 								<use xlink:href="/img/sprite.svg#arrow"></use>
 							</svg>
@@ -108,14 +118,14 @@
 				<li class="services__list__item">
 					<div class="service">
 						<div class="service__header">
-							<h3 class="service__title">Сайты агрегаторы</h3>
+							<h3 class="service__title"> Сайты агрегаторы </h3>
 							<span class="service__subtitle">
 								Сайт, который агрегирует (собирает) и классифицирует информацию и предложения разных компаний на одном
 								ресурсе.
 							</span>
 						</div>
 						<a class="service__button" href="https://telegram.im/@compass_pro">
-							<span>Заказать</span>
+							<span> Заказать </span>
 							<svg>
 								<use xlink:href="/img/sprite.svg#arrow"></use>
 							</svg>
@@ -125,7 +135,7 @@
 				<li class="services__list__item">
 					<div class="service">
 						<div class="service__header">
-							<h3 class="service__title">Система взаимодействия и администрирования</h3>
+							<h3 class="service__title"> Система взаимодействия и администрирования </h3>
 							<span class="service__subtitle">
 								Механизм, позволяющий пользователям одной информационной базы систем общаться друг с
 								другом в режиме
@@ -133,7 +143,7 @@
 							</span>
 						</div>
 						<a class="service__button" href="https://telegram.im/@compass_pro">
-							<span>Заказать</span>
+							<span> Заказать </span>
 							<svg>
 								<use xlink:href="/img/sprite.svg#arrow"></use>
 							</svg>
@@ -143,11 +153,11 @@
 				<li class="services__list__item">
 					<div class="service">
 						<div class="service__header">
-							<h3 class="service__title">CRM</h3>
-							<span class="service__subtitle">Системы управления взаимоотношений с клиентами</span>
+							<h3 class="service__title"> CRM </h3>
+							<span class="service__subtitle"> Системы управления взаимоотношений с клиентами </span>
 						</div>
 						<a class="service__button" href="https://telegram.im/@compass_pro">
-							<span>Заказать</span>
+							<span> Заказать </span>
 							<svg>
 								<use xlink:href="/img/sprite.svg#arrow"></use>
 							</svg>
@@ -157,11 +167,11 @@
 				<li class="services__list__item">
 					<div class="service">
 						<div class="service__header">
-							<h3 class="service__title">Кросплощадки</h3>
-							<span class="service__subtitle">Кросплатформенная разработка</span>
+							<h3 class="service__title"> Кросплощадки </h3>
+							<span class="service__subtitle"> Кросплатформенная разработка </span>
 						</div>
 						<a class="service__button" href="https://telegram.im/@compass_pro">
-							<span>Заказать</span>
+							<span> Заказать </span>
 							<svg>
 								<use xlink:href="/img/sprite.svg#arrow"></use>
 							</svg>
@@ -171,13 +181,13 @@
 				<li class="services__list__item">
 					<div class="service">
 						<div class="service__header">
-							<h3 class="service__title">Дизайн и внедрение</h3>
+							<h3 class="service__title"> Дизайн и внедрение </h3>
 							<span class="service__subtitle">
 								Проектирование пользовательских веб-интерфейсов для сайтов или веб-приложений
 							</span>
 						</div>
 						<a class="service__button" href="https://telegram.im/@compass_pro">
-							<span>Заказать</span>
+							<span> Заказать </span>
 							<svg>
 								<use xlink:href="/img/sprite.svg#arrow"></use>
 							</svg>
@@ -187,14 +197,14 @@
 				<li class="services__list__item">
 					<div class="service">
 						<div class="service__header">
-							<h3 class="service__title">Скрапинг/ Краулинг</h3>
+							<h3 class="service__title"> Скрапинг/ Краулинг </h3>
 							<span class="service__subtitle">
 								Автоматизированная обработка,
 								приведение к человекочитаемому виду доступных данных
 							</span>
 						</div>
 						<a class="service__button" href="https://telegram.im/@compass_pro">
-							<span>Заказать</span>
+							<span> Заказать </span>
 							<svg>
 								<use xlink:href="/img/sprite.svg#arrow"></use>
 							</svg>
@@ -204,16 +214,14 @@
 				<li class="services__list__item">
 					<div class="service">
 						<div class="service__header">
-							<h3 class="service__title">
-								Роботы соцсетей
-							</h3>
+							<h3 class="service__title"> Роботы соцсетей </h3>
 							<span class="service__subtitle">
 								Автоматизированные боты - для работы с клиентами, интеграция
 								в соцсети и месенджеры
 							</span>
 						</div>
 						<a class="service__button" href="https://telegram.im/@compass_pro">
-							<span>Заказать</span>
+							<span> Заказать </span>
 							<svg>
 								<use xlink:href="/img/sprite.svg#arrow"></use>
 							</svg>
@@ -262,8 +270,8 @@
 	<section class="technologies">
 		<div class="wrapper">
 			<div class="technologies__content">
-				<h2 class="technologies__title">Технологии</h2>
-				{{-- <a href="#" class="technologies__link">Узнать больше</a>--}}
+				<h2 class="technologies__title"> Технологии </h2>
+				{{-- <a href="#" class="technologies__link"> Узнать больше </a>--}}
 				<hr>
 				<ul class="technologies__list">
 					<li class="technologies__list__item">
@@ -315,9 +323,7 @@
 						<img src="./img/scrapy.png" alt="">
 					</li>
 					<li class="technologies__list__item">
-						<span>
-							Amazon Kendra
-						</span>
+						<span> Amazon Kendra </span>
 					</li>
 				</ul>
 			</div>
@@ -327,25 +333,25 @@
 	<section class="training" id="training">
 		<div class="training__content">
 			<div class="training__card">
-				<h1 class="training__card__title">ОБУЧЕНИЕ</h1>
+				<h1 class="training__card__title"> ОБУЧЕНИЕ </h1>
 				<span class="training__card__description1">
 					Новичкам: пройдите обучение в дружном коллективе
 					профессиональных разработчиков. Гарантированная помощь в
 					изучении материала, практика на реальных проектах, оценка
 					ваших компетенций для выбора индивидуальной программы
-					обучения в интересующем вас направлении web разработки. По
+					обучения в интересующем вас направлении WEB-разработки. По
 					прохождении курса обучения гарантированное трудоустройство* в
 					уютном офисе.
 				</span>
 				<span class="training__card__description2">
 					Разработчикам: углубленное изучение языков
 					программирования, практика на реальных проектах, помощь
-					наставника, гарантированное трудоустройство* , карьерный
+					наставника, гарантированное трудоустройство*, карьерный
 					рост, уютный офис с удобным расположением, комфортное
 					рабочее место и лояльная система организации рабочего
 					процесса.
 				</span>
-				<a href="https://telegram.im/@compass_pro" class="training__card__button">Оставить заявку</a>
+				<a href="https://telegram.im/@compass_pro" class="training__card__button"> Оставить заявку </a>
 				<div class="training__card__arrows">
 					<button id="arrow-prev" class="arrow prev" onclick="trainingScrollBtn(2)"></button>
 					<button id="arrow-next" class="arrow next" onclick="trainingScrollBtn(1)"></button>
@@ -357,8 +363,8 @@
 						<svg>
 							<use xlink:href="/img/sprite.svg#money-bag"></use>
 						</svg>
-						<h3>Трудоустройство</h3>
-						<span>Проводим обучение WEB-программированию с последующим трудоустройством на работу</span>
+						<h3> Трудоустройство </h3>
+						<span> Проводим обучение WEB-программированию с последующим трудоустройством на работу </span>
 					</div>
 
 				</li>
@@ -367,9 +373,9 @@
 						<svg>
 							<use xlink:href="/img/sprite.svg#badge"></use>
 						</svg>
-						<h3>Новые знания</h3>
-						<span>Наши преподаватели научат вас новым профессиональным навыкам и практикам в области
-							web-разработки</span>
+						<h3> Новые знания </h3>
+						<span> Наши преподаватели научат вас новым профессиональным навыкам и практикам в области
+							web-разработки </span>
 					</div>
 
 				</li>
@@ -378,9 +384,11 @@
 						<svg>
 							<use xlink:href="/img/sprite.svg#dollar-tag"></use>
 						</svg>
-						<h3>Новая работа</h3>
-						<span>По результатам проведения обучения, лучших мы пригласим к нам на постоянную работу с возможностью
-							карьерного роста</span>
+						<h3> Новая работа </h3>
+						<span>
+							По результатам проведения обучения, лучших мы пригласим к нам на постоянную работу с возможностью
+							карьерного роста
+						</span>
 					</div>
 
 				</li>
@@ -389,9 +397,11 @@
 						<svg>
 							<use xlink:href="/img/sprite.svg#money-bag"></use>
 						</svg>
-						<h3>Стабильная зарплата</h3>
-						<span>С нашей стороны мы обещаем вам хорошие условия труда, интересные проекты, дружную команду и высокую
-							заработную плату</span>
+						<h3> Стабильная зарплата </h3>
+						<span>
+							С нашей стороны мы обещаем вам хорошие условия труда, интересные проекты, дружную команду и высокую
+							заработную плату
+						</span>
 					</div>
 
 				</li>
@@ -402,7 +412,7 @@
 	<section class="compas-pro" id="compas-pro">
 		<div class="compas-pro__content">
 			<div class="compas-pro__card">
-				<h1 class="compas-pro__card__title">КОМПАС про</h1>
+				<h1 class="compas-pro__card__title"> КОМПАС про </h1>
 				<span class="compas-pro__card__description">
 					Компас-про на рынке веб консалтинга
 					находится с 2015 года.
@@ -411,7 +421,7 @@
 					Мы имеем собственную проектную деятельность с
 					портфолио проектов
 				</span>
-				<a href="https://telegram.im/@compass_pro" class="compas-pro__card__button">Оставить заявку</a>
+				<a href="https://telegram.im/@compass_pro" class="compas-pro__card__button"> Оставить заявку </a>
 				<div class="compas-pro__card__arrows">
 					<button id="arrow-prev" class="arrow prev" onclick="compassScrollBtn(2)"></button>
 					<button id="arrow-next" class="arrow next" onclick="compassScrollBtn(1)"></button>
@@ -420,23 +430,25 @@
 			<ul class="compas-pro__list" id="compas-pro-list">
 				<li class="compas-pro__list__item show">
 					<div class="compas-pro__info">
-						<h3>Карьерный рост</h3>
-						<span>Поощрительное отношение менеджерского
-							состава к личным инициативам повышения уровня личностного роста.</span>
+						<h3> Карьерный рост </h3>
+						<span>
+							Поощрительное отношение менеджерского
+							состава к личным инициативам повышения уровня личностного роста.
+						</span>
 					</div>
 
 				</li>
 				<li class="compas-pro__list__item">
 					<div class="compas-pro__info">
-						<h3>Досуг</h3>
-						<span>Совместное
-							проведение активного досуга для сплочения и воспитания дружеских отношений среди
-							коллектива</span>
+						<h3> Досуг </h3>
+						<span>
+							Совместное проведение активного досуга для сплочения и воспитания дружеских отношений среди коллектива
+						</span>
 					</div>
 				</li>
 				<li class="compas-pro__list__item">
 					<div class="compas-pro__info">
-						<h3>Дружный коллектив профессиональных разработчиков</h3>
+						<h3> Дружный коллектив профессиональных разработчиков </h3>
 						<span>
 							Формирование правильной
 							мотивации,
@@ -446,7 +458,7 @@
 				</li>
 				<li class="compas-pro__list__item">
 					<div class="compas-pro__info">
-						<h3>Комфортные условия организации труда</h3>
+						<h3> Комфортные условия организации труда </h3>
 						<span>
 							Современные компьютеры.
 							Чистый светлый офис, в тихом месте. Зона столовой, имеется собственная кухня. Зона кофе. Вкуснейший
