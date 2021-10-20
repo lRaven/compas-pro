@@ -246,6 +246,42 @@
 						</a>
 					</div>
 				</li>
+				<li class="services__list__item">
+					<div class="service">
+						<div class="service__header">
+							<h3 class="service__title">
+								UX/UI-дизайн
+							</h3>
+							<span class="service__subtitle">
+								Проектирование пользовательских интерфейсов
+							</span>
+						</div>
+						<a class="service__button" href="https://telegram.im/@compass_pro">
+							<span>Заказать</span>
+							<svg>
+								<use xlink:href="/img/sprite.svg#arrow"></use>
+							</svg>
+						</a>
+					</div>
+				</li>
+				<li class="services__list__item">
+					<div class="service">
+						<div class="service__header">
+							<h3 class="service__title">
+								C#
+							</h3>
+							<span class="service__subtitle">
+								Разработка мобильных приложений, бэкенда, решение консалтинговых задач
+							</span>
+						</div>
+						<a class="service__button" href="https://telegram.im/@compass_pro">
+							<span>Заказать</span>
+							<svg>
+								<use xlink:href="/img/sprite.svg#arrow"></use>
+							</svg>
+						</a>
+					</div>
+				</li>
 			</ul>
 			<div class="services__navigation">
 				<div class="labels">
@@ -258,6 +294,8 @@
 					<span class="label " onclick="servicesScrollNav(7)"></span>
 					<span class="label " onclick="servicesScrollNav(8)"></span>
 					<span class="label " onclick="servicesScrollNav(9)"></span>
+					<span class="label " onclick="servicesScrollNav(10)"></span>
+					<span class="label " onclick="servicesScrollNav(11)"></span>
 				</div>
 				<div class="buttons">
 					<button id="button-prev" class="button prev" onclick="servicesScrollBtn(2)"></button>
