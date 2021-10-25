@@ -25,11 +25,26 @@
 			grid-gap: 4rem;
 			&__item {
 				a {
+					position: relative;
 					font-weight: 500;
 					font-size: var(--text-18);
 					line-height: 1.9rem;
+					&::after {
+						z-index: 3;
+						content: "";
+						position: absolute;
+						left: 0;
+						bottom: -0.5rem;
+						width: 0;
+						height: 0.2rem;
+						background-color: var(--white);
+						transition: all 0.2s ease;
+					}
 					&:hover {
-						text-decoration: underline;
+						&::after {
+							width: 100%;
+							transition: all 0.3s ease;
+						}
 					}
 				}
 			}

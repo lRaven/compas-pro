@@ -316,52 +316,56 @@
 						<img src="./img/laravel.svg" alt="">
 					</li>
 					<li class="technologies__list__item">
-						<img src="./img/vue.png" srcset="./img/vue.webp" alt="">
+						<img src="./img/vue.svg" alt="">
 					</li>
 					<li class="technologies__list__item">
-						<img src="./img/webpack.png" srcset="./img/webpack.webp" alt="">
+						<img src="./img/react.svg" alt="">
 					</li>
 					<li class="technologies__list__item">
-						<img src="./img/python.png" srcset="./img/python.webp" alt="">
+						<img src="./img/python.svg" alt="">
 					</li>
 					<li class="technologies__list__item">
-						<img src="./img/nodejs.png" srcset="./img/nodejs.webp" alt="">
+						<img src="./img/csharp.svg" alt="">
 					</li>
 					<li class="technologies__list__item">
-						<img src="./img/npm.png" srcset="./img/npm.webp" alt="">
+						<img src="./img/nodejs.svg" alt="">
 					</li>
 					<li class="technologies__list__item">
-						<img src="./img/technology-stack/mysql.webp" srcset="./img/mysql.webp" alt="">
+						<img src="./img/bootstrap.svg" alt="">
 					</li>
 					<li class="technologies__list__item">
-						<img src="./img/ibm.png" srcset="./img/ibm.webp" alt="">
+						<img src="./img/git.svg" alt="">
+					</li>
+					<li class="technologies__list__item">
+						<img src="./img/webpack.svg" alt="">
+					</li>
+					<li class="technologies__list__item">
+						<img src="./img/npm.svg" alt="">
+					</li>
+					<li class="technologies__list__item">
+						<img src="./img/mysql.svg" alt="">
+					</li>
+					<li class="technologies__list__item">
+						<img src="./img/ibm.svg" alt="">
 					</li>
 					<li class="technologies__list__item">
 						<img src="./img/websocket.png" srcset="./img/websocket.webp" alt="">
 					</li>
 					<li class="technologies__list__item">
-						<img src="./img/jira.png" alt="">
+						<img src="./img/airflow.svg" alt="">
 					</li>
+
 					<li class="technologies__list__item">
-						<img src="./img/trello.svg" alt="">
-					</li>
-					<li class="technologies__list__item">
-						<img src="./img/bitbucket.svg" alt="">
-					</li>
-					<li class="technologies__list__item">
-						<img src="./img/apache.svg" alt="">
+						<img src="./img/hadoop.svg" alt="">
 					</li>
 					<li class="technologies__list__item">
 						<img src="./img/postgresql.svg" alt="">
 					</li>
 					<li class="technologies__list__item">
-						<img src="./img/centos.svg" alt="">
-					</li>
-					<li class="technologies__list__item">
 						<img src="./img/scrapy.png" alt="">
 					</li>
 					<li class="technologies__list__item">
-						<span> Amazon Kendra </span>
+						<img src="./img/aws.svg" alt="">
 					</li>
 				</ul>
 			</div>
