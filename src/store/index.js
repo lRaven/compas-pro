@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import Services from './modules/services'
 
 export default createStore({
 	state: {},
@@ -6,5 +7,7 @@ export default createStore({
 	mutations: {},
 	actions: {},
 
-	modules: {},
+	modules: {
+		Services,
+	},
 });

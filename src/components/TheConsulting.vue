@@ -4,7 +4,7 @@
 			<div class="consulting__title-wrapper">
 				<h1 class="consulting__title">Web-Consulting</h1>
 			</div>
-			<p class="consulting__text">
+			<p class="consulting__description">
 				Обсудим ваш проект, бесплатно составим техническое задание,
 				сформируем цену, закрепим за проектом специалистов и приступим к
 				работе, осуществляя контроль за всеми последующими этапами
@@ -20,7 +20,7 @@
 				/>
 				<div class="consulting__benefit-content">
 					<h4 class="consulting__benefit-title">Качество</h4>
-					<p class="consulting__benefit-text">
+					<p class="consulting__benefit-description">
 						Профессиональный подход к каждому проекту и выполнению
 						отдельных задач. Реализуем все идеи и сделаем Ваш бизнес
 						доходным.
@@ -35,7 +35,7 @@
 				/>
 				<div class="consulting__benefit-content">
 					<h4 class="consulting__benefit-title">Цена</h4>
-					<p class="consulting__benefit-text">
+					<p class="consulting__benefit-description">
 						Вы сэкономите свой бюджет и получите отличный результат
 						в приемлемые сроки
 					</p>
@@ -49,7 +49,7 @@
 				/>
 				<div class="consulting__benefit-content">
 					<h4 class="consulting__benefit-title">Получение прибыли</h4>
-					<p class="consulting__benefit-text">
+					<p class="consulting__benefit-description">
 						Грамотно сделанный проект будет приносить вам прибыль,
 						благодаря слаженной работе нашей команды
 					</p>
@@ -67,7 +67,6 @@
 
 <style lang="scss" scoped>
 	.consulting {
-		min-height: 100vh;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -88,7 +87,7 @@
 				margin-bottom: 10rem;
 			}
 		}
-		&__text {
+		&__description {
 			display: block;
 			max-width: 57rem;
 			width: max-content;
@@ -116,7 +115,7 @@
 				color: var(--light-purple);
 				margin-bottom: 2rem;
 			}
-			&-text {
+			&-description {
 				font-size: 1.4rem;
 				line-height: 2rem;
 				font-weight: 300;

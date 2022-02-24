@@ -43,6 +43,7 @@
 		}
 
 		&__text {
+			text-transform: uppercase;
 			font-weight: 700;
 			font-size: 1.6rem;
 		}

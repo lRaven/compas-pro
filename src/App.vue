@@ -68,6 +68,9 @@
 		user-select: none;
 		pointer-events: none;
 	}
+	section {
+		min-height: 100vh;
+	}
 
 	h1 {
 		font-size: 5.2rem;
