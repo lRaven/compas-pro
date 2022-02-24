@@ -23,18 +23,49 @@
 </script>
 
 <style lang="scss">
+	//*шрифт
+	@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap");
+
 	@import "./assets/scss/center.scss";
 	@import "./assets/css/variables.css";
 
 	* {
 		scroll-behavior: smooth;
-		font-family: "Montserrat";
+	}
+
+	body {
+		font-family: "Montserrat", sans-serif;
 	}
 
 	img,
 	svg {
 		user-select: none;
 		pointer-events: none;
+	}
+
+	h1 {
+		font-size: 5.2rem;
+		font-weight: 700;
+	}
+	h2 {
+		font-size: 3.6rem;
+		font-weight: 800;
+	}
+	h3 {
+		font-size: 2.7rem;
+		font-weight: 500;
+	}
+	h4 {
+		font-size: 2rem;
+		font-weight: 400;
+	}
+	p {
+		font-size: 1.8rem;
+		font-weight: 400;
+	}
+	span {
+		font-size: 1rem;
+		font-weight: 400;
 	}
 </style>
 
