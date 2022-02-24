@@ -40,13 +40,13 @@
 				);
 				switch (direction) {
 					case "right": {
-						slideLeft.setAttribute("style", "width:90vw");
-						slideRight.setAttribute("style", "width: 10vw");
+						slideLeft.setAttribute("style", "width: 90%");
+						slideRight.setAttribute("style", "width: 10%");
 						break;
 					}
 					case "left": {
-						slideRight.setAttribute("style", "width:90vw");
-						slideLeft.setAttribute("style", "width: 10vw");
+						slideRight.setAttribute("style", "width: 90%");
+						slideLeft.setAttribute("style", "width: 10%");
 						break;
 					}
 				}
@@ -124,7 +124,7 @@
 		&__slide {
 			width: 50%;
 			height: 100%;
-			transition: all 1s ease;
+			transition: width 0.7s ease;
 			&-left {
 				background: url(/img/banner-bg-left.png) center left / cover
 					no-repeat;

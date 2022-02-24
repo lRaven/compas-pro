@@ -3,6 +3,7 @@
 		<the-header />
 		<main class="main" id="main">
 			<the-banner />
+			<the-consulting />
 		</main>
 		<!-- <the-footer /> -->
 	</div>
@@ -12,6 +13,7 @@
 	import TheHeader from "../components/TheHeader.vue";
 
 	import TheBanner from "../components/TheBanner.vue";
+	import TheConsulting from "../components/TheConsulting.vue";
 
 	// import TheFooter from "../components/general/TheFooter.vue";
 
@@ -21,6 +23,7 @@
 			TheHeader,
 
 			TheBanner,
+			TheConsulting,
 
 			// TheFooter,
 		},
