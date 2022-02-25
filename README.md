@@ -4,6 +4,7 @@
 
 -   Vue (VueX, Vue Router)
 -   SCSS
+-   vue3-marquee
 
 ## Project setup
 

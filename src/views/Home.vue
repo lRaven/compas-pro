@@ -7,8 +7,9 @@
 			<the-services />
 			<the-technologies />
 			<the-training />
+			<the-about />
 		</main>
-		<!-- <the-footer /> -->
+		<the-footer />
 	</div>
 </template>
 
@@ -20,8 +21,9 @@
 	import TheServices from "../components/TheServices.vue";
 	import TheTechnologies from "../components/TheTechnologies.vue";
 	import TheTraining from "../components/TheTraining.vue";
+	import TheAbout from "../components/TheAbout.vue";
 
-	// import TheFooter from "../components/general/TheFooter.vue";
+	import TheFooter from "../components/TheFooter.vue";
 
 	export default {
 		name: "Home",
@@ -33,8 +35,9 @@
 			TheServices,
 			TheTechnologies,
 			TheTraining,
+			TheAbout,
 
-			// TheFooter,
+			TheFooter,
 		},
 
 		data() {

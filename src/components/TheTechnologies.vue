@@ -19,7 +19,7 @@
 			</div>
 			<div class="technologies__list">
 				<Vue3Marquee
-					:duration="26"
+					:duration="24"
 					:clone="true"
 					:direction="'reverse'"
 				>
