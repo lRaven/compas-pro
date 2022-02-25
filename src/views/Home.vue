@@ -5,6 +5,8 @@
 			<the-banner />
 			<the-consulting />
 			<the-services />
+			<the-technologies />
+			<the-training />
 		</main>
 		<!-- <the-footer /> -->
 	</div>
@@ -16,6 +18,8 @@
 	import TheBanner from "../components/TheBanner.vue";
 	import TheConsulting from "../components/TheConsulting.vue";
 	import TheServices from "../components/TheServices.vue";
+	import TheTechnologies from "../components/TheTechnologies.vue";
+	import TheTraining from "../components/TheTraining.vue";
 
 	// import TheFooter from "../components/general/TheFooter.vue";
 
@@ -27,6 +31,8 @@
 			TheBanner,
 			TheConsulting,
 			TheServices,
+			TheTechnologies,
+			TheTraining,
 
 			// TheFooter,
 		},

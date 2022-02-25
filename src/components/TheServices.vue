@@ -77,7 +77,7 @@
 			</div>
 		</div>
 		<div class="services__marquee">
-			<Vue3Marquee>
+			<Vue3Marquee :duration="20" :clone="true">
 				<img
 					height="100"
 					src="img/icon/compas-pro.svg"
@@ -122,6 +122,7 @@
 					}
 					case "down": {
 						console.log(card);
+						slider.scrollBy(card, 0);
 						break;
 					}
 				}
@@ -177,16 +178,40 @@
 		height: 100vh;
 		position: relative;
 		overflow: hidden;
-		padding: 3rem 1.5rem 13rem 1.5rem;
+		padding: 0 1.5rem 0 1.5rem;
+		background: radial-gradient(
+				19.91% 40.74% at 87.72% 51.85%,
+				rgba(145, 156, 251, 0.2) 0%,
+				rgba(0, 26, 255, 0) 100%
+			),
+			radial-gradient(
+				42.94% 75.51% at 17.25% 36.57%,
+				rgba(228, 255, 253, 0.41) 0%,
+				rgba(255, 255, 255, 0) 100%
+			),
+			radial-gradient(
+				22.59% 39.52% at 8.47% 75.79%,
+				rgba(108, 79, 155, 0.2) 0%,
+				rgba(112, 29, 168, 0) 100%
+			),
+			linear-gradient(
+				0deg,
+				rgba(160, 186, 191, 0.2) -2.08%,
+				rgba(160, 186, 191, 0.124) 100%
+			),
+			#ffffff;
 		z-index: 2;
 		&__container {
 			display: flex;
-			gap: 5rem;
+			gap: 3rem;
+			height: 100%;
 		}
 		&__col {
+			&:first-child {
+				padding-top: 2rem;
+			}
 			&:last-child {
 				display: flex;
-				gap: 5rem;
 			}
 		}
 		&__list {
@@ -196,6 +221,7 @@
 			overflow-y: auto;
 			-ms-overflow-style: none;
 			scrollbar-width: none;
+			padding: 2rem 2.7rem 0 2.7rem;
 
 			&::-webkit-scrollbar {
 				display: none;
@@ -223,7 +249,7 @@
 				top: 0;
 				bottom: 0;
 				transform: translateX(12.5rem);
-				width: 150%;
+				width: 140%;
 				background: linear-gradient(
 						286.2deg,
 						#3b94c7 10.05%,

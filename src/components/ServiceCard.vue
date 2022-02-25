@@ -22,7 +22,7 @@
 
 <script>
 	export default {
-		name: "Service",
+		name: "ServiceCard",
 		props: {
 			textImage: String,
 			title: String,
