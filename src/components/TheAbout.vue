@@ -1,0 +1,131 @@
+<template>
+	<section class="about">
+		<div class="about__container center">
+			<div class="about__col">
+				<div class="about__title-wrapper">
+					<div class="about__title-block"></div>
+					<h1 class="about__title">О компании</h1>
+				</div>
+				<p class="about__description">
+					Компас-про на рынке веб консалтинга находится с 2015 года.
+					Мы имеем собственную проектную деятельность с портфолио
+					проектов
+				</p>
+				<a href="https://telegram.im/@compass_pro">
+					<v-button
+						:color="'purple'"
+						:text="'Оставить заявку'"
+						:icon="'img/icon/tg.svg'"
+					></v-button>
+				</a>
+			</div>
+			<div class="about__col">
+				<div class="about__address-decorative"></div>
+				<div class="about__address"></div>
+			</div>
+		</div>
+	</section>
+</template>
+
+<script>
+	import VButton from "./v-button.vue";
+
+	export default {
+		name: "About Company",
+		components: {
+			VButton,
+		},
+
+		mounted() {
+			const script = document.createElement("script");
+
+			script.onload = () => {
+				this.yaMapInit();
+			};
+
+			script.id = "ymaps";
+			script.src =
+				"https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae55f846dc8f9b59c77b59a4cd630d23fc490894f1828da4f4b57768de6f9792b&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true";
+			const address = document.querySelector(".about__address");
+			address.insertAdjacentElement("afterbegin", script);
+		},
+	};
+</script>
+
+<style lang="scss" scoped>
+	.about {
+		display: flex;
+		align-items: center;
+		background: radial-gradient(
+				19.91% 40.74% at 87.72% 51.85%,
+				rgba(145, 156, 251, 0.2) 0%,
+				rgba(0, 26, 255, 0) 100%
+			),
+			radial-gradient(
+				42.94% 75.51% at 17.25% 36.57%,
+				rgba(228, 255, 253, 0.41) 0%,
+				rgba(255, 255, 255, 0) 100%
+			),
+			radial-gradient(
+				22.59% 39.52% at 8.47% 75.79%,
+				rgba(108, 79, 155, 0.2) 0%,
+				rgba(112, 29, 168, 0) 100%
+			),
+			linear-gradient(
+				0deg,
+				rgba(160, 186, 191, 0.2) -2.08%,
+				rgba(160, 186, 191, 0.124) 100%
+			),
+			#ffffff;
+		&__container {
+			display: flex;
+			gap: 3rem;
+		}
+		&__col {
+			position: relative;
+			width: 34%;
+			.button {
+				margin-bottom: 6rem;
+			}
+			&:last-child {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+				width: 66%;
+			}
+		}
+		&__description {
+			margin-bottom: 10rem;
+		}
+		&__title {
+			width: max-content;
+			&-wrapper {
+				display: flex;
+				align-items: center;
+				height: 11rem;
+				width: fit-content;
+				padding-right: 3.5rem;
+				background: url(/img/icon/decorative-block.svg) center right /
+					contain no-repeat;
+				margin-bottom: 10rem;
+			}
+		}
+		&__address {
+			width: 100%;
+			&-decorative {
+				position: absolute;
+				bottom: 2.5rem;
+				right: -8.5rem;
+				background: linear-gradient(
+						286.2deg,
+						#7263af 10.05%,
+						#772d76 82.75%
+					),
+					#c4c4c4;
+				opacity: 0.5;
+				height: 40rem;
+				width: 18rem;
+			}
+		}
+	}
+</style>
