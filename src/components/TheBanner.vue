@@ -4,20 +4,49 @@
 		<div class="banner__slide banner__slide-right"></div>
 		<div class="banner__container center">
 			<img src="img/icon/logo-big.svg" alt="" class="banner__logo" />
-			<h2 class="banner__title">Бизнес проводник в цифровом мире</h2>
+
+			<div class="banner__title-wrapper">
+				<transition>
+					<h2 class="banner__title" v-show="isLeftTitle">
+						Компетентная цифровизация бизнеса и автоматизация бизнес
+						процессов
+					</h2>
+				</transition>
+				<transition>
+					<h2 class="banner__title" v-show="isDefaultTitle">
+						Бизнес проводник в цифровом мире
+					</h2>
+				</transition>
+				<transition>
+					<h2 class="banner__title" v-show="isRightTitle">
+						Текст про крутое обучение
+					</h2>
+				</transition>
+			</div>
+
 			<div class="banner__buttons">
 				<v-button
 					:color="'blue'"
 					:text="'Для бизнеса'"
 					:icon="'img/icon/arrow-right.svg'"
-					@click="slides('right')"
+					@click="
+						slides('right');
+						isDefaultTitle = false;
+						isLeftTitle = true;
+						isRightTitle = false;
+					"
 				></v-button>
 				<v-button
 					:color="'purple'"
 					:text="'Для учебы'"
 					:icon="'img/icon/arrow-left.svg'"
 					:reverse="'reverse'"
-					@click="slides('left')"
+					@click="
+						slides('left');
+						isDefaultTitle = false;
+						isLeftTitle = false;
+						isRightTitle = true;
+					"
 				></v-button>
 			</div>
 		</div>
@@ -25,13 +54,18 @@
 </template>
 
 <script>
-	import VButton from "./v-button.vue";
+	import vButton from "@/components/v-button";
 
 	export default {
 		name: "Banner",
 		components: {
-			VButton,
+			vButton,
 		},
+		data: () => ({
+			isDefaultTitle: true,
+			isLeftTitle: false,
+			isRightTitle: false,
+		}),
 		methods: {
 			slides(direction) {
 				const slideLeft = document.querySelector(".banner__slide-left");
@@ -113,7 +147,15 @@
 		}
 		&__title {
 			color: var(--white);
-			margin-bottom: 10rem;
+			text-align: center;
+			// transition: all 0.2s ease;
+
+			&-wrapper {
+				// position: relative;
+				height: 10rem;
+				width: 100%;
+				margin-bottom: 10rem;
+			}
 		}
 		&__buttons {
 			display: flex;

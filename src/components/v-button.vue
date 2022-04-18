@@ -1,11 +1,11 @@
 <template>
-	<div class="button" :class="color">
-		<div class="button-inner" :class="reverse">
-			<div class="button-inner-col">
-				<p class="button__text">{{ text }}</p>
+	<div class="v-button" :class="color">
+		<div class="v-button__inner" :class="reverse">
+			<div class="v-button__inner-col">
+				<p class="v-button__text">{{ text }}</p>
 			</div>
-			<div class="button-inner-col">
-				<img :src="icon" class="button__icon" />
+			<div class="v-button__inner-col">
+				<img :src="icon" class="v-button__icon" />
 			</div>
 		</div>
 	</div>
@@ -13,7 +13,7 @@
 
 <script>
 	export default {
-		name: "Button",
+		name: "v-button",
 		props: {
 			color: String,
 			reverse: String,
@@ -24,7 +24,7 @@
 </script>
 
 <style lang="scss" scoped>
-	.button {
+	.v-button {
 		cursor: pointer;
 		user-select: none;
 		display: flex;
@@ -65,7 +65,7 @@
 				),
 				linear-gradient(286.2deg, #9650c9 10.05%, #701da8 82.75%);
 		}
-		&-inner {
+		&__inner {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
