@@ -23,7 +23,11 @@
 				<div class="services__control">
 					<div
 						class="services__control-up"
-						@click="scrollSliderByButtons('up')"
+						@click="
+							if (slide > 1) {
+								scrollSliderByButtons('up');
+							}
+						"
 					>
 						<svg
 							width="30"
@@ -44,11 +48,16 @@
 							class="services__control-dot"
 							v-for="service in services"
 							:key="service.id"
+							:class="`services__control-dot-${service.id}`"
 						></div>
 					</div>
 					<div
 						class="services__control-down"
-						@click="scrollSliderByButtons('down')"
+						@click="
+							if (slide < numberOfSlides) {
+								scrollSliderByButtons('down');
+							}
+						"
 					>
 						<svg
 							width="31"
@@ -72,6 +81,7 @@
 						:textImage="service.image"
 						:title="service.title"
 						:description="service.description"
+						:class="`service-${service.id}`"
 					></service-card>
 				</div>
 			</div>
@@ -89,15 +99,14 @@
 </template>
 
 <script>
-	import store from "../store";
+	import { mapState } from "vuex";
 
-	import VButton from "./v-button.vue";
+	import VButton from "@/components/v-button";
 	import { Vue3Marquee } from "vue3-marquee";
 	import "vue3-marquee/dist/style.css";
-	import ServiceCard from "./ServiceCard.vue";
+	import ServiceCard from "@/components/ServiceCard";
 
 	export default {
-		store,
 		name: "Services",
 		components: {
 			VButton,
@@ -105,27 +114,59 @@
 			ServiceCard,
 		},
 		computed: {
-			services: () => {
-				return store.getters.SERVICES;
+			...mapState({ services: (state) => state.Services.services }),
+			numberOfSlides() {
+				return this.services.length;
 			},
 		},
+		data: () => ({
+			slide: 1,
+			evenSlideStep: 100,
+			oddSlideStep: null,
+			breakpoints: [],
+		}),
 		methods: {
 			scrollSliderByButtons(direction) {
-				const slider = document.querySelector(".services__list");
-				const card = slider.querySelector(".service").clientHeight;
+				const services = document.querySelector(".services");
+				const slider = services.querySelector(".services__list");
 
+				console.log(slider.scrollHeight);
 				switch (direction) {
 					case "up": {
-						console.log(card);
-						slider.scrollBy(card, 0);
+						if (this.slide % 2 !== 0) {
+							slider.scrollBy(0, -100);
+						} else slider.scrollBy(0, -(this.oddSlideStep + 50));
+
+						this.slide--;
 						break;
 					}
 					case "down": {
-						console.log(card);
-						slider.scrollBy(card, 0);
+						if (this.slide % 2 !== 0) {
+							slider.scrollBy(0, 100);
+						} else slider.scrollBy(0, this.oddSlideStep + 50);
+
+						this.slide++;
 						break;
 					}
 				}
+			},
+
+			slider() {
+				const services = document.querySelector(".services");
+				const service = services.querySelectorAll(".service");
+				const slider = services.querySelector(".services__list");
+
+				slider.addEventListener("scroll", () => {
+					console.log(slider.clientHeight - slider.scrollTop);
+					this.oddSlideStep = service[this.slide - 1].clientHeight;
+					let breakpoints = [];
+					for (let index = 0; index < this.numberOfSlides; index++) {
+						if (index % 2 !== 0) {
+							breakpoints[index] = "custom";
+						} else breakpoints[index] = 100;
+					}
+					this.breakpoints = breakpoints;
+				});
 			},
 
 			//* красит стрелки при достижении границ прокрутки
@@ -168,7 +209,9 @@
 			},
 		},
 		mounted() {
+			this.scrollSliderByButtons();
 			this.repaintArrows();
+			this.slider();
 		},
 	};
 </script>
@@ -199,7 +242,7 @@
 				rgba(160, 186, 191, 0.2) -2.08%,
 				rgba(160, 186, 191, 0.124) 100%
 			),
-			#ffffff;
+			#fff;
 		z-index: 2;
 		&__container {
 			display: flex;
@@ -314,7 +357,7 @@
 				&.current {
 					height: 1.8rem;
 					border-radius: 0.8rem;
-					background-color: var(--middle-purle);
+					background-color: var(--middle-purple);
 				}
 			}
 		}

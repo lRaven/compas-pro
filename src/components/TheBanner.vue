@@ -1,53 +1,86 @@
 <template>
 	<section class="banner">
-		<div class="banner__slide banner__slide-left"></div>
-		<div class="banner__slide banner__slide-right"></div>
+		<div
+			class="banner__slide banner__slide-left"
+			@click="
+				if (isLearnTitle === true) {
+					slides('reset');
+				}
+			"
+		></div>
+		<div
+			class="banner__slide banner__slide-right"
+			@click="
+				if (isBusinessTitle === true) {
+					slides('reset');
+				}
+			"
+		></div>
 		<div class="banner__container center">
 			<img src="img/icon/logo-big.svg" alt="" class="banner__logo" />
 
 			<div class="banner__title-wrapper">
-				<transition>
-					<h2 class="banner__title" v-show="isLeftTitle">
+				<transition name="fade-left" mode="out-in">
+					<h2
+						class="banner__title banner__title-left"
+						v-if="isBusinessTitle"
+					>
 						Компетентная цифровизация бизнеса и автоматизация бизнес
 						процессов
 					</h2>
 				</transition>
-				<transition>
-					<h2 class="banner__title" v-show="isDefaultTitle">
+				<transition name="fade-left" mode="out-in">
+					<h2
+						class="banner__title banner__title-default"
+						v-if="isDefaultTitle"
+					>
 						Бизнес проводник в цифровом мире
 					</h2>
 				</transition>
-				<transition>
-					<h2 class="banner__title" v-show="isRightTitle">
+				<transition name="fade-left" mode="out-in">
+					<h2
+						class="banner__title banner__title-right"
+						v-if="isLearnTitle"
+					>
 						Текст про крутое обучение
 					</h2>
 				</transition>
 			</div>
 
 			<div class="banner__buttons">
-				<v-button
-					:color="'blue'"
-					:text="'Для бизнеса'"
-					:icon="'img/icon/arrow-right.svg'"
-					@click="
-						slides('right');
-						isDefaultTitle = false;
-						isLeftTitle = true;
-						isRightTitle = false;
-					"
-				></v-button>
-				<v-button
-					:color="'purple'"
-					:text="'Для учебы'"
-					:icon="'img/icon/arrow-left.svg'"
-					:reverse="'reverse'"
-					@click="
-						slides('left');
-						isDefaultTitle = false;
-						isLeftTitle = false;
-						isRightTitle = true;
-					"
-				></v-button>
+				<div class="banner__button">
+					<transition>
+						<v-button
+							:color="'blue'"
+							:text="'Для бизнеса'"
+							:icon="'img/icon/arrow-right.svg'"
+							@click="
+								if (isDefaultTitle) {
+									slides('business');
+								}
+							"
+							class="banner__btn-business"
+							v-show="isDefaultTitle || isBusinessTitle"
+						></v-button>
+					</transition>
+				</div>
+				<div class="banner__button">
+					<transition>
+						<v-button
+							:color="'purple'"
+							:text="'Для учёбы'"
+							:icon="'img/icon/arrow-left.svg'"
+							:reverse="'reverse'"
+							@click="
+								if (isDefaultTitle) {
+									slides('learn');
+								}
+							"
+							class="banner__btn-learn"
+							v-show="isDefaultTitle || isLearnTitle"
+						></v-button>
+					</transition>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -63,24 +96,78 @@
 		},
 		data: () => ({
 			isDefaultTitle: true,
-			isLeftTitle: false,
-			isRightTitle: false,
+			isBusinessTitle: false,
+			isLearnTitle: false,
 		}),
 		methods: {
 			slides(direction) {
-				const slideLeft = document.querySelector(".banner__slide-left");
-				const slideRight = document.querySelector(
-					".banner__slide-right"
+				const banner = document.querySelector(".banner");
+				const slideLeft = banner.querySelector(".banner__slide-left");
+				const slideRight = banner.querySelector(".banner__slide-right");
+				const btnBusiness = banner.querySelector(
+					".banner__btn-business"
 				);
+				const btnLearn = banner.querySelector(".banner__btn-learn");
+
+				this.isDefaultTitle = false;
+
 				switch (direction) {
-					case "right": {
+					case "business": {
+						//* смена текста заголовка
+						this.isBusinessTitle = true;
+						this.isLearnTitle = false;
+
+						//*манипуляция фоном
 						slideLeft.setAttribute("style", "width: 90%");
-						slideRight.setAttribute("style", "width: 10%");
+						slideRight.setAttribute(
+							"style",
+							"width: 10%; cursor: pointer;"
+						);
+
+						//*движение кнопок
+						btnBusiness.setAttribute(
+							"style",
+							`transform: translateX(${
+								btnBusiness.clientWidth / 2 + 40
+							}px)`
+						);
+
 						break;
 					}
-					case "left": {
+					case "learn": {
+						//* смена текста заголовка
+						this.isBusinessTitle = false;
+						this.isLearnTitle = true;
+
+						//*манипуляция фоном
 						slideRight.setAttribute("style", "width: 90%");
-						slideLeft.setAttribute("style", "width: 10%");
+						slideLeft.setAttribute(
+							"style",
+							"width: 10%; cursor: pointer;"
+						);
+
+						//*движение кнопок
+						btnLearn.setAttribute(
+							"style",
+							`transform: translateX(-${
+								btnBusiness.clientWidth / 2 + 40
+							}px)`
+						);
+						break;
+					}
+					case "reset": {
+						//*сброс фона
+						slideRight.removeAttribute("style");
+						slideLeft.removeAttribute("style");
+
+						//*сброс кнопок
+						btnBusiness.removeAttribute("style");
+						btnLearn.removeAttribute("style");
+
+						//*сброс текста заголовка
+						this.isBusinessTitle = false;
+						this.isLearnTitle = false;
+						this.isDefaultTitle = true;
 						break;
 					}
 				}
@@ -148,20 +235,44 @@
 		&__title {
 			color: var(--white);
 			text-align: center;
-			// transition: all 0.2s ease;
+			grid-area: 1/1;
 
 			&-wrapper {
-				// position: relative;
+				display: grid;
 				height: 10rem;
 				width: 100%;
 				margin-bottom: 10rem;
 			}
 		}
 		&__buttons {
-			display: flex;
-			align-items: center;
+			display: grid;
+			grid-template-columns: repeat(2, 32rem);
 			justify-content: center;
+			align-items: center;
 			gap: 8rem;
+			transition: all 0.3s ease;
+		}
+		&__button {
+			display: flex;
+			grid-area: 1/1/1/3;
+			width: 100%;
+
+			&:first-child {
+				justify-content: flex-start;
+			}
+			&:last-child {
+				justify-content: flex-end;
+			}
+		}
+		&__btn {
+			&-learn {
+				transition: all 0.3s ease;
+				z-index: 2;
+			}
+			&-business {
+				transition: all 0.3s ease;
+				z-index: 2;
+			}
 		}
 		&__slide {
 			width: 50%;

@@ -76,25 +76,19 @@
 		display: block;
 		width: fit-content;
 	}
+
+	//*transitions:
+	//*default
 	.v-enter-active,
 	.v-leave-active {
 		transition: all 0.3s ease;
 	}
-
 	.v-enter-from,
 	.v-leave-to {
 		opacity: 0;
-		transform: translateY(2rem);
-	}
-</style>
-
-<style lang="scss" scoped>
-	#app,
-	.theme-container {
-		height: 100%;
-		min-height: 100vh;
 	}
 
+	//*fade-left
 	.fade-left-enter-active,
 	.fade-left-leave-active {
 		transition: all 0.35s ease;
@@ -104,5 +98,13 @@
 	.fade-left-leave-to {
 		opacity: 0;
 		transform: translateX(-5rem);
+	}
+</style>
+
+<style lang="scss" scoped>
+	#app,
+	.theme-container {
+		height: 100%;
+		min-height: 100vh;
 	}
 </style>

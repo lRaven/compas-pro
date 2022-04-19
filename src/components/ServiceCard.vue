@@ -43,6 +43,7 @@
 			#ffffff 106.29%
 		);
 		min-height: 35.5rem;
+		height: max-content;
 		width: 31rem;
 		padding: 11rem 2rem 2rem 2rem;
 		box-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.15);
