@@ -1,19 +1,19 @@
 <template>
-	<header class="header center">
-		<div class="header__col">
-			<img src="img/icon/logo.svg" alt="logo" class="header__logo" />
-			<div class="header__slogan">
-				<span class="header__slogan-row">с нами</span>
-				<span class="header__slogan-row">в правильном</span>
-				<span class="header__slogan-row">напралении</span>
+	<header class="the-header center">
+		<div class="the-header__col">
+			<img src="img/icon/logo.svg" alt="logo" class="the-header__logo" />
+			<div class="the-header__slogan">
+				<span class="the-header__slogan-row">с нами</span>
+				<span class="the-header__slogan-row">в правильном</span>
+				<span class="the-header__slogan-row">напралении</span>
 			</div>
 		</div>
-		<div class="header__col">
-			<span class="header__phone"> +7 (930)-032-01-11 </span>
+		<div class="the-header__col">
+			<span class="the-header__phone"> +7 (930)-032-01-11 </span>
 			<a
 				href="https://telegram.im/@compass_pro"
 				target="_blank"
-				class="header__telegram"
+				class="the-header__telegram"
 			>
 				<img src="img/icon/tg.svg" alt="" />
 			</a>
@@ -23,12 +23,12 @@
 
 <script>
 	export default {
-		name: "Header",
+		name: "TheHeader",
 	};
 </script>
 
 <style lang="scss" scoped>
-	.header {
+	.the-header {
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);

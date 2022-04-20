@@ -1,7 +1,7 @@
 <template>
-	<section class="banner">
+	<section class="the-banner">
 		<div
-			class="banner__slide banner__slide-left"
+			class="the-banner__slide the-banner__slide-left"
 			@click="
 				if (isLearnTitle === true) {
 					slides('reset');
@@ -9,20 +9,20 @@
 			"
 		></div>
 		<div
-			class="banner__slide banner__slide-right"
+			class="the-banner__slide the-banner__slide-right"
 			@click="
 				if (isBusinessTitle === true) {
 					slides('reset');
 				}
 			"
 		></div>
-		<div class="banner__container center">
-			<img src="img/icon/logo-big.svg" alt="" class="banner__logo" />
+		<div class="the-banner__container center">
+			<img src="img/icon/logo-big.svg" alt="" class="the-banner__logo" />
 
-			<div class="banner__title-wrapper">
+			<div class="the-banner__title-wrapper">
 				<transition name="fade-left" mode="out-in">
 					<h2
-						class="banner__title banner__title-left"
+						class="the-banner__title the-banner__title-left"
 						v-if="isBusinessTitle"
 					>
 						Компетентная цифровизация бизнеса и автоматизация бизнес
@@ -31,7 +31,7 @@
 				</transition>
 				<transition name="fade-left" mode="out-in">
 					<h2
-						class="banner__title banner__title-default"
+						class="the-banner__title the-banner__title-default"
 						v-if="isDefaultTitle"
 					>
 						Бизнес проводник в цифровом мире
@@ -39,7 +39,7 @@
 				</transition>
 				<transition name="fade-left" mode="out-in">
 					<h2
-						class="banner__title banner__title-right"
+						class="the-banner__title the-banner__title-right"
 						v-if="isLearnTitle"
 					>
 						Текст про крутое обучение
@@ -47,8 +47,8 @@
 				</transition>
 			</div>
 
-			<div class="banner__buttons">
-				<div class="banner__button">
+			<div class="the-banner__buttons">
+				<div class="the-banner__button">
 					<transition>
 						<v-button
 							:color="'blue'"
@@ -59,12 +59,12 @@
 									slides('business');
 								}
 							"
-							class="banner__btn-business"
+							class="the-banner__btn-business"
 							v-show="isDefaultTitle || isBusinessTitle"
 						></v-button>
 					</transition>
 				</div>
-				<div class="banner__button">
+				<div class="the-banner__button">
 					<transition>
 						<v-button
 							:color="'purple'"
@@ -76,7 +76,7 @@
 									slides('learn');
 								}
 							"
-							class="banner__btn-learn"
+							class="the-banner__btn-learn"
 							v-show="isDefaultTitle || isLearnTitle"
 						></v-button>
 					</transition>
@@ -90,7 +90,7 @@
 	import vButton from "@/components/v-button";
 
 	export default {
-		name: "Banner",
+		name: "TheBanner",
 		components: {
 			vButton,
 		},
@@ -101,13 +101,17 @@
 		}),
 		methods: {
 			slides(direction) {
-				const banner = document.querySelector(".banner");
-				const slideLeft = banner.querySelector(".banner__slide-left");
-				const slideRight = banner.querySelector(".banner__slide-right");
-				const btnBusiness = banner.querySelector(
-					".banner__btn-business"
+				const banner = document.querySelector(".the-banner");
+				const slideLeft = banner.querySelector(
+					".the-banner__slide-left"
 				);
-				const btnLearn = banner.querySelector(".banner__btn-learn");
+				const slideRight = banner.querySelector(
+					".the-banner__slide-right"
+				);
+				const btnBusiness = banner.querySelector(
+					".the-banner__btn-business"
+				);
+				const btnLearn = banner.querySelector(".the-banner__btn-learn");
 
 				this.isDefaultTitle = false;
 
@@ -175,8 +179,8 @@
 
 			//*функция анимации поворота блока в сторону курсора
 			mouseEffect() {
-				const banner = document.querySelector(".banner");
-				const logo = document.querySelector(".banner__logo");
+				const banner = document.querySelector(".the-banner");
+				const logo = document.querySelector(".the-banner__logo");
 
 				banner.addEventListener("mousemove", (event) => {
 					const logoRect = logo.getBoundingClientRect();
@@ -214,7 +218,7 @@
 </script>
 
 <style lang="scss" scoped>
-	.banner {
+	.the-banner {
 		position: relative;
 		display: flex;
 		height: 100vh;
@@ -279,12 +283,12 @@
 			height: 100%;
 			transition: width 0.7s ease;
 			&-left {
-				background: url(/img/banner-bg-left.png) center left / cover
-					no-repeat;
+				background: url(/public/img/banner-bg-left.png) center left /
+					cover no-repeat;
 			}
 			&-right {
-				background: url(/img/banner-bg-right.png) center right / cover
-					no-repeat;
+				background: url(/public/img/banner-bg-right.png) center right /
+					cover no-repeat;
 			}
 		}
 	}

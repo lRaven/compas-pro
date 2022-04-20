@@ -1,14 +1,14 @@
 <template>
-	<div class="condition">
-		<img :src="icon" alt="" class="condition__img" />
-		<h3 class="condition__title">{{ title }}</h3>
-		<p class="condition__description">{{ description }}</p>
+	<div class="condition-card">
+		<img :src="icon" alt="" class="condition-card__img" />
+		<h3 class="condition-card__title">{{ title }}</h3>
+		<p class="condition-card__description">{{ description }}</p>
 	</div>
 </template>
 
 <script>
 	export default {
-		name: "Condition",
+		name: "ConditionCard",
 		props: {
 			icon: String,
 			title: String,
@@ -18,7 +18,7 @@
 </script>
 
 <style lang="scss" scoped>
-	.condition {
+	.condition-card {
 		background-color: var(--white);
 		padding: 3rem 1.6rem 3rem 2rem;
 		width: 31rem;

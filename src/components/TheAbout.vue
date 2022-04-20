@@ -1,12 +1,12 @@
 <template>
-	<section class="about">
-		<div class="about__container center">
-			<div class="about__col">
-				<div class="about__title-wrapper">
-					<div class="about__title-block"></div>
-					<h1 class="about__title">О компании</h1>
+	<section class="the-about">
+		<div class="the-about__container center">
+			<div class="the-about__col">
+				<div class="the-about__title-wrapper">
+					<div class="the-about__title-block"></div>
+					<h1 class="the-about__title">О компании</h1>
 				</div>
-				<p class="about__description">
+				<p class="the-about__description">
 					Компас-про на рынке веб консалтинга находится с 2015 года.
 					Мы имеем собственную проектную деятельность с портфолио
 					проектов
@@ -19,21 +19,21 @@
 					></v-button>
 				</a>
 			</div>
-			<div class="about__col">
-				<div class="about__address-decorative"></div>
-				<div class="about__address"></div>
+			<div class="the-about__col">
+				<div class="the-about__address-decorative"></div>
+				<div class="the-about__address"></div>
 			</div>
 		</div>
 	</section>
 </template>
 
 <script>
-	import VButton from "./v-button.vue";
+	import vButton from "@/components/v-button";
 
 	export default {
-		name: "About Company",
+		name: "TheAbout",
 		components: {
-			VButton,
+			vButton,
 		},
 
 		mounted() {
@@ -46,14 +46,14 @@
 			script.id = "ymaps";
 			script.src =
 				"https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae55f846dc8f9b59c77b59a4cd630d23fc490894f1828da4f4b57768de6f9792b&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true";
-			const address = document.querySelector(".about__address");
+			const address = document.querySelector(".the-about__address");
 			address.insertAdjacentElement("afterbegin", script);
 		},
 	};
 </script>
 
 <style lang="scss" scoped>
-	.about {
+	.the-about {
 		display: flex;
 		align-items: center;
 		background: radial-gradient(
@@ -105,8 +105,8 @@
 				height: 11rem;
 				width: fit-content;
 				padding-right: 3.5rem;
-				background: url(/img/icon/decorative-block.svg) center right /
-					contain no-repeat;
+				background: url(/public/img/icon/decorative-block.svg) center
+					right / contain no-repeat;
 				margin-bottom: 10rem;
 			}
 		}

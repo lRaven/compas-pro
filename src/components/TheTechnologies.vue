@@ -1,12 +1,12 @@
 <template>
-	<section class="technologies">
-		<div class="technologies__container center">
-			<div class="technologies__title-wrapper">
-				<h1 class="technologies__title">Технологии</h1>
+	<section class="the-technologies">
+		<div class="the-technologies__container center">
+			<div class="the-technologies__title-wrapper">
+				<h1 class="the-technologies__title">Технологии</h1>
 			</div>
 		</div>
-		<div class="technologies__lists">
-			<div class="technologies__list">
+		<div class="the-technologies__lists">
+			<div class="the-technologies__list">
 				<Vue3Marquee :duration="20" :clone="true">
 					<img height="120" src="img/icon/laravel.svg" class="" />
 					<img height="120" src="img/icon/react.svg" class="" />
@@ -17,7 +17,7 @@
 					<img height="120" src="img/icon/bootstrap.svg" class="" />
 				</Vue3Marquee>
 			</div>
-			<div class="technologies__list">
+			<div class="the-technologies__list">
 				<Vue3Marquee
 					:duration="24"
 					:clone="true"
@@ -40,7 +40,7 @@
 	import "vue3-marquee/dist/style.css";
 
 	export default {
-		name: "Technologies",
+		name: "TheTechnologies",
 		components: {
 			Vue3Marquee,
 		},
@@ -48,11 +48,11 @@
 </script>
 
 <style lang="scss" scoped>
-	.technologies {
+	.the-technologies {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		background: url(/img/tech-bg.jpg) center / cover no-repeat;
+		background: url(/public/img/tech-bg.jpg) center / cover no-repeat;
 		padding: 10rem 0 20rem 0;
 		&__title {
 			width: max-content;
@@ -63,8 +63,8 @@
 				height: 11rem;
 				width: fit-content;
 				padding-right: 7rem;
-				background: url(/img/icon/decorative-block.svg) center right /
-					contain no-repeat;
+				background: url(/public/img/icon/decorative-block.svg) center
+					right / contain no-repeat;
 				margin-bottom: 10rem;
 			}
 		}

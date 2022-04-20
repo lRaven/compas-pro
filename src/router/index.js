@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue';
-import NotFound from '../views/NotFound.vue';
+import PageHome from '@/views/PageHome';
+import PageNotFound from '@/views/PageNotFound';
 
 const routes = [
 	{
 		path: '/',
 		name: 'Home',
-		component: Home,
+		component: PageHome,
 		meta: {
 			title: 'Compas Pro',
 		}
@@ -14,7 +14,7 @@ const routes = [
 	{
 		path: '/404',
 		name: '404',
-		component: NotFound,
+		component: PageNotFound,
 		meta: {
 			title: '404',
 		}

@@ -1,58 +1,58 @@
 <template>
-	<section class="consulting">
-		<div class="consulting__container center">
-			<div class="consulting__col">
-				<div class="consulting__title-wrapper">
-					<h1 class="consulting__title">Web-Consulting</h1>
+	<section class="the-consulting">
+		<div class="the-consulting__container center">
+			<div class="the-consulting__col">
+				<div class="the-consulting__title-wrapper">
+					<h1 class="the-consulting__title">Web-Consulting</h1>
 				</div>
-				<p class="consulting__description">
+				<p class="the-consulting__description">
 					Обсудим ваш проект, бесплатно составим техническое задание,
 					сформируем цену, закрепим за проектом специалистов и
 					приступим к работе, осуществляя контроль за всеми
 					последующими этапами работ.
 				</p>
 			</div>
-			<div class="consulting__col">
-				<div class="consulting__benefit">
+			<div class="the-consulting__col">
+				<div class="the-consulting__benefit">
 					<img
 						src="img/icon/code.svg"
 						class="consupting__benefit-icon"
 						alt=""
 					/>
-					<div class="consulting__benefit-content">
-						<h4 class="consulting__benefit-title">Качество</h4>
-						<p class="consulting__benefit-description">
+					<div class="the-consulting__benefit-content">
+						<h4 class="the-consulting__benefit-title">Качество</h4>
+						<p class="the-consulting__benefit-description">
 							Профессиональный подход к каждому проекту и
 							выполнению отдельных задач. Реализуем все идеи и
 							сделаем Ваш бизнес доходным.
 						</p>
 					</div>
 				</div>
-				<div class="consulting__benefit">
+				<div class="the-consulting__benefit">
 					<img
 						src="img/icon/price.svg"
 						class="consupting__benefit-icon"
 						alt=""
 					/>
-					<div class="consulting__benefit-content">
-						<h4 class="consulting__benefit-title">Цена</h4>
-						<p class="consulting__benefit-description">
+					<div class="the-consulting__benefit-content">
+						<h4 class="the-consulting__benefit-title">Цена</h4>
+						<p class="the-consulting__benefit-description">
 							Вы сэкономите свой бюджет и получите отличный
 							результат в приемлемые сроки
 						</p>
 					</div>
 				</div>
-				<div class="consulting__benefit">
+				<div class="the-consulting__benefit">
 					<img
 						src="img/icon/code.svg"
 						class="consupting__benefit-icon"
 						alt=""
 					/>
-					<div class="consulting__benefit-content">
-						<h4 class="consulting__benefit-title">
+					<div class="the-consulting__benefit-content">
+						<h4 class="the-consulting__benefit-title">
 							Получение прибыли
 						</h4>
-						<p class="consulting__benefit-description">
+						<p class="the-consulting__benefit-description">
 							Грамотно сделанный проект будет приносить вам
 							прибыль, благодаря слаженной работе нашей команды
 						</p>
@@ -65,12 +65,12 @@
 
 <script>
 	export default {
-		name: "Web Consulting",
+		name: "TheConsulting",
 	};
 </script>
 
 <style lang="scss" scoped>
-	.consulting {
+	.the-consulting {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -113,8 +113,8 @@
 				height: 11rem;
 				width: fit-content;
 				padding-right: 6rem;
-				background: url(/img/icon/decorative-block.svg) center right /
-					contain no-repeat;
+				background: url(/public/img/icon/decorative-block.svg) center
+					right / contain no-repeat;
 				margin-bottom: 10rem;
 			}
 		}
@@ -130,11 +130,11 @@
 			gap: 2rem;
 			&:nth-child(2) {
 				transform: translateX(5rem);
-				.consulting__benefit-text {
+				.the-consulting__benefit-text {
 					max-width: 37rem;
 				}
 			}
-			+ .consulting__benefit {
+			+ .the-consulting__benefit {
 				margin-top: 7rem;
 			}
 

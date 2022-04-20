@@ -26,8 +26,8 @@
 	//*шрифт
 	@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap");
 
-	@import "./assets/scss/center.scss";
-	@import "./assets/css/variables.css";
+	@import "@/assets/scss/center.scss";
+	@import "@/assets/css/variables.css";
 
 	* {
 		scroll-behavior: smooth;

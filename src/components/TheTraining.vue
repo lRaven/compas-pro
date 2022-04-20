@@ -1,21 +1,24 @@
 <template>
-	<section class="training">
-		<div class="training__container center">
-			<div class="training__col">
-				<div class="training__title-wrapper">
-					<div class="training__title-block"></div>
-					<h1 class="training__title">Обучение</h1>
+	<section class="the-training">
+		<div class="the-training__container center">
+			<div class="the-training__col">
+				<div class="the-training__title-wrapper">
+					<div class="the-training__title-block"></div>
+					<h1 class="the-training__title">Обучение</h1>
 				</div>
-				<div class="training__tabs">
-					<div class="training__nav-decorative"></div>
-					<div class="training__nav selected" @click="switchTabs(1)">
-						<h4 class="training__nav-text">Новичкам</h4>
+				<div class="the-training__tabs">
+					<div class="the-training__nav-decorative"></div>
+					<div
+						class="the-training__nav selected"
+						@click="switchTabs(1)"
+					>
+						<h4 class="the-training__nav-text">Новичкам</h4>
 					</div>
-					<div class="training__nav" @click="switchTabs(2)">
-						<h4 class="training__nav-text">Разработчикам</h4>
+					<div class="the-training__nav" @click="switchTabs(2)">
+						<h4 class="the-training__nav-text">Разработчикам</h4>
 					</div>
-					<div class="training__tab" v-if="tab === 'newbie'">
-						<p class="training__description">
+					<div class="the-training__tab" v-if="tab === 'newbie'">
+						<p class="the-training__description">
 							Пройдите обучение в дружном коллективе
 							профессиональных разработчиков. Гарантированная
 							помощь в изучении материала, практика на реальных
@@ -26,8 +29,8 @@
 							офисе.
 						</p>
 					</div>
-					<div class="training__tab" v-else-if="tab === 'dev'">
-						<p class="training__description">
+					<div class="the-training__tab" v-else-if="tab === 'dev'">
+						<p class="the-training__description">
 							Углубленное изучение языков программирования,
 							практика на реальных проектах, помощь наставника,
 							гарантированное трудоустройство*, карьерный рост,
@@ -45,7 +48,7 @@
 					</a>
 				</div>
 			</div>
-			<div class="training__col">
+			<div class="the-training__col">
 				<condition-card
 					:icon="'img/icon/code.svg'"
 					:title="'Трудоустройство'"
@@ -72,25 +75,23 @@
 </template>
 
 <script>
-	import VButton from "./v-button.vue";
-	import ConditionCard from "./ConditionCard.vue";
+	import vButton from "@/components/v-button";
+	import ConditionCard from "@/components/ConditionCard";
 
 	export default {
-		name: "Training",
+		name: "TheTraining",
 		components: {
-			VButton,
+			vButton,
 			ConditionCard,
 		},
-		data() {
-			return {
-				tab: "newbie",
-			};
-		},
+		data: () => ({
+			tab: "newbie",
+		}),
 		methods: {
 			switchTabs(option) {
-				const navs = document.querySelectorAll(".training__nav");
+				const navs = document.querySelectorAll(".the-training__nav");
 				const decorativeBlock = document.querySelector(
-					".training__nav-decorative"
+					".the-training__nav-decorative"
 				);
 
 				switch (option) {
@@ -119,7 +120,7 @@
 </script>
 
 <style lang="scss" scoped>
-	.training {
+	.the-training {
 		padding: 6rem 0;
 		background: radial-gradient(
 				19.91% 40.74% at 87.72% 51.85%,
@@ -154,8 +155,8 @@
 				height: 11rem;
 				width: fit-content;
 				padding-right: 2.5rem;
-				background: url(/img/icon/decorative-block.svg) center right /
-					contain no-repeat;
+				background: url(/public/img/icon/decorative-block.svg) center
+					right / contain no-repeat;
 				margin-bottom: 10rem;
 			}
 		}
@@ -241,7 +242,7 @@
 				transition: all 0.3s ease;
 			}
 			&.selected {
-				.training__nav {
+				.the-training__nav {
 					&-text {
 						color: var(--middle-dark);
 						font-weight: 700;

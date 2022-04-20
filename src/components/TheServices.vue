@@ -1,12 +1,12 @@
 <template>
-	<section class="services">
-		<div class="services__container center">
-			<div class="services__col">
-				<div class="services__title-wrapper">
-					<div class="services__title-block"></div>
-					<h1 class="services__title">Услуги</h1>
+	<section class="the-services">
+		<div class="the-services__container center">
+			<div class="the-services__col">
+				<div class="the-services__title-wrapper">
+					<div class="the-services__title-block"></div>
+					<h1 class="the-services__title">Услуги</h1>
 				</div>
-				<p class="services__description">
+				<p class="the-services__description">
 					специализируемся на направлении — интернет для бизнеса с
 					внедрением в структуру бизнес-модели нейросетей и
 					искусственного интеллекта.
@@ -19,13 +19,14 @@
 					></v-button>
 				</a>
 			</div>
-			<div class="services__col">
-				<div class="services__control">
+			<div class="the-services__col">
+				<div class="the-services__control">
 					<div
-						class="services__control-up"
+						class="the-services__control-up"
 						@click="
-							if (slide > 1) {
-								scrollSliderByButtons('up');
+							if (!startSlider) {
+								slide--;
+								scrollSliderByButtons(breakpoints[slide]);
 							}
 						"
 					>
@@ -43,19 +44,25 @@
 							/>
 						</svg>
 					</div>
-					<div class="services__control-pagination">
+					<div class="the-services__control-pagination">
 						<div
-							class="services__control-dot"
+							class="the-services__control-dot"
 							v-for="service in services"
 							:key="service.id"
-							:class="`services__control-dot-${service.id}`"
+							:class="`the-services__control-dot-${service.id}`"
+							@click="
+								scrollSliderByButtons(
+									breakpoints[service.id - 1]
+								)
+							"
 						></div>
 					</div>
 					<div
-						class="services__control-down"
+						class="the-services__control-down"
 						@click="
-							if (slide < numberOfSlides) {
-								scrollSliderByButtons('down');
+							if (!endSlider) {
+								slide++;
+								scrollSliderByButtons(breakpoints[slide]);
 							}
 						"
 					>
@@ -74,7 +81,7 @@
 						</svg>
 					</div>
 				</div>
-				<div class="services__list">
+				<div class="the-services__list">
 					<service-card
 						v-for="service in services"
 						:key="service.id"
@@ -86,12 +93,12 @@
 				</div>
 			</div>
 		</div>
-		<div class="services__marquee">
+		<div class="the-services__marquee">
 			<Vue3Marquee :duration="20" :clone="true">
 				<img
 					height="100"
 					src="img/icon/compas-pro.svg"
-					class="services__marquee-img"
+					class="the-services__marquee-img"
 				/>
 			</Vue3Marquee>
 		</div>
@@ -101,15 +108,15 @@
 <script>
 	import { mapState } from "vuex";
 
-	import VButton from "@/components/v-button";
+	import vButton from "@/components/v-button";
 	import { Vue3Marquee } from "vue3-marquee";
 	import "vue3-marquee/dist/style.css";
 	import ServiceCard from "@/components/ServiceCard";
 
 	export default {
-		name: "Services",
+		name: "TheServices",
 		components: {
-			VButton,
+			vButton,
 			Vue3Marquee,
 			ServiceCard,
 		},
@@ -118,92 +125,190 @@
 			numberOfSlides() {
 				return this.services.length;
 			},
+			breakpoints() {
+				let breakpoints = [];
+
+				const services = document.querySelector(".the-services");
+				const service = services.querySelectorAll(".service");
+				const slider = services.querySelector(".the-services__list");
+				let paddingTop = window
+					.getComputedStyle(slider, null)
+					.getPropertyValue("padding-top");
+				paddingTop = Number(
+					paddingTop.substring(0, paddingTop.length - 2)
+				);
+
+				//* получение координат слайдов
+				for (let index = 0; index < service.length; index++) {
+					if (index % 2 === 0) {
+						breakpoints.push(service[index].offsetTop - paddingTop);
+					} else
+						breakpoints.push(
+							service[index].offsetTop + 100 - paddingTop
+						);
+				}
+				return breakpoints;
+			},
 		},
 		data: () => ({
-			slide: 1,
-			evenSlideStep: 100,
-			oddSlideStep: null,
-			breakpoints: [],
+			slide: 0,
+			startSlider: true,
+			endSlider: false,
 		}),
 		methods: {
-			scrollSliderByButtons(direction) {
-				const services = document.querySelector(".services");
-				const slider = services.querySelector(".services__list");
+			//*функция прокрутки по брейкпоинтам
+			scrollSliderByButtons(distance) {
+				const services = document.querySelector(".the-services");
+				const slider = services.querySelector(".the-services__list");
 
-				console.log(slider.scrollHeight);
-				switch (direction) {
-					case "up": {
-						if (this.slide % 2 !== 0) {
-							slider.scrollBy(0, -100);
-						} else slider.scrollBy(0, -(this.oddSlideStep + 50));
-
-						this.slide--;
-						break;
-					}
-					case "down": {
-						if (this.slide % 2 !== 0) {
-							slider.scrollBy(0, 100);
-						} else slider.scrollBy(0, this.oddSlideStep + 50);
-
-						this.slide++;
-						break;
-					}
-				}
+				slider.scrollTo(0, distance);
+				console.log(this.slide);
 			},
 
+			//*pick current dot
 			slider() {
-				const services = document.querySelector(".services");
-				const service = services.querySelectorAll(".service");
-				const slider = services.querySelector(".services__list");
+				const services = document.querySelector(".the-services");
+				const slider = services.querySelector(".the-services__list");
+				const dots = services.querySelectorAll(
+					".the-services__control-dot"
+				);
+
+				for (let index = 0; index < this.breakpoints.length; index++) {
+					if (
+						slider.scrollTop <= this.breakpoints[index] &&
+						slider.scrollTop > this.breakpoints[index - 1]
+					) {
+						dots[index].classList.add("current");
+					} else if (slider.scrollTop <= this.breakpoints[0]) {
+						dots[index].classList.remove("current");
+						dots[0].classList.add("current");
+					} else {
+						dots[index].classList.remove("current");
+					}
+				}
+
+				//*--------------------------------------------------------
 
 				slider.addEventListener("scroll", () => {
-					console.log(slider.clientHeight - slider.scrollTop);
-					this.oddSlideStep = service[this.slide - 1].clientHeight;
-					let breakpoints = [];
-					for (let index = 0; index < this.numberOfSlides; index++) {
-						if (index % 2 !== 0) {
-							breakpoints[index] = "custom";
-						} else breakpoints[index] = 100;
+					dots.forEach((dot) => {
+						dot.removeAttribute("current");
+					});
+
+					for (
+						let index = 0;
+						index < this.breakpoints.length;
+						index++
+					) {
+						if (
+							slider.scrollTop <= this.breakpoints[index] &&
+							slider.scrollTop > this.breakpoints[index - 1]
+						) {
+							dots[index].classList.add("current");
+							this.slide = index;
+						} else if (slider.scrollTop <= this.breakpoints[0]) {
+							dots[index].classList.remove("current");
+							dots[0].classList.add("current");
+							this.slide = 0;
+						} else {
+							dots[index].classList.remove("current");
+						}
 					}
-					this.breakpoints = breakpoints;
 				});
 			},
 
-			//* красит стрелки при достижении границ прокрутки
+			//*отследить старт и конец слайдера
+			getStartSlider() {
+				const services = document.querySelector(".the-services");
+				const slider = services.querySelector(".the-services__list");
+
+				if (
+					slider.offsetHeight + slider.scrollTop >=
+					slider.scrollHeight
+				) {
+					this.endSlider = true;
+				} else if (slider.scrollTop === 0) {
+					this.startSlider = true;
+				} else {
+					this.startSlider = false;
+					this.endSlider = false;
+				}
+
+				slider.addEventListener("scroll", () => {
+					if (
+						slider.offsetHeight + slider.scrollTop >=
+						slider.scrollHeight
+					) {
+						this.endSlider = true;
+					} else if (slider.scrollTop === 0) {
+						this.startSlider = true;
+					} else {
+						this.startSlider = false;
+						this.endSlider = false;
+					}
+				});
+			},
+
+			//*красит стрелки при достижении границ прокрутки
 			repaintArrows() {
-				const slider = document.querySelector(".services__list");
+				const slider = document.querySelector(".the-services__list");
 				const buttonDown = document.querySelector(
-					".services__control-down"
+					".the-services__control-down"
 				);
 				const buttonUp = document.querySelector(
-					".services__control-up"
+					".the-services__control-up"
 				);
 
 				if (slider.scrollTop === 0) {
-					buttonUp.setAttribute("style", "opacity: 0.3");
-				} else buttonUp.setAttribute("style", "opacity: 1");
+					buttonUp.setAttribute(
+						"style",
+						"opacity: 0.3; cursor: default;"
+					);
+				} else
+					buttonUp.setAttribute(
+						"style",
+						"opacity: 1; cursor: pointer;"
+					);
 
 				if (
 					slider.scrollHeight - slider.scrollTop ===
 					slider.clientHeight
 				) {
-					buttonDown.setAttribute("style", "opacity: 0.3");
+					buttonDown.setAttribute(
+						"style",
+						"opacity: 0.3; cursor: default;"
+					);
 				} else {
-					buttonDown.setAttribute("style", "opacity: 1");
+					buttonDown.setAttribute(
+						"style",
+						"opacity: 1; cursor: pointer;"
+					);
 				}
 
 				slider.addEventListener("scroll", () => {
 					if (slider.scrollTop === 0) {
-						buttonUp.setAttribute("style", "opacity: 0.3");
-					} else buttonUp.setAttribute("style", "opacity: 1");
+						buttonUp.setAttribute(
+							"style",
+							"opacity: 0.3; cursor: default;"
+						);
+					} else
+						buttonUp.setAttribute(
+							"style",
+							"opacity: 1; cursor: pointer;"
+						);
 
 					if (
 						slider.scrollHeight - slider.scrollTop ===
 						slider.clientHeight
 					) {
-						buttonDown.setAttribute("style", "opacity: 0.3");
+						buttonDown.setAttribute(
+							"style",
+							"opacity: 0.3; cursor: default;"
+						);
 					} else {
-						buttonDown.setAttribute("style", "opacity: 1");
+						buttonDown.setAttribute(
+							"style",
+							"opacity: 1; cursor: pointer;"
+						);
 					}
 				});
 			},
@@ -212,12 +317,13 @@
 			this.scrollSliderByButtons();
 			this.repaintArrows();
 			this.slider();
+			this.getStartSlider();
 		},
 	};
 </script>
 
 <style lang="scss" scoped>
-	.services {
+	.the-services {
 		height: 100vh;
 		position: relative;
 		overflow: hidden;
@@ -264,6 +370,7 @@
 			overflow-y: auto;
 			-ms-overflow-style: none;
 			scrollbar-width: none;
+			width: 73rem;
 			padding: 2rem 2.7rem 0 2.7rem;
 
 			&::-webkit-scrollbar {
@@ -354,10 +461,12 @@
 				height: 0.5rem;
 				border-radius: 50%;
 				background-color: var(--gray);
+				transition: all 0.2s ease;
 				&.current {
 					height: 1.8rem;
 					border-radius: 0.8rem;
 					background-color: var(--middle-purple);
+					transition: all 0.2s ease;
 				}
 			}
 		}

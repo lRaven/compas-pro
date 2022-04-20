@@ -1,17 +1,17 @@
 <template>
-	<footer class="footer">
-		<div class="footer__container center">
-			<div class="footer__col">
-				<img class="footer__logo" src="favicon.ico" />
-				<p class="footer__name">Компас Про</p>
-				<p class="footer__slogan">с нами в правильном напралении</p>
+	<footer class="the-footer">
+		<div class="the-footer__container center">
+			<div class="the-footer__col">
+				<img class="the-footer__logo" src="favicon.ico" />
+				<p class="the-footer__name">Компас Про</p>
+				<p class="the-footer__slogan">с нами в правильном напралении</p>
 			</div>
-			<div class="footer__col">
+			<div class="the-footer__col">
 				<img src="img/icon/huawei.png" alt="" />
 				<img src="img/icon/ibm-business.png" alt="" />
 			</div>
-			<div class="footer__col">
-				<p class="footer__disclaimer">
+			<div class="the-footer__col">
+				<p class="the-footer__disclaimer">
 					Создание и продвижение сайтов © 2015-{{ current_year }}
 				</p>
 			</div>
@@ -21,7 +21,7 @@
 
 <script>
 	export default {
-		name: "Footer",
+		name: "TheFooter",
 		computed: {
 			current_year: () => {
 				return new Date().getFullYear();
@@ -31,7 +31,7 @@
 </script>
 
 <style lang="scss" scoped>
-	.footer {
+	.the-footer {
 		height: 8rem;
 		&__container {
 			display: grid;
