@@ -76,7 +76,7 @@
 				rgba(160, 186, 191, 0.2) -2.08%,
 				rgba(160, 186, 191, 0.124) 100%
 			),
-			#ffffff;
+			#fff;
 		&__container {
 			display: flex;
 			gap: 3rem;
@@ -84,7 +84,7 @@
 		&__col {
 			position: relative;
 			width: 34%;
-			.button {
+			.v-button {
 				margin-bottom: 6rem;
 			}
 			&:last-child {

@@ -190,6 +190,16 @@
 				//*--------------------------------------------------------
 
 				slider.addEventListener("scroll", () => {
+					const decorativeBlock = document.querySelector(
+						".the-services__title-block"
+					);
+					decorativeBlock.setAttribute(
+						"style",
+						`transform: translate(${125 - this.slide * 2}px, ${
+							this.slide * 5
+						}px)`
+					);
+
 					dots.forEach((dot) => {
 						dot.removeAttribute("current");
 					});
@@ -409,6 +419,7 @@
 					#c4c4c4;
 				opacity: 0.2;
 				z-index: -1;
+				transition: all 0.5s ease;
 			}
 		}
 		&__description {

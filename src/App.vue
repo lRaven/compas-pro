@@ -23,7 +23,6 @@
 </script>
 
 <style lang="scss">
-	//*шрифт
 	@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap");
 
 	@import "@/assets/scss/center.scss";
@@ -31,6 +30,12 @@
 
 	* {
 		scroll-behavior: smooth;
+	}
+
+	#app,
+	.theme-container {
+		height: 100%;
+		min-height: 100vh;
 	}
 
 	body {
@@ -98,13 +103,5 @@
 	.fade-left-leave-to {
 		opacity: 0;
 		transform: translateX(-5rem);
-	}
-</style>
-
-<style lang="scss" scoped>
-	#app,
-	.theme-container {
-		height: 100%;
-		min-height: 100vh;
 	}
 </style>
