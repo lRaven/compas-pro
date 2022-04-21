@@ -3,7 +3,12 @@
 		<div class="the-services__container center">
 			<div class="the-services__col">
 				<div class="the-services__title-wrapper">
-					<div class="the-services__title-block"></div>
+					<div
+						class="the-services__title-block"
+						:style="`transform: translate(${
+							125 - this.slide * 2
+						}px, ${this.slide * 5}px)`"
+					></div>
 					<h1 class="the-services__title">Услуги</h1>
 				</div>
 				<p class="the-services__description">
@@ -11,7 +16,11 @@
 					внедрением в структуру бизнес-модели нейросетей и
 					искусственного интеллекта.
 				</p>
-				<a href="https://telegram.im/@compass_pro" target="_blank">
+				<a
+					href="https://telegram.im/@compass_pro"
+					target="_blank"
+					class="the-services__tg"
+				>
 					<v-button
 						:color="'blue'"
 						:icon="'img/icon/tg.svg'"
@@ -162,7 +171,6 @@
 				const slider = services.querySelector(".the-services__list");
 
 				slider.scrollTo(0, distance);
-				console.log(this.slide);
 			},
 
 			//*pick current dot
@@ -190,16 +198,6 @@
 				//*--------------------------------------------------------
 
 				slider.addEventListener("scroll", () => {
-					const decorativeBlock = document.querySelector(
-						".the-services__title-block"
-					);
-					decorativeBlock.setAttribute(
-						"style",
-						`transform: translate(${125 - this.slide * 2}px, ${
-							this.slide * 5
-						}px)`
-					);
-
 					dots.forEach((dot) => {
 						dot.removeAttribute("current");
 					});
@@ -362,7 +360,6 @@
 		z-index: 2;
 		&__container {
 			display: flex;
-			gap: 3rem;
 			height: 100%;
 		}
 		&__col {
@@ -373,15 +370,21 @@
 				display: flex;
 			}
 		}
+		&__tg {
+			width: 100%;
+			max-width: 32rem;
+		}
 		&__list {
+			position: relative;
 			display: grid;
-			grid-template-columns: repeat(2, 1fr);
+			grid-template-columns: repeat(2, 31rem);
+			grid-template-rows: max-content;
 			grid-gap: 5rem;
 			overflow-y: auto;
 			-ms-overflow-style: none;
 			scrollbar-width: none;
-			width: 73rem;
 			padding: 2rem 2.7rem 0 2.7rem;
+			transform: translateX(2.7rem);
 
 			&::-webkit-scrollbar {
 				display: none;
@@ -442,6 +445,7 @@
 			align-items: center;
 			align-self: center;
 			gap: 1rem;
+			transform: translateX(2.7rem);
 			&-up,
 			&-down {
 				cursor: pointer;
@@ -479,6 +483,47 @@
 					background-color: var(--middle-purple);
 					transition: all 0.2s ease;
 				}
+			}
+		}
+	}
+
+	@media (max-width: 1100px) {
+		.the-services {
+			height: fit-content;
+			&__container {
+				flex-direction: column;
+				gap: 2rem;
+			}
+			&__col {
+				&:last-child {
+					justify-content: center;
+					max-height: 80rem;
+				}
+			}
+			&__title {
+				top: 2rem;
+				&-wrapper {
+					height: 11rem;
+				}
+				&-block {
+					width: 50%;
+				}
+			}
+			&__description {
+				margin-bottom: 3rem;
+			}
+
+			&__list,
+			&__control {
+				transform: inherit;
+			}
+		}
+	}
+
+	@media (max-width: 820px) {
+		.the-services {
+			&__list {
+				grid-template-columns: repeat(2, 1fr);
 			}
 		}
 	}

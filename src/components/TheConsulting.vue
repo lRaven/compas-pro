@@ -12,51 +12,47 @@
 					последующими этапами работ.
 				</p>
 			</div>
-			<div class="the-consulting__col">
+			<div class="the-consulting__col the-consulting__benefits">
 				<div class="the-consulting__benefit">
 					<img
 						src="img/icon/code.svg"
-						class="consupting__benefit-icon"
+						class="the-consulting__benefit-icon"
 						alt=""
 					/>
-					<div class="the-consulting__benefit-content">
-						<h4 class="the-consulting__benefit-title">Качество</h4>
-						<p class="the-consulting__benefit-description">
-							Профессиональный подход к каждому проекту и
-							выполнению отдельных задач. Реализуем все идеи и
-							сделаем Ваш бизнес доходным.
-						</p>
-					</div>
+
+					<h4 class="the-consulting__benefit-title">Качество</h4>
+					<p class="the-consulting__benefit-description">
+						Профессиональный подход к каждому проекту и выполнению
+						отдельных задач. Реализуем все идеи и сделаем Ваш бизнес
+						доходным.
+					</p>
 				</div>
 				<div class="the-consulting__benefit">
 					<img
 						src="img/icon/price.svg"
-						class="consupting__benefit-icon"
+						class="the-consulting__benefit-icon"
 						alt=""
 					/>
-					<div class="the-consulting__benefit-content">
-						<h4 class="the-consulting__benefit-title">Цена</h4>
-						<p class="the-consulting__benefit-description">
-							Вы сэкономите свой бюджет и получите отличный
-							результат в приемлемые сроки
-						</p>
-					</div>
+
+					<h4 class="the-consulting__benefit-title">Цена</h4>
+					<p class="the-consulting__benefit-description">
+						Вы сэкономите свой бюджет и получите отличный результат
+						в приемлемые сроки
+					</p>
 				</div>
 				<div class="the-consulting__benefit">
 					<img
 						src="img/icon/code.svg"
-						class="consupting__benefit-icon"
+						class="the-consulting__benefit-icon"
 						alt=""
 					/>
-					<div class="the-consulting__benefit-content">
-						<h4 class="the-consulting__benefit-title">
-							Получение прибыли
-						</h4>
-						<p class="the-consulting__benefit-description">
-							Грамотно сделанный проект будет приносить вам
-							прибыль, благодаря слаженной работе нашей команды
-						</p>
-					</div>
+					<h4 class="the-consulting__benefit-title">
+						Получение прибыли
+					</h4>
+					<p class="the-consulting__benefit-description">
+						Грамотно сделанный проект будет приносить вам прибыль,
+						благодаря слаженной работе нашей команды
+					</p>
 				</div>
 			</div>
 		</div>
@@ -72,7 +68,6 @@
 <style lang="scss" scoped>
 	.the-consulting {
 		display: flex;
-		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		background: radial-gradient(
@@ -95,7 +90,7 @@
 				rgba(160, 186, 191, 0.2) -2.08%,
 				rgba(160, 186, 191, 0.124) 100%
 			),
-			#ffffff;
+			#fff;
 		&__container {
 			display: flex;
 			align-items: center;
@@ -103,6 +98,9 @@
 			gap: 10rem;
 		}
 		&__col {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
 		}
 
 		&__title {
@@ -121,15 +119,16 @@
 		&__description {
 			display: block;
 			max-width: 57rem;
-			width: max-content;
+			width: 100%;
 		}
 
 		&__benefit {
-			display: flex;
-			align-items: flex-start;
-			gap: 2rem;
+			display: grid;
+			grid-template-columns: max-content 1fr;
+			grid-gap: 2rem;
+
 			&:nth-child(2) {
-				transform: translateX(5rem);
+				padding-left: 5rem;
 				.the-consulting__benefit-text {
 					max-width: 37rem;
 				}
@@ -139,18 +138,116 @@
 			}
 
 			&-icon {
+				grid-row: 1/3;
 			}
-			&-content {
-			}
+
 			&-title {
 				color: var(--light-purple);
-				margin-bottom: 2rem;
+				grid-column: 2/3;
+				grid-row: 1/2;
 			}
 			&-description {
 				font-size: 1.4rem;
 				line-height: 2rem;
 				font-weight: 300;
 				color: var(--light-dark);
+				grid-column: 2/3;
+				grid-row: 2/3;
+			}
+		}
+	}
+
+	@media (max-width: 1170px) and (min-width: 1024px) {
+		.the-consulting {
+			&__container {
+				gap: 5rem;
+			}
+		}
+	}
+
+	@media (max-width: 1023px) {
+		.the-consulting {
+			padding-top: 11rem;
+			padding-bottom: 20rem;
+			&__container {
+				flex-direction: column;
+				gap: 12rem;
+			}
+			&__title {
+				&-wrapper {
+					height: 9.5rem;
+					margin-bottom: 6rem;
+				}
+			}
+			&__description {
+				max-width: 100%;
+			}
+
+			&__benefits {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				grid-gap: 12rem 3rem;
+			}
+			&__benefit {
+				&:nth-child(even) {
+					grid-row: 1/3;
+					grid-column: 2/3;
+					align-self: center;
+					padding: 0;
+				}
+				+ .the-consulting__benefit {
+					margin: 0;
+				}
+			}
+		}
+	}
+
+	@media (max-width: 767px) {
+		.the-consulting {
+			&__container {
+				gap: 6rem;
+			}
+
+			&__title {
+				&-wrapper {
+					margin-bottom: 2.5rem;
+				}
+			}
+
+			&__benefits {
+				display: flex;
+				flex-direction: column;
+				gap: 4rem;
+			}
+			&__benefit {
+				grid-gap: 1rem 1.8rem;
+				&-icon {
+					grid-column: 1/1;
+					grid-row: 1/1;
+					max-width: 4rem;
+				}
+				&-title {
+					align-self: center;
+				}
+				&-description {
+					grid-column: 1/3;
+					grid-row: 2/3;
+				}
+				&:nth-child(even) {
+					align-self: flex-start;
+				}
+			}
+		}
+	}
+
+	@media (max-width: 540px) {
+		.the-consulting {
+			padding-top: 6.5rem;
+			padding-bottom: 8rem;
+			&__title {
+				&-wrapper {
+					height: 6.5rem;
+				}
 			}
 		}
 	}

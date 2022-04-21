@@ -31,7 +31,8 @@
 		justify-content: center;
 		align-items: center;
 		color: var(--white);
-		width: 32rem;
+		max-width: 32rem;
+		width: 100%;
 		height: 7.2rem;
 		padding: 0.6rem 0.9rem;
 		transition: all 0.2s ease;
@@ -69,6 +70,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
+			gap: 2rem;
 			border: 0.2rem solid var(--white);
 			width: 100%;
 			height: 100%;
@@ -76,6 +78,19 @@
 			&.reverse {
 				flex-direction: row-reverse;
 			}
+		}
+	}
+
+	@media (max-width: 767px) {
+		.v-button {
+			&__text {
+				font-size: 1.4rem;
+			}
+		}
+	}
+	@media (max-width: 425px) {
+		.v-button {
+			height: 6.6rem;
 		}
 	}
 </style>

@@ -1,5 +1,5 @@
 <template>
-	<div class="service" @click="posY($event.target)">
+	<div class="service">
 		<img :src="textImage" alt="" class="service__bg" />
 		<h3 class="service__title">{{ title }}</h3>
 		<p class="service__description">{{ description }}</p>
@@ -28,11 +28,6 @@
 			title: String,
 			description: String,
 		},
-		methods: {
-			posY(e) {
-				console.log(e.offsetTop);
-			},
-		},
 	};
 </script>
 
@@ -49,7 +44,6 @@
 		);
 		min-height: 35.5rem;
 		height: max-content;
-		width: 31rem;
 		padding: 11rem 2rem 2rem 2rem;
 		box-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.15);
 		overflow: hidden;

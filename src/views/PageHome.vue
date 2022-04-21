@@ -5,25 +5,27 @@
 			<the-banner />
 			<the-consulting />
 			<the-services />
-			<the-technologies />
+			<!--<the-technologies />
 			<the-training />
-			<the-about />
+			<the-about /> -->
 		</main>
-		<the-footer />
+		<!-- <the-footer /> -->
 	</div>
 </template>
 
 <script>
+	import { mapMutations } from "vuex";
+
 	import TheHeader from "@/components/TheHeader";
 
 	import TheBanner from "@/components/TheBanner";
 	import TheConsulting from "@/components/TheConsulting";
 	import TheServices from "@/components/TheServices";
-	import TheTechnologies from "@/components/TheTechnologies";
-	import TheTraining from "@/components/TheTraining";
-	import TheAbout from "@/components/TheAbout";
+	// import TheTechnologies from "@/components/TheTechnologies";
+	// import TheTraining from "@/components/TheTraining";
+	// import TheAbout from "@/components/TheAbout";
 
-	import TheFooter from "@/components/TheFooter";
+	// import TheFooter from "@/components/TheFooter";
 
 	export default {
 		name: "PageHome",
@@ -33,11 +35,21 @@
 			TheBanner,
 			TheConsulting,
 			TheServices,
-			TheTechnologies,
-			TheTraining,
-			TheAbout,
+			// TheTechnologies,
+			// TheTraining,
+			// TheAbout,
 
-			TheFooter,
+			// TheFooter,
+		},
+		methods: {
+			...mapMutations(["SET_WINDOW_WIDTH"]),
+		},
+		mounted() {
+			this.SET_WINDOW_WIDTH(window.innerWidth);
+
+			window.addEventListener("resize", () => {
+				this.SET_WINDOW_WIDTH(window.innerWidth);
+			});
 		},
 	};
 </script>

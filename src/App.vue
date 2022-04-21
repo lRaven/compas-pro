@@ -41,6 +41,7 @@
 	body {
 		font-family: "Montserrat", sans-serif;
 		background-color: #eff5f6;
+		overflow-x: hidden;
 	}
 
 	img,
@@ -50,6 +51,8 @@
 	}
 	section {
 		min-height: 100vh;
+		overflow-x: hidden;
+		padding: 4rem;
 	}
 
 	h1 {
@@ -57,8 +60,10 @@
 		font-weight: 700;
 	}
 	h2 {
+		text-transform: uppercase;
 		font-size: 3.6rem;
 		font-weight: 800;
+		line-height: 1.5;
 	}
 	h3 {
 		font-size: 2.7rem;
@@ -79,7 +84,48 @@
 	}
 	a {
 		display: block;
-		width: fit-content;
+	}
+
+	@media (max-width: 1023px) {
+		section {
+			min-height: fit-content;
+			padding: 1.5rem;
+		}
+
+		h1 {
+			font-size: 4rem;
+		}
+		h2 {
+			font-size: 3.2rem;
+		}
+		h3 {
+		}
+		h4 {
+		}
+		p {
+			font-size: 1.6rem;
+		}
+		span {
+		}
+	}
+	@media (max-width: 540px) {
+		h1 {
+			font-size: 2.4rem;
+		}
+		h2 {
+			font-size: 2.4rem;
+		}
+		h3 {
+		}
+		h4 {
+		}
+		p {
+			font-size: 1.4rem;
+		}
+		span {
+			font-size: 0.7rem;
+			line-height: 1;
+		}
 	}
 
 	//*transitions:

@@ -89,10 +89,15 @@
 <script>
 	import vButton from "@/components/v-button";
 
+	import { mapState } from "vuex";
+
 	export default {
 		name: "TheBanner",
 		components: {
 			vButton,
+		},
+		computed: {
+			...mapState(["windowWidth"]),
 		},
 		data: () => ({
 			isDefaultTitle: true,
@@ -129,12 +134,21 @@
 						);
 
 						//*движение кнопок
-						btnBusiness.setAttribute(
-							"style",
-							`transform: translateX(${
-								btnBusiness.clientWidth / 2 + 40
-							}px)`
-						);
+						if (this.windowWidth > 767) {
+							btnBusiness.setAttribute(
+								"style",
+								`transform: translateX(${
+									btnBusiness.clientWidth / 2 + 40
+								}px)`
+							);
+						} else {
+							btnBusiness.setAttribute(
+								"style",
+								`transform: translateY(${
+									btnBusiness.clientHeight / 2 + 20
+								}px)`
+							);
+						}
 
 						break;
 					}
@@ -151,12 +165,21 @@
 						);
 
 						//*движение кнопок
-						btnLearn.setAttribute(
-							"style",
-							`transform: translateX(-${
-								btnBusiness.clientWidth / 2 + 40
-							}px)`
-						);
+						if (this.windowWidth > 767) {
+							btnLearn.setAttribute(
+								"style",
+								`transform: translateX(-${
+									btnBusiness.clientWidth / 2 + 40
+								}px)`
+							);
+						} else {
+							btnLearn.setAttribute(
+								"style",
+								`transform: translateY(-${
+									btnBusiness.clientHeight / 2 + 12
+								}px)`
+							);
+						}
 						break;
 					}
 					case "reset": {
@@ -221,31 +244,30 @@
 	.the-banner {
 		position: relative;
 		display: flex;
-		height: 100vh;
+		min-height: 100vh;
 		overflow-x: hidden;
 		&__container {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
+			padding: 0 1.5rem;
 		}
 		&__logo {
 			margin-bottom: 4.2rem;
+			z-index: 1;
 		}
 		&__title {
 			color: var(--white);
 			text-align: center;
 			grid-area: 1/1;
+			z-index: 1;
 
 			&-wrapper {
 				display: grid;
 				height: 10rem;
 				width: 100%;
-				margin-bottom: 10rem;
+				margin-bottom: 8rem;
 			}
 		}
 		&__buttons {
@@ -253,7 +275,7 @@
 			grid-template-columns: repeat(2, 32rem);
 			justify-content: center;
 			align-items: center;
-			gap: 8rem;
+			grid-gap: 8rem;
 			transition: all 0.3s ease;
 		}
 		&__button {
@@ -279,16 +301,66 @@
 			}
 		}
 		&__slide {
+			position: absolute;
+			top: 0;
 			width: 50%;
 			height: 100%;
 			transition: width 0.7s ease;
 			&-left {
+				left: 0;
 				background: url(/public/img/banner-bg-left.png) center left /
 					cover no-repeat;
 			}
 			&-right {
+				right: 0;
 				background: url(/public/img/banner-bg-right.png) center right /
 					cover no-repeat;
+			}
+		}
+	}
+
+	@media (max-width: 1440px) {
+		.the-banner {
+			&__container {
+				width: 80%;
+			}
+		}
+	}
+	@media (max-width: 1200px) {
+		.the-banner {
+			&__title {
+				&-wrapper {
+					height: fit-content;
+				}
+			}
+		}
+	}
+	@media (max-width: 767px) {
+		.the-banner {
+			&__logo {
+				display: none;
+			}
+			&__buttons {
+				display: flex;
+				flex-direction: column;
+				gap: 2rem;
+				width: 100%;
+			}
+			&__button {
+				height: 7.2rem;
+				&:nth-child(n) {
+					justify-content: center;
+				}
+			}
+		}
+	}
+	@media (max-width: 425px) {
+		.the-banner {
+			min-height: fit-content !important;
+			&__container {
+				width: 100%;
+				padding-top: 15rem;
+				padding-bottom: 4rem;
 			}
 		}
 	}

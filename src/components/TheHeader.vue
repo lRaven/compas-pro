@@ -44,6 +44,7 @@
 			align-items: center;
 			gap: 3rem;
 			color: var(--white);
+			z-index: 3;
 		}
 
 		&__logo {
@@ -75,6 +76,33 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.the-header {
+			&__col {
+				gap: 2.5rem;
+			}
+			&__phone {
+				display: none;
+			}
+		}
+	}
+
+	@media (max-width: 425px) {
+		.the-header {
+			&__col {
+				gap: 2rem;
+			}
+
+			&__logo {
+				max-width: 9rem;
+			}
+
+			&__slogan {
+				height: 3rem;
+			}
 		}
 	}
 </style>
