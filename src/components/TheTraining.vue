@@ -39,7 +39,11 @@
 							рабочего процесса.
 						</p>
 					</div>
-					<a href="https://telegram.im/@compass_pro" target="_blank">
+					<a
+						href="https://telegram.im/@compass_pro"
+						target="_blank"
+						class="the-training__btn"
+					>
 						<v-button
 							:color="'purple'"
 							:text="'Оставить заявку'"
@@ -75,6 +79,7 @@
 </template>
 
 <script>
+	import { mapState } from "vuex";
 	import vButton from "@/components/v-button";
 	import ConditionCard from "@/components/ConditionCard";
 
@@ -87,6 +92,9 @@
 		data: () => ({
 			tab: "newbie",
 		}),
+		computed: {
+			...mapState(["windowWidth"]),
+		},
 		methods: {
 			switchTabs(option) {
 				const navs = document.querySelectorAll(".the-training__nav");
@@ -107,10 +115,19 @@
 						this.tab = "dev";
 						navs[0].classList.remove("selected");
 						navs[1].classList.add("selected");
-						decorativeBlock.setAttribute(
-							"style",
-							"left: 35%; background: linear-gradient(286.2deg, #3B94C7 10.05%, #4A50B6 82.75%), linear-gradient(286.2deg, #3B94C7 10.05%, #4A50B6 82.75%), #C4C4C4;"
-						);
+
+						if (this.windowWidth > 1023) {
+							decorativeBlock.setAttribute(
+								"style",
+								"transform: translateX(17rem); background: linear-gradient(286.2deg, #3B94C7 10.05%, #4A50B6 82.75%), linear-gradient(286.2deg, #3B94C7 10.05%, #4A50B6 82.75%), #C4C4C4;"
+							);
+						} else {
+							decorativeBlock.setAttribute(
+								"style",
+								"transform: translateX(100%); background: linear-gradient(286.2deg, #3B94C7 10.05%, #4A50B6 82.75%), linear-gradient(286.2deg, #3B94C7 10.05%, #4A50B6 82.75%), #C4C4C4;"
+							);
+						}
+
 						break;
 					}
 				}
@@ -121,7 +138,8 @@
 
 <style lang="scss" scoped>
 	.the-training {
-		padding: 6rem 0;
+		padding-top: 6rem;
+		padding-bottom: 6rem;
 		background: radial-gradient(
 				19.91% 40.74% at 87.72% 51.85%,
 				rgba(145, 156, 251, 0.2) 0%,
@@ -161,7 +179,6 @@
 			}
 		}
 		&__col {
-			width: 50%;
 			&:first-child {
 				max-width: 47rem;
 			}
@@ -170,7 +187,7 @@
 				grid-template-columns: repeat(2, 1fr);
 				grid-template-rows: repeat(2, max-content);
 				grid-gap: 3rem 5rem;
-				.condition {
+				.condition-card {
 					&:nth-child(odd) {
 						transform: translateY(8rem);
 					}
@@ -184,7 +201,8 @@
 		&__tabs {
 			position: relative;
 			display: grid;
-			grid-template-columns: repeat(2, 50%);
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: 0 2rem;
 		}
 		&__tab {
 			grid-column: 1/3;
@@ -195,17 +213,20 @@
 		&__description {
 			line-height: 2.8rem;
 		}
-		.button {
+		&__btn {
 			grid-column: 1/3;
+			max-width: 32rem;
+			width: 100%;
 		}
+
 		&__nav {
 			user-select: none;
 			cursor: pointer;
 			height: 7.2rem;
-			width: max-content;
 			display: flex;
 			align-items: center;
 			margin-bottom: 3rem;
+			z-index: 2;
 			&-text {
 				position: relative;
 				text-transform: uppercase;
@@ -223,14 +244,12 @@
 					transition: all 0.2s ease;
 				}
 			}
-			&:nth-child(3) {
-				transform: translateX(-3rem);
+			&:nth-child(2) {
+				grid-area: 1/1;
 			}
 			&-decorative {
-				position: absolute;
-				left: -8rem;
-				top: 0;
-				width: 19rem;
+				transform: translateX(-8rem);
+				grid-area: 1/1;
 				height: 7.2rem;
 				background: linear-gradient(
 						286.2deg,
@@ -261,6 +280,115 @@
 		}
 		100% {
 			opacity: 1;
+		}
+	}
+
+	@media (max-width: 1200px) {
+		.the-training {
+			&__container {
+				gap: 2rem;
+			}
+			&__col {
+				&:last-child {
+					grid-gap: 2rem 3rem;
+				}
+			}
+		}
+	}
+
+	@media (max-width: 1060px) {
+		.the-training {
+			&__container {
+				justify-content: center;
+			}
+			&__col {
+				&:first-child {
+					max-width: 50%;
+				}
+				&:last-child {
+					display: flex;
+					flex-direction: column;
+					gap: 2rem;
+
+					.condition-card {
+						&:nth-child(odd) {
+							transform: inherit;
+						}
+					}
+				}
+			}
+			&__nav {
+				&-decorative {
+					width: 15rem;
+				}
+			}
+		}
+	}
+
+	@media (max-width: 1023px) {
+		.the-training {
+			&__col {
+				&:first-child {
+					max-width: inherit;
+				}
+			}
+			&__title {
+				&-wrapper {
+					height: 9.5rem;
+					margin-bottom: 5rem;
+				}
+			}
+			&__tabs {
+				grid-gap: 0;
+				grid-template-columns: repeat(2, 50%);
+				justify-content: space-between;
+				gap: 1rem;
+			}
+			&__nav {
+				justify-content: center;
+				&-text {
+				}
+				&-decorative {
+					width: 100%;
+					transform: inherit;
+				}
+			}
+		}
+	}
+
+	@media (max-width: 767px) {
+		.the-training {
+			&__container {
+				flex-direction: column;
+			}
+			&__nav {
+				height: 5rem;
+				&-decorative {
+					height: 5rem;
+				}
+			}
+			&__tab {
+				min-height: inherit;
+			}
+		}
+	}
+
+	@media (max-width: 540px) {
+		.the-training {
+			&__title {
+				&-wrapper {
+					height: 6.5rem;
+				}
+			}
+			&__nav {
+				&:nth-child(3) {
+					.the-training__nav-text {
+						padding-left: 0;
+					}
+				}
+			}
+			&__tabs {
+			}
 		}
 	}
 </style>

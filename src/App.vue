@@ -89,7 +89,7 @@
 	@media (max-width: 1023px) {
 		section {
 			min-height: fit-content;
-			padding: 1.5rem;
+			// padding: 1.5rem;
 		}
 
 		h1 {
@@ -99,8 +99,10 @@
 			font-size: 3.2rem;
 		}
 		h3 {
+			font-size: 2rem;
 		}
 		h4 {
+			font-size: 1.6rem;
 		}
 		p {
 			font-size: 1.6rem;
@@ -108,6 +110,13 @@
 		span {
 		}
 	}
+
+	@media (max-width: 767px) {
+		section {
+			padding: 1.5rem;
+		}
+	}
+
 	@media (max-width: 540px) {
 		h1 {
 			font-size: 2.4rem;
@@ -118,6 +127,7 @@
 		h3 {
 		}
 		h4 {
+			font-size: 1.4rem;
 		}
 		p {
 			font-size: 1.4rem;

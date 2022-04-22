@@ -42,7 +42,6 @@
 			#ffffff 61.25%,
 			#ffffff 106.29%
 		);
-		min-height: 35.5rem;
 		height: max-content;
 		padding: 11rem 2rem 2rem 2rem;
 		box-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.15);
@@ -114,6 +113,15 @@
 			align-self: flex-end;
 			transition: all 0.3s ease;
 			z-index: 2;
+		}
+	}
+
+	@media (max-width: 540px) {
+		.service {
+			padding-top: 6rem;
+			&__title {
+				margin-bottom: 3rem;
+			}
 		}
 	}
 </style>

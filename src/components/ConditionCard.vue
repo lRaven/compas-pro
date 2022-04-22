@@ -41,4 +41,10 @@
 			line-height: 2rem;
 		}
 	}
+
+	@media (max-width: 767px) {
+		.condition-card {
+			width: 100%;
+		}
+	}
 </style>

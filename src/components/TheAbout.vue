@@ -45,7 +45,7 @@
 
 			script.id = "ymaps";
 			script.src =
-				"https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae55f846dc8f9b59c77b59a4cd630d23fc490894f1828da4f4b57768de6f9792b&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true";
+				"https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae55f846dc8f9b59c77b59a4cd630d23fc490894f1828da4f4b57768de6f9792b&amp;width=100%25&amp;height=100%&amp;lang=ru_RU&amp;scroll=true";
 			const address = document.querySelector(".the-about__address");
 			address.insertAdjacentElement("afterbegin", script);
 		},
@@ -112,6 +112,7 @@
 		}
 		&__address {
 			width: 100%;
+			height: 40rem;
 			&-decorative {
 				position: absolute;
 				bottom: 2.5rem;
@@ -125,6 +126,56 @@
 				opacity: 0.5;
 				height: 40rem;
 				width: 18rem;
+			}
+		}
+	}
+
+	@media (max-width: 1023px) {
+		.the-about {
+			&__container {
+				flex-direction: column;
+			}
+			&__col {
+				&:nth-child(n) {
+					width: 100%;
+				}
+			}
+			&__title {
+				&-wrapper {
+					height: 9.5rem;
+					margin-bottom: 5rem;
+				}
+			}
+			&__description {
+				margin-bottom: 4rem;
+			}
+			.v-button {
+				margin-bottom: 4rem;
+			}
+			&__address {
+				height: 24rem;
+				&-decorative {
+					display: none;
+				}
+			}
+		}
+	}
+
+	@media (max-width: 540px) {
+		.the-about {
+			padding: 0;
+			&__col {
+				&:first-child {
+					padding: 1.5rem;
+				}
+				&:last-child {
+					padding: 1.5rem 0;
+				}
+			}
+			&__title {
+				&-wrapper {
+					height: 6.5rem;
+				}
 			}
 		}
 	}

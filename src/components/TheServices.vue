@@ -8,6 +8,19 @@
 						:style="`transform: translate(${
 							125 - this.slide * 2
 						}px, ${this.slide * 5}px)`"
+						v-if="windowWidth > 1023"
+					></div>
+					<div
+						class="the-services__title-block"
+						:style="`transform: translate(${
+							100 - this.slide * 2
+						}px, ${this.slide * 5}px)`"
+						v-else-if="windowWidth <= 1023 && windowWidth > 540"
+					></div>
+					<div
+						class="the-services__title-block"
+						style="transform: translate(7rem, 1.2rem)"
+						v-else
 					></div>
 					<h1 class="the-services__title">Услуги</h1>
 				</div>
@@ -58,7 +71,6 @@
 							class="the-services__control-dot"
 							v-for="service in services"
 							:key="service.id"
-							:class="`the-services__control-dot-${service.id}`"
 							@click="
 								scrollSliderByButtons(
 									breakpoints[service.id - 1]
@@ -69,7 +81,10 @@
 					<div
 						class="the-services__control-down"
 						@click="
-							if (!endSlider) {
+							if (
+								endSlider === false &&
+								slide < breakpoints.length
+							) {
 								slide++;
 								scrollSliderByButtons(breakpoints[slide]);
 							}
@@ -92,13 +107,18 @@
 				</div>
 				<div class="the-services__list">
 					<service-card
-						v-for="service in services"
+						v-for="service in services_list"
 						:key="service.id"
 						:textImage="service.image"
 						:title="service.title"
 						:description="service.description"
-						:class="`service-${service.id}`"
 					></service-card>
+					<v-button
+						class="blue"
+						text="Показать всё"
+						v-if="!showAllServices"
+						@click="showAllServices = true"
+					></v-button>
 				</div>
 			</div>
 		</div>
@@ -129,14 +149,54 @@
 			Vue3Marquee,
 			ServiceCard,
 		},
+		watch: {
+			windowWidth() {
+				if (this.windowWidth > 767) {
+					this.repaintArrows();
+					this.getBreakpoints();
+					this.scrollSliderByButtons();
+					this.repaintDots();
+					this.showAllServices = true;
+				} else {
+					this.showAllServices = false;
+				}
+			},
+		},
+		data: () => ({
+			slide: 0,
+			startSlider: true,
+			endSlider: false,
+			showAllServices: true,
+			breakpoints: [],
+		}),
 		computed: {
-			...mapState({ services: (state) => state.Services.services }),
+			...mapState({
+				windowWidth: "windowWidth",
+				services: (state) => state.Services.services,
+			}),
+
 			numberOfSlides() {
 				return this.services.length;
 			},
-			breakpoints() {
-				let breakpoints = [];
+			services_list() {
+				let services = [];
 
+				this.services.filter((service) => {
+					if (this.showAllServices === true) {
+						services.push(service);
+					} else if (this.showAllServices === false) {
+						if (service.id < 3) services.push(service);
+					}
+				});
+
+				return services;
+			},
+		},
+
+		methods: {
+			//*получение брейкпоинтов
+			getBreakpoints() {
+				let breakpoints = [];
 				const services = document.querySelector(".the-services");
 				const service = services.querySelectorAll(".service");
 				const slider = services.querySelector(".the-services__list");
@@ -156,15 +216,10 @@
 							service[index].offsetTop + 100 - paddingTop
 						);
 				}
-				return breakpoints;
+
+				this.breakpoints = breakpoints;
 			},
-		},
-		data: () => ({
-			slide: 0,
-			startSlider: true,
-			endSlider: false,
-		}),
-		methods: {
+
 			//*функция прокрутки по брейкпоинтам
 			scrollSliderByButtons(distance) {
 				const services = document.querySelector(".the-services");
@@ -173,8 +228,8 @@
 				slider.scrollTo(0, distance);
 			},
 
-			//*pick current dot
-			slider() {
+			//*перекраска текущей точки
+			repaintDots() {
 				const services = document.querySelector(".the-services");
 				const slider = services.querySelector(".the-services__list");
 				const dots = services.querySelectorAll(
@@ -224,114 +279,86 @@
 				});
 			},
 
-			//*отследить старт и конец слайдера
-			getStartSlider() {
+			//*перекраска стрелок при достижении границ прокрутки
+			repaintArrows() {
 				const services = document.querySelector(".the-services");
 				const slider = services.querySelector(".the-services__list");
-
-				if (
-					slider.offsetHeight + slider.scrollTop >=
-					slider.scrollHeight
-				) {
-					this.endSlider = true;
-				} else if (slider.scrollTop === 0) {
-					this.startSlider = true;
-				} else {
-					this.startSlider = false;
-					this.endSlider = false;
-				}
-
-				slider.addEventListener("scroll", () => {
-					if (
-						slider.offsetHeight + slider.scrollTop >=
-						slider.scrollHeight
-					) {
-						this.endSlider = true;
-					} else if (slider.scrollTop === 0) {
-						this.startSlider = true;
-					} else {
-						this.startSlider = false;
-						this.endSlider = false;
-					}
-				});
-			},
-
-			//*красит стрелки при достижении границ прокрутки
-			repaintArrows() {
-				const slider = document.querySelector(".the-services__list");
-				const buttonDown = document.querySelector(
+				const buttonDown = services.querySelector(
 					".the-services__control-down"
 				);
-				const buttonUp = document.querySelector(
+				const buttonUp = services.querySelector(
 					".the-services__control-up"
 				);
 
 				if (slider.scrollTop === 0) {
+					this.startSlider = true;
 					buttonUp.setAttribute(
 						"style",
 						"opacity: 0.3; cursor: default;"
 					);
-				} else
-					buttonUp.setAttribute(
-						"style",
-						"opacity: 1; cursor: pointer;"
-					);
+				} else if (slider.scrollTop !== 0) {
+					this.startSlider = false;
+					buttonUp.removeAttribute("style");
+				}
 
 				if (
 					slider.scrollHeight - slider.scrollTop ===
 					slider.clientHeight
 				) {
+					this.endSlider = true;
 					buttonDown.setAttribute(
 						"style",
 						"opacity: 0.3; cursor: default;"
 					);
-				} else {
-					buttonDown.setAttribute(
-						"style",
-						"opacity: 1; cursor: pointer;"
-					);
+				} else if (
+					slider.scrollHeight - slider.scrollTop !==
+					slider.clientHeight
+				) {
+					this.endSlider = false;
+					buttonDown.removeAttribute("style");
 				}
 
 				slider.addEventListener("scroll", () => {
 					if (slider.scrollTop === 0) {
+						this.startSlider = true;
+
 						buttonUp.setAttribute(
 							"style",
 							"opacity: 0.3; cursor: default;"
 						);
-					} else
-						buttonUp.setAttribute(
-							"style",
-							"opacity: 1; cursor: pointer;"
-						);
+					} else if (slider.scrollTop !== 0) {
+						this.startSlider = false;
+						buttonUp.removeAttribute("style");
+					}
 
 					if (
 						slider.scrollHeight - slider.scrollTop ===
 						slider.clientHeight
 					) {
+						this.endSlider = true;
+
 						buttonDown.setAttribute(
 							"style",
 							"opacity: 0.3; cursor: default;"
 						);
-					} else {
-						buttonDown.setAttribute(
-							"style",
-							"opacity: 1; cursor: pointer;"
-						);
+					} else if (
+						slider.scrollHeight - slider.scrollTop !==
+						slider.clientHeight
+					) {
+						this.endSlider = false;
+
+						buttonDown.removeAttribute("style");
 					}
 				});
 			},
 		},
-		mounted() {
-			this.scrollSliderByButtons();
-			this.repaintArrows();
-			this.slider();
-			this.getStartSlider();
-		},
+		mounted() {},
 	};
 </script>
 
 <style lang="scss" scoped>
 	.the-services {
+		min-height: 70rem;
 		height: 100vh;
 		position: relative;
 		overflow: hidden;
@@ -524,6 +551,47 @@
 		.the-services {
 			&__list {
 				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+	}
+
+	@media (max-width: 767px) {
+		.the-services {
+			padding: 0;
+			&__col {
+				&:first-child {
+					padding: 1.5rem;
+				}
+				&:last-child {
+					display: block;
+					max-height: fit-content;
+				}
+			}
+			&__control {
+				display: none;
+			}
+			&__list {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 2rem;
+				padding: 1.5rem;
+				.service {
+					// max-width: 32rem;
+					&:nth-child(odd) {
+						transform: inherit;
+					}
+				}
+			}
+		}
+	}
+
+	@media (max-width: 540px) {
+		.the-services {
+			&__title {
+				&-wrapper {
+					height: 5.6rem;
+				}
 			}
 		}
 	}
