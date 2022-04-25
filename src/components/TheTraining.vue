@@ -296,7 +296,7 @@
 		}
 	}
 
-	@media (max-width: 1060px) {
+	@media (max-width: 1170px) {
 		.the-training {
 			&__container {
 				justify-content: center;

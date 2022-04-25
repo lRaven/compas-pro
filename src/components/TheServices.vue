@@ -113,12 +113,14 @@
 						:title="service.title"
 						:description="service.description"
 					></service-card>
-					<v-button
-						class="blue"
-						text="Показать всё"
+
+					<button
+						class="the-services__show-more"
 						v-if="!showAllServices"
 						@click="showAllServices = true"
-					></v-button>
+					>
+						<p class="the-services__show-more-text">ПОКАЗАТЬ ЕЩЁ</p>
+					</button>
 				</div>
 			</div>
 		</div>
@@ -577,10 +579,20 @@
 				gap: 2rem;
 				padding: 1.5rem;
 				.service {
-					// max-width: 32rem;
 					&:nth-child(odd) {
 						transform: inherit;
 					}
+				}
+			}
+			&__show-more {
+				border: 0.1rem solid #4b4fb4;
+				background-color: transparent;
+				padding: 2rem;
+				width: 100%;
+				&-text {
+					text-transform: uppercase;
+					color: #4b4fb4;
+					font-weight: 700;
 				}
 			}
 		}

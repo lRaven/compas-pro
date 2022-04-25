@@ -11,7 +11,10 @@
 					Мы имеем собственную проектную деятельность с портфолио
 					проектов
 				</p>
-				<a href="https://telegram.im/@compass_pro">
+				<a
+					href="https://telegram.im/@compass_pro"
+					class="the-about__tg"
+				>
 					<v-button
 						:color="'purple'"
 						:text="'Оставить заявку'"
@@ -91,7 +94,7 @@
 				display: flex;
 				flex-direction: column;
 				justify-content: flex-end;
-				width: 66%;
+				width: calc(66% - 3rem);
 			}
 		}
 		&__description {
@@ -127,6 +130,10 @@
 				height: 40rem;
 				width: 18rem;
 			}
+		}
+		&__tg {
+			width: 100%;
+			max-width: 32rem;
 		}
 	}
 
