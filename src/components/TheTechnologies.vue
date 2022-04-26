@@ -97,6 +97,7 @@
 				background: url(/public/img/icon/decorative-block.svg) center
 					right / contain no-repeat;
 				margin-bottom: 10rem;
+				padding-right: 7rem;
 			}
 		}
 		&__lists {
@@ -116,17 +117,25 @@
 		.the-technologies {
 			&__title {
 				&-wrapper {
-					padding: 0 4rem;
+					padding: 0 7rem 0 4rem;
 				}
 			}
 		}
 	}
-
+	@media (max-width: 1023px) {
+		.the-technologies {
+			&__title {
+				&-wrapper {
+					height: 9.5rem;
+				}
+			}
+		}
+	}
 	@media (max-width: 767px) {
 		.the-technologies {
 			&__title {
 				&-wrapper {
-					padding: 0 1.5rem;
+					padding: 0 7rem 0 1.5rem;
 				}
 			}
 		}
@@ -137,6 +146,7 @@
 			&__title {
 				&-wrapper {
 					height: 6.5rem;
+					padding-right: 5.5rem;
 				}
 			}
 		}
