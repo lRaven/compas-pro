@@ -5,7 +5,7 @@
 			<div class="the-header__slogan">
 				<span class="the-header__slogan-row">с нами</span>
 				<span class="the-header__slogan-row">в правильном</span>
-				<span class="the-header__slogan-row">напралении</span>
+				<span class="the-header__slogan-row">направлении</span>
 			</div>
 		</div>
 		<div class="the-header__col">

@@ -6,7 +6,7 @@
 					<img class="the-footer__logo" src="favicon.ico" />
 					<p class="the-footer__name">Компас Про</p>
 					<p class="the-footer__slogan">
-						с нами в правильном напралении
+						с нами в правильном направлении
 					</p>
 				</div>
 			</div>
