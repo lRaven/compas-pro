@@ -516,7 +516,7 @@
 		}
 	}
 
-	@media (min-width: 1100px) {
+	@media (min-width: 767px) {
 		.the-services {
 			.service {
 				&:nth-child(5) {
