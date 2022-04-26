@@ -516,6 +516,15 @@
 		}
 	}
 
+	@media (min-width: 1100px) {
+		.the-services {
+			.service {
+				&:nth-child(5) {
+					transform: translateY(3rem);
+				}
+			}
+		}
+	}
 	@media (max-width: 1100px) {
 		.the-services {
 			height: fit-content;

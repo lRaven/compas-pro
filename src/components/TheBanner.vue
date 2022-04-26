@@ -42,7 +42,8 @@
 						class="the-banner__title the-banner__title-right"
 						v-if="isLearnTitle"
 					>
-						Текст про крутое обучение
+						Квалифицирован<wbr />ное обучение всем необходимым
+						навыкам веб-разработки
 					</h2>
 				</transition>
 			</div>
@@ -251,7 +252,6 @@
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			padding: 0 1.5rem;
 		}
 		&__logo {
 			margin-bottom: 4.2rem;
@@ -262,6 +262,7 @@
 			text-align: center;
 			grid-area: 1/1;
 			z-index: 1;
+			word-wrap: break-word;
 
 			&-wrapper {
 				display: grid;
