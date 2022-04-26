@@ -8,16 +8,14 @@
 				<span class="the-header__slogan-row">направлении</span>
 			</div>
 		</div>
-		<div class="the-header__col">
-			<span class="the-header__phone"> +7 (930)-032-01-11 </span>
-			<a
-				href="https://telegram.im/@compass_pro"
-				target="_blank"
-				class="the-header__telegram"
-			>
-				<img src="img/icon/tg.svg" alt="" />
-			</a>
-		</div>
+
+		<a
+			href="https://telegram.im/@compass_pro"
+			target="_blank"
+			class="the-header__col the-header__telegram"
+		>
+			<img src="img/icon/tg.svg" alt="" />
+		</a>
 	</header>
 </template>
 
@@ -61,10 +59,6 @@
 			}
 		}
 
-		&__phone {
-			font-size: 1.6rem;
-			font-weight: 500;
-		}
 		&__telegram {
 			background: linear-gradient(
 				315.55deg,
@@ -83,9 +77,6 @@
 		.the-header {
 			&__col {
 				gap: 2.5rem;
-			}
-			&__phone {
-				display: none;
 			}
 		}
 	}
