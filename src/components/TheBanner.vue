@@ -247,6 +247,7 @@
 		display: flex;
 		min-height: 100vh;
 		overflow-x: hidden;
+		padding-top: 8rem;
 		&__container {
 			display: flex;
 			flex-direction: column;
