@@ -21,6 +21,25 @@
 					alt=""
 					class="the-footer__partner"
 				/>
+
+				<a
+					href="https://digital.gov.ru/ru/activity/govservices/1/"
+					target="_blank"
+					class="the-footer__minciphras"
+				>
+					<img
+						src="img/icon/minciphras-dark.png"
+						alt="Минцифры России"
+						class="the-footer__minciphras-icon"
+					/>
+					<span class="the-footer__minciphras-description">
+						ООО “Компас ПРО” <br />
+						включена в реестр Аккредитованных ИТ компаний
+					</span>
+					<!-- <span class="the-header__minciphras-description" v-else>
+					Мы включены в реестр ИТ
+				</span> -->
+				</a>
 			</div>
 			<div class="the-footer__col the-footer__right">
 				<p class="the-footer__copyright">
@@ -48,7 +67,7 @@
 		&__container {
 			position: relative;
 			display: grid;
-			grid-template-columns: repeat(3, 1fr);
+			grid-template-columns: 1fr 1.2fr 1fr;
 			align-items: center;
 			height: 100%;
 			&::before {
@@ -108,6 +127,19 @@
 		&__partner {
 			height: 4rem;
 		}
+		&__minciphras {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			&-icon {
+				height: 4rem;
+			}
+
+			&-description {
+				text-transform: uppercase;
+				color: var(--dark);
+			}
+		}
 
 		&__right {
 			justify-content: flex-end;
@@ -122,9 +154,15 @@
 
 	@media (max-width: 1023px) {
 		.the-footer {
+			&__container {
+				grid-template-columns: repeat(2, 1fr);
+			}
 			&__col {
 				padding-top: 0.3rem;
 				padding-bottom: 0.3rem;
+				&:nth-child(n) {
+					background-color: transparent;
+				}
 			}
 			&__left {
 				&-inner {
@@ -139,6 +177,9 @@
 				font-size: 1.2rem;
 			}
 
+			&__middle {
+			}
+
 			&__partner {
 				max-height: 3rem;
 			}
@@ -146,7 +187,10 @@
 			&__slogan {
 				font-size: 0.8rem;
 			}
-			&__copyright {
+			&__right {
+				justify-content: center;
+				grid-column: 1/3;
+				padding: 1rem;
 			}
 		}
 	}
@@ -181,16 +225,16 @@
 			padding-top: 2rem;
 			padding-bottom: 2rem;
 			&__container {
-				grid-template-columns: min-content max-content;
-				justify-content: space-between;
-				grid-gap: 0 1rem;
+				display: block;
 			}
-			&__right {
-				grid-column: 1/3;
-				justify-content: flex-start;
-			}
+
 			&__copyright {
 				font-size: 0.8rem;
+			}
+			&__minciphras {
+				&-description {
+					font-size: 0.8rem;
+				}
 			}
 		}
 	}
@@ -198,8 +242,13 @@
 	@media (max-width: 430px) {
 		.the-footer {
 			&__middle {
-				flex-direction: column;
+				justify-content: center;
 				gap: 0.5rem;
+			}
+			&__minciphras {
+				&-description {
+					width: min-content;
+				}
 			}
 		}
 	}

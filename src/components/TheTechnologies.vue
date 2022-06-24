@@ -32,7 +32,7 @@
 			</div>
 			<div class="the-technologies__list">
 				<Vue3Marquee
-					:duration="24"
+					:duration="20"
 					:clone="true"
 					:direction="'reverse'"
 					v-if="windowWidth > 767"
@@ -45,7 +45,7 @@
 					<img height="100" src="img/icon/airflow.svg" class="" />
 				</Vue3Marquee>
 				<Vue3Marquee
-					:duration="24"
+					:duration="20"
 					:clone="true"
 					:direction="'reverse'"
 					v-else
