@@ -35,6 +35,8 @@
 </script>
 
 <style lang="scss" scoped>
+	@import "@/assets/scss/variables";
+
 	.service {
 		&-inner {
 			position: relative;
@@ -42,9 +44,9 @@
 			flex-direction: column;
 			background: linear-gradient(
 				147.28deg,
-				#ffffff 11.21%,
-				#ffffff 61.25%,
-				#ffffff 106.29%
+				$white 11.21%,
+				$white 61.25%,
+				$white 106.29%
 			);
 			height: max-content;
 			padding: 11rem 2rem 2rem 2rem;
@@ -79,13 +81,13 @@
 					}
 					&__title,
 					&__description {
-						color: var(--white);
+						color: $white;
 						transition: all 0.3s ease;
 					}
 					&__arrow {
 						path {
-							fill: var(--white);
-							stroke: var(--white);
+							fill: $white;
+							stroke: $white;
 							transition: all 0.3s ease;
 						}
 					}

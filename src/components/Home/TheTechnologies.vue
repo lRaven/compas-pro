@@ -12,22 +12,22 @@
 					:clone="true"
 					v-if="windowWidth > 767"
 				>
-					<img height="120" src="img/icon/laravel.svg" class="" />
-					<img height="120" src="img/icon/react.svg" class="" />
-					<img height="120" src="img/icon/python.svg" class="" />
-					<img height="120" src="img/icon/csharp.svg" class="" />
-					<img height="120" src="img/icon/nodejs.svg" class="" />
-					<img height="120" src="img/icon/vue.svg" class="" />
-					<img height="120" src="img/icon/bootstrap.svg" class="" />
+					<img height="120" src="/img/icon/laravel.svg" class="" />
+					<img height="120" src="/img/icon/react.svg" class="" />
+					<img height="120" src="/img/icon/python.svg" class="" />
+					<img height="120" src="/img/icon/csharp.svg" class="" />
+					<img height="120" src="/img/icon/nodejs.svg" class="" />
+					<img height="120" src="/img/icon/vue.svg" class="" />
+					<img height="120" src="/img/icon/bootstrap.svg" class="" />
 				</Vue3Marquee>
 				<Vue3Marquee :duration="20" :clone="true" v-else>
-					<img height="50" src="img/icon/laravel.svg" class="" />
-					<img height="50" src="img/icon/react.svg" class="" />
-					<img height="50" src="img/icon/python.svg" class="" />
-					<img height="50" src="img/icon/csharp.svg" class="" />
-					<img height="50" src="img/icon/nodejs.svg" class="" />
-					<img height="50" src="img/icon/vue.svg" class="" />
-					<img height="50" src="img/icon/bootstrap.svg" class="" />
+					<img height="50" src="/img/icon/laravel.svg" class="" />
+					<img height="50" src="/img/icon/react.svg" class="" />
+					<img height="50" src="/img/icon/python.svg" class="" />
+					<img height="50" src="/img/icon/csharp.svg" class="" />
+					<img height="50" src="/img/icon/nodejs.svg" class="" />
+					<img height="50" src="/img/icon/vue.svg" class="" />
+					<img height="50" src="/img/icon/bootstrap.svg" class="" />
 				</Vue3Marquee>
 			</div>
 			<div class="the-technologies__list">
@@ -37,12 +37,12 @@
 					:direction="'reverse'"
 					v-if="windowWidth > 767"
 				>
-					<img height="100" src="img/icon/ibm.svg" class="" />
-					<img height="100" src="img/icon/mysql.svg" class="" />
-					<img height="100" src="img/icon/npm.svg" class="" />
-					<img height="100" src="img/icon/postgresql.svg" class="" />
-					<img height="100" src="img/icon/aws.svg" class="" />
-					<img height="100" src="img/icon/airflow.svg" class="" />
+					<img height="100" src="/img/icon/ibm.svg" class="" />
+					<img height="100" src="/img/icon/mysql.svg" class="" />
+					<img height="100" src="/img/icon/npm.svg" class="" />
+					<img height="100" src="/img/icon/postgresql.svg" class="" />
+					<img height="100" src="/img/icon/aws.svg" class="" />
+					<img height="100" src="/img/icon/airflow.svg" class="" />
 				</Vue3Marquee>
 				<Vue3Marquee
 					:duration="20"
@@ -50,12 +50,12 @@
 					:direction="'reverse'"
 					v-else
 				>
-					<img height="50" src="img/icon/ibm.svg" class="" />
-					<img height="50" src="img/icon/mysql.svg" class="" />
-					<img height="50" src="img/icon/npm.svg" class="" />
-					<img height="50" src="img/icon/postgresql.svg" class="" />
-					<img height="50" src="img/icon/aws.svg" class="" />
-					<img height="50" src="img/icon/airflow.svg" class="" />
+					<img height="50" src="/img/icon/ibm.svg" class="" />
+					<img height="50" src="/img/icon/mysql.svg" class="" />
+					<img height="50" src="/img/icon/npm.svg" class="" />
+					<img height="50" src="/img/icon/postgresql.svg" class="" />
+					<img height="50" src="/img/icon/aws.svg" class="" />
+					<img height="50" src="/img/icon/airflow.svg" class="" />
 				</Vue3Marquee>
 			</div>
 		</div>
@@ -80,6 +80,8 @@
 </script>
 
 <style lang="scss" scoped>
+	@import "@/assets/scss/variables";
+
 	.the-technologies {
 		display: flex;
 		flex-direction: column;
@@ -88,7 +90,7 @@
 		padding: 10rem 0 20rem 0;
 		&__title {
 			width: max-content;
-			color: var(--white);
+			color: $white;
 			&-wrapper {
 				display: flex;
 				align-items: center;

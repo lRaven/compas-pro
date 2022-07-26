@@ -15,7 +15,7 @@
 			<div class="the-consulting__col the-consulting__benefits">
 				<div class="the-consulting__benefit">
 					<img
-						src="img/icon/code.svg"
+						src="/img/icon/code.svg"
 						class="the-consulting__benefit-icon"
 						alt=""
 					/>
@@ -29,7 +29,7 @@
 				</div>
 				<div class="the-consulting__benefit">
 					<img
-						src="img/icon/price.svg"
+						src="/img/icon/price.svg"
 						class="the-consulting__benefit-icon"
 						alt=""
 					/>
@@ -42,7 +42,7 @@
 				</div>
 				<div class="the-consulting__benefit">
 					<img
-						src="img/icon/code.svg"
+						src="/img/icon/code.svg"
 						class="the-consulting__benefit-icon"
 						alt=""
 					/>
@@ -66,6 +66,8 @@
 </script>
 
 <style lang="scss" scoped>
+	@import "@/assets/scss/variables";
+
 	.the-consulting {
 		display: flex;
 		align-items: center;
@@ -90,7 +92,7 @@
 				rgba(160, 186, 191, 0.2) -2.08%,
 				rgba(160, 186, 191, 0.124) 100%
 			),
-			#fff;
+			$white;
 		&__container {
 			display: flex;
 			align-items: center;
@@ -142,7 +144,7 @@
 			}
 
 			&-title {
-				color: var(--light-purple);
+				color: $light-purple;
 				grid-column: 2/3;
 				grid-row: 1/2;
 			}
@@ -150,7 +152,7 @@
 				font-size: 1.4rem;
 				line-height: 2rem;
 				font-weight: 300;
-				color: var(--light-dark);
+				color: $light-dark;
 				grid-column: 2/3;
 				grid-row: 2/3;
 			}

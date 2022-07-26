@@ -25,21 +25,12 @@ const state = () => ({
 			title: 'Маркетплейсы',
 			description: 'Разработка интернет магазинов и маркетплейсов, с использованием современных интернет технологий на основе ИИ, оказанием оперативной технической помощи, долгосрочным поддержанием ресурса.',
 		},
-
 	],
 })
 
-const getters = {
-	SERVICES: state => {
-		return state.services;
-	},
-}
+const getters = {}
 
-const mutations = {
-	SET_SERVICES(state, payload) {
-		state.services.push(payload);
-	},
-}
+const mutations = {}
 
 const actions = {}
 

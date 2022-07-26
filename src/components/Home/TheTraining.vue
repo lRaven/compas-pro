@@ -7,38 +7,52 @@
 					<h1 class="the-training__title">Обучение</h1>
 				</div>
 				<div class="the-training__tabs">
-					<div class="the-training__nav-decorative"></div>
 					<div
+						class="the-training__nav-decorative"
+						:class="{ moved: tab === 'dev' }"
+					></div>
+					<button
 						class="the-training__nav selected"
-						@click="switchTabs(1)"
+						:class="{ selected: tab === 'newbie' }"
+						@click="tab = 'newbie'"
 					>
 						<h4 class="the-training__nav-text">Новичкам</h4>
-					</div>
-					<div class="the-training__nav" @click="switchTabs(2)">
+					</button>
+					<button
+						class="the-training__nav"
+						:class="{ selected: tab === 'dev' }"
+						@click="tab = 'dev'"
+					>
 						<h4 class="the-training__nav-text">Разработчикам</h4>
-					</div>
-					<div class="the-training__tab" v-if="tab === 'newbie'">
-						<p class="the-training__description">
-							Пройдите обучение в дружном коллективе
-							профессиональных разработчиков. Гарантированная
-							помощь в изучении материала, практика на реальных
-							проектах, оценка ваших компетенций для выбора
-							индивидуальной программы обучения в интересующем вас
-							направлении WEB-разработки. По прохождении курса
-							обучения гарантированное трудоустройство* в уютном
-							офисе.
-						</p>
-					</div>
-					<div class="the-training__tab" v-else-if="tab === 'dev'">
-						<p class="the-training__description">
-							Углубленное изучение языков программирования,
-							практика на реальных проектах, помощь наставника,
-							гарантированное трудоустройство, карьерный рост,
-							уютный офис с удобным расположением, комфортное
-							рабочее место и лояльная система организации
-							рабочего процесса.
-						</p>
-					</div>
+					</button>
+
+					<transition-group mode="out-in">
+						<div class="the-training__tab" v-if="tab === 'newbie'">
+							<p class="the-training__description">
+								Пройдите обучение в дружном коллективе
+								профессиональных разработчиков. Гарантированная
+								помощь в изучении материала, практика на
+								реальных проектах, оценка ваших компетенций для
+								выбора индивидуальной программы обучения в
+								интересующем вас направлении WEB-разработки. По
+								прохождении курса обучения гарантированное
+								трудоустройство в уютном офисе.
+							</p>
+						</div>
+						<div
+							class="the-training__tab"
+							v-else-if="tab === 'dev'"
+						>
+							<p class="the-training__description">
+								Углубленное изучение языков программирования,
+								практика на реальных проектах, помощь
+								наставника, гарантированное трудоустройство,
+								карьерный рост, уютный офис с удобным
+								расположением, комфортное рабочее место и
+								лояльная система организации рабочего процесса.
+							</p>
+						</div>
+					</transition-group>
 					<a
 						href="https://telegram.im/@compass_pro"
 						target="_blank"
@@ -79,64 +93,18 @@
 </template>
 
 <script>
-	import { mapState } from "vuex";
-	import vButton from "@/components/v-button";
-	import ConditionCard from "@/components/ConditionCard";
+	import ConditionCard from "@/components/conditions/ConditionCard";
 
 	export default {
 		name: "TheTraining",
-		components: {
-			vButton,
-			ConditionCard,
-		},
-		data: () => ({
-			tab: "newbie",
-		}),
-		computed: {
-			...mapState(["windowWidth"]),
-		},
-		methods: {
-			switchTabs(option) {
-				const navs = document.querySelectorAll(".the-training__nav");
-				const decorativeBlock = document.querySelector(
-					".the-training__nav-decorative"
-				);
-
-				switch (option) {
-					case 1: {
-						this.tab = "newbie";
-
-						navs[0].classList.add("selected");
-						navs[1].classList.remove("selected");
-						decorativeBlock.removeAttribute("style");
-						break;
-					}
-					case 2: {
-						this.tab = "dev";
-						navs[0].classList.remove("selected");
-						navs[1].classList.add("selected");
-
-						if (this.windowWidth > 1023) {
-							decorativeBlock.setAttribute(
-								"style",
-								"transform: translateX(17rem); background: linear-gradient(286.2deg, #3B94C7 10.05%, #4A50B6 82.75%), linear-gradient(286.2deg, #3B94C7 10.05%, #4A50B6 82.75%), #C4C4C4;"
-							);
-						} else {
-							decorativeBlock.setAttribute(
-								"style",
-								"transform: translateX(100%); background: linear-gradient(286.2deg, #3B94C7 10.05%, #4A50B6 82.75%), linear-gradient(286.2deg, #3B94C7 10.05%, #4A50B6 82.75%), #C4C4C4;"
-							);
-						}
-
-						break;
-					}
-				}
-			},
-		},
+		components: { ConditionCard },
+		data: () => ({ tab: "newbie" }),
 	};
 </script>
 
 <style lang="scss" scoped>
+	@import "@/assets/scss/variables";
+
 	.the-training {
 		padding-top: 6rem;
 		padding-bottom: 6rem;
@@ -160,7 +128,7 @@
 				rgba(160, 186, 191, 0.2) -2.08%,
 				rgba(160, 186, 191, 0.124) 100%
 			),
-			#ffffff;
+			$white;
 		&__container {
 			display: flex;
 			gap: 3rem;
@@ -205,10 +173,9 @@
 			grid-gap: 0 2rem;
 		}
 		&__tab {
-			grid-column: 1/3;
+			grid-area: 2/1/2/3;
 			margin-bottom: 5rem;
 			min-height: 26rem;
-			animation: fade 2s 1;
 		}
 		&__description {
 			line-height: 2.8rem;
@@ -221,17 +188,17 @@
 
 		&__nav {
 			user-select: none;
-			cursor: pointer;
 			height: 7.2rem;
 			display: flex;
 			align-items: center;
 			margin-bottom: 3rem;
+			background-color: transparent;
 			z-index: 2;
 			&-text {
 				position: relative;
 				text-transform: uppercase;
 				font-weight: 400;
-				color: var(--light-purple);
+				color: $light-purple;
 				padding: 0 1rem;
 				&::after {
 					content: "";
@@ -240,7 +207,7 @@
 					bottom: -1rem;
 					width: 100%;
 					height: 0.1rem;
-					background-color: var(--light-purple);
+					background-color: $light-purple;
 					transition: all 0.2s ease;
 				}
 			}
@@ -253,17 +220,32 @@
 				height: 7.2rem;
 				background: linear-gradient(
 						286.2deg,
-						#7263af 10.05%,
+						$light-purple 10.05%,
 						#772d76 82.75%
 					),
-					#c4c4c4;
+					$gray;
 				opacity: 0.2;
 				transition: all 0.3s ease;
+
+				&.moved {
+					transform: translateX(17rem);
+					background: linear-gradient(
+							286.2deg,
+							$blue 10.05%,
+							$purple 82.75%
+						),
+						linear-gradient(286.2deg, $blue 10.05%, $purple 82.75%),
+						$gray;
+
+					@media (max-width: 1023px) {
+						transform: translateX(100%);
+					}
+				}
 			}
 			&.selected {
 				.the-training__nav {
 					&-text {
-						color: var(--middle-dark);
+						color: $middle-dark;
 						font-weight: 700;
 						&::after {
 							width: 0;
@@ -271,15 +253,6 @@
 					}
 				}
 			}
-		}
-	}
-
-	@keyframes fade {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
 		}
 	}
 

@@ -17,7 +17,11 @@
 			"
 		></div>
 		<div class="the-banner__container center">
-			<img src="img/icon/logo-big.svg" alt="" class="the-banner__logo" />
+			<img
+				src="/img/icon/logo-big.svg"
+				alt="big logo"
+				class="the-banner__logo"
+			/>
 
 			<div class="the-banner__title-wrapper">
 				<transition name="fade-left" mode="out-in">
@@ -71,7 +75,7 @@
 							:color="'purple'"
 							:text="'Для учёбы'"
 							:icon="'img/icon/arrow-left.svg'"
-							:reverse="'reverse'"
+							:isReverse="true"
 							@click="
 								if (isDefaultTitle) {
 									slides('learn');
@@ -88,15 +92,10 @@
 </template>
 
 <script>
-	import vButton from "@/components/v-button";
-
 	import { mapState } from "vuex";
 
 	export default {
 		name: "TheBanner",
-		components: {
-			vButton,
-		},
 		computed: {
 			...mapState(["windowWidth"]),
 		},
@@ -242,6 +241,8 @@
 </script>
 
 <style lang="scss" scoped>
+	@import "@/assets/scss/variables";
+
 	.the-banner {
 		position: relative;
 		display: flex;
@@ -259,7 +260,7 @@
 			z-index: 1;
 		}
 		&__title {
-			color: var(--white);
+			color: $white;
 			text-align: center;
 			grid-area: 1/1;
 			z-index: 1;

@@ -32,14 +32,8 @@
 </template>
 
 <script>
-	import vButton from "@/components/v-button";
-
 	export default {
 		name: "TheAbout",
-		components: {
-			vButton,
-		},
-
 		mounted() {
 			const script = document.createElement("script");
 
@@ -57,6 +51,8 @@
 </script>
 
 <style lang="scss" scoped>
+	@import "@/assets/scss/variables";
+
 	.the-about {
 		display: flex;
 		align-items: center;
@@ -80,7 +76,7 @@
 				rgba(160, 186, 191, 0.2) -2.08%,
 				rgba(160, 186, 191, 0.124) 100%
 			),
-			#fff;
+			$white;
 		&__container {
 			display: flex;
 			gap: 3rem;
@@ -123,10 +119,10 @@
 				right: -8.5rem;
 				background: linear-gradient(
 						286.2deg,
-						#7263af 10.05%,
+						$light-purple 10.05%,
 						#772d76 82.75%
 					),
-					#c4c4c4;
+					$gray;
 				opacity: 0.5;
 				height: 40rem;
 				width: 18rem;

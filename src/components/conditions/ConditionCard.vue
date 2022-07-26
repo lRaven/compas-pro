@@ -18,8 +18,10 @@
 </script>
 
 <style lang="scss" scoped>
+	@import "@/assets/scss/variables";
+
 	.condition-card {
-		background-color: var(--white);
+		background-color: $white;
 		padding: 3rem 1.6rem 3rem 2rem;
 		width: 31rem;
 		height: max-content;
@@ -37,7 +39,7 @@
 		&__description {
 			font-size: 1.4rem;
 			font-weight: 300;
-			color: var(--light-dark);
+			color: $light-dark;
 			line-height: 2rem;
 		}
 	}

@@ -1,12 +1,8 @@
 <template>
 	<div class="v-button" :class="color">
-		<div class="v-button__inner" :class="reverse">
-			<div class="v-button__inner-col">
-				<p class="v-button__text">{{ text }}</p>
-			</div>
-			<div class="v-button__inner-col">
-				<img :src="icon" class="v-button__icon" />
-			</div>
+		<div class="v-button__inner" :class="{ reverse: isReverse }">
+			<p class="v-button__text">{{ text }}</p>
+			<img :src="icon" class="v-button__icon" v-if="icon" />
 		</div>
 	</div>
 </template>
@@ -16,7 +12,7 @@
 		name: "v-button",
 		props: {
 			color: String,
-			reverse: String,
+			isReverse: Boolean,
 			text: String,
 			icon: String,
 		},
@@ -24,13 +20,15 @@
 </script>
 
 <style lang="scss" scoped>
+	@import "@/assets/scss/variables";
+
 	.v-button {
 		cursor: pointer;
 		user-select: none;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		color: var(--white);
+		color: $white;
 		max-width: 32rem;
 		width: 100%;
 		height: 7.2rem;
@@ -52,11 +50,7 @@
 			height: 2rem;
 		}
 		&.blue {
-			background: linear-gradient(
-				286.2deg,
-				#3b94c7 10.05%,
-				#4a50b6 82.75%
-			);
+			background: linear-gradient(286.2deg, $blue 10.05%, $purple 82.75%);
 		}
 		&.purple {
 			background: radial-gradient(
@@ -71,7 +65,7 @@
 			align-items: center;
 			justify-content: space-between;
 			gap: 2rem;
-			border: 0.2rem solid var(--white);
+			border: 0.2rem solid $white;
 			width: 100%;
 			height: 100%;
 			padding: 2rem 2.5rem;

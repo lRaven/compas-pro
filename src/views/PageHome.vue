@@ -1,5 +1,5 @@
 <template>
-	<div class="the-home theme-container">
+	<div class="page-home theme-container">
 		<the-header />
 		<main class="main" id="main">
 			<the-banner />
@@ -14,18 +14,18 @@
 </template>
 
 <script>
-	import { mapMutations } from "vuex";
-
 	import TheHeader from "@/components/TheHeader";
 
-	import TheBanner from "@/components/TheBanner";
-	import TheConsulting from "@/components/TheConsulting";
-	import TheServices from "@/components/TheServices";
-	import TheTechnologies from "@/components/TheTechnologies";
-	import TheTraining from "@/components/TheTraining";
-	import TheAbout from "@/components/TheAbout";
+	import TheBanner from "@/components/Home/TheBanner";
+	import TheConsulting from "@/components/Home/TheConsulting";
+	import TheServices from "@/components/Home/TheServices";
+	import TheTechnologies from "@/components/Home/TheTechnologies";
+	import TheTraining from "@/components/Home/TheTraining";
+	import TheAbout from "@/components/Home/TheAbout";
 
 	import TheFooter from "@/components/TheFooter";
+
+	import { mapActions } from "vuex";
 
 	export default {
 		name: "PageHome",
@@ -42,14 +42,10 @@
 			TheFooter,
 		},
 		methods: {
-			...mapMutations(["SET_WINDOW_WIDTH"]),
+			...mapActions(["getWindowWidth"]),
 		},
 		mounted() {
-			this.SET_WINDOW_WIDTH(window.innerWidth);
-
-			window.addEventListener("resize", () => {
-				this.SET_WINDOW_WIDTH(window.innerWidth);
-			});
+			this.getWindowWidth();
 		},
 	};
 </script>

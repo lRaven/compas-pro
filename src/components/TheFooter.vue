@@ -3,7 +3,7 @@
 		<div class="the-footer__container center">
 			<div class="the-footer__col the-footer__left">
 				<div class="the-footer__left-inner">
-					<img class="the-footer__logo" src="favicon.ico" />
+					<img class="the-footer__logo" src="/favicon.ico" />
 					<p class="the-footer__name">Компас Про</p>
 					<p class="the-footer__slogan">
 						с нами в правильном направлении
@@ -12,12 +12,12 @@
 			</div>
 			<div class="the-footer__col the-footer__middle">
 				<img
-					src="img/icon/huawei.png"
+					src="/img/icon/huawei.png"
 					alt=""
 					class="the-footer__partner"
 				/>
 				<img
-					src="img/icon/ibm-business.png"
+					src="/img/icon/ibm-business.png"
 					alt=""
 					class="the-footer__partner"
 				/>
@@ -28,7 +28,7 @@
 					class="the-footer__minciphras"
 				>
 					<img
-						src="img/icon/minciphras-dark.png"
+						src="/img/icon/minciphras-dark.png"
 						alt="Минцифры России"
 						class="the-footer__minciphras-icon"
 					/>
@@ -62,6 +62,8 @@
 </script>
 
 <style lang="scss" scoped>
+	@import "@/assets/scss/variables";
+
 	.the-footer {
 		padding: 0 4rem;
 		&__container {
@@ -77,7 +79,7 @@
 				top: 0;
 				bottom: 0;
 				width: 50vw;
-				background-color: rgba(255, 255, 255, 0.5);
+				background-color: rgba($white, $alpha: 0.5);
 			}
 		}
 		&__col {
@@ -137,7 +139,7 @@
 
 			&-description {
 				text-transform: uppercase;
-				color: var(--dark);
+				color: $dark;
 			}
 		}
 

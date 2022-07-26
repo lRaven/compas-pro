@@ -128,7 +128,7 @@
 			<Vue3Marquee :duration="20" :clone="true">
 				<img
 					height="100"
-					src="img/icon/compas-pro.svg"
+					src="/img/icon/compas-pro.svg"
 					class="the-services__marquee-img"
 				/>
 			</Vue3Marquee>
@@ -139,15 +139,13 @@
 <script>
 	import { mapState } from "vuex";
 
-	import vButton from "@/components/v-button";
 	import { Vue3Marquee } from "vue3-marquee";
 	import "vue3-marquee/dist/style.css";
-	import ServiceCard from "@/components/ServiceCard";
+	import ServiceCard from "@/components/services/ServiceCard";
 
 	export default {
 		name: "TheServices",
 		components: {
-			vButton,
 			Vue3Marquee,
 			ServiceCard,
 		},
@@ -354,11 +352,12 @@
 				});
 			},
 		},
-		mounted() {},
 	};
 </script>
 
 <style lang="scss" scoped>
+	@import "@/assets/scss/variables";
+
 	.the-services {
 		min-height: 70rem;
 		height: 100vh;
@@ -385,7 +384,7 @@
 				rgba(160, 186, 191, 0.2) -2.08%,
 				rgba(160, 186, 191, 0.124) 100%
 			),
-			#fff;
+			$white;
 		z-index: 2;
 		&__container {
 			display: flex;
@@ -444,11 +443,11 @@
 				width: 140%;
 				background: linear-gradient(
 						286.2deg,
-						#3b94c7 10.05%,
-						#4a50b6 82.75%
+						$blue 10.05%,
+						$purple 82.75%
 					),
-					linear-gradient(286.2deg, #3b94c7 10.05%, #4a50b6 82.75%),
-					#c4c4c4;
+					linear-gradient(286.2deg, $blue 10.05%, $purple 82.75%),
+					$gray;
 				opacity: 0.2;
 				z-index: -1;
 				transition: all 0.5s ease;
@@ -504,12 +503,12 @@
 				width: 0.5rem;
 				height: 0.5rem;
 				border-radius: 50%;
-				background-color: var(--gray);
+				background-color: $gray;
 				transition: all 0.2s ease;
 				&.current {
 					height: 1.8rem;
 					border-radius: 0.8rem;
-					background-color: var(--middle-purple);
+					background-color: $middle-purple;
 					transition: all 0.2s ease;
 				}
 			}
@@ -594,13 +593,13 @@
 				}
 			}
 			&__show-more {
-				border: 0.1rem solid #4b4fb4;
+				border: 0.1rem solid $dark-purple;
 				background-color: transparent;
 				padding: 2rem;
 				width: 100%;
 				&-text {
 					text-transform: uppercase;
-					color: #4b4fb4;
+					color: $dark-purple;
 					font-weight: 700;
 				}
 			}
