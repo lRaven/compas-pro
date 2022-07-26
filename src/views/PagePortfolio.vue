@@ -157,6 +157,7 @@
 		&__filters {
 			display: flex;
 			align-items: center;
+			flex-wrap: wrap;
 			gap: 2rem;
 			grid-column: 1/4;
 			@media (max-width: 1023px) {
@@ -169,6 +170,7 @@
 	}
 
 	.text-checkbox {
+		display: flex;
 		&__real {
 			display: none;
 			&:checked {
@@ -181,6 +183,8 @@
 			}
 		}
 		&__fake {
+			width: max-content;
+			white-space: nowrap;
 			user-select: none;
 			cursor: pointer;
 			font-size: 1.4rem;

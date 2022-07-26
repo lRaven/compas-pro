@@ -39,6 +39,7 @@
 	@import "@/assets/scss/variables";
 
 	.text-checkbox {
+		display: flex;
 		&__real {
 			display: none;
 			&:checked {
@@ -51,6 +52,8 @@
 			}
 		}
 		&__fake {
+			width: max-content;
+			white-space: nowrap;
 			user-select: none;
 			cursor: pointer;
 			font-size: 1.4rem;
