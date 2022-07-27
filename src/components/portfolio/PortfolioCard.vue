@@ -1,13 +1,13 @@
 <template>
-	<div class="portfolio-card">
+	<div class="portfolio-card" @click="this.$emit('open_modal', card.img)">
 		<img
-			:src="card.img"
+			:src="card.preview"
 			:alt="card.description"
 			class="portfolio-card__img"
 		/>
 		<div class="portfolio-card__body">
 			<p class="portfolio-card__description">{{ card.description }}</p>
-			<router-link to="/" class="portfolio-card__link">
+			<router-link to="/" class="portfolio-card__link" @click.stop>
 				<svg
 					width="42"
 					height="20"
@@ -38,6 +38,7 @@
 	@import "@/assets/scss/variables";
 
 	.portfolio-card {
+		cursor: pointer;
 		display: grid;
 		grid-template-rows: 23rem 1fr;
 		background-color: $white;
@@ -76,9 +77,8 @@
 
 		&__link {
 			display: flex;
-			&-arrow {
-				margin-left: auto;
-			}
+			width: max-content;
+			margin-left: auto;
 		}
 	}
 </style>

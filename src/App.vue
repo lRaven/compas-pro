@@ -7,9 +7,10 @@
 </template>
 
 <script>
+	import { unlockScroll } from "@/js/scrollControl";
+
 	export default {
 		name: "App",
-		components: {},
 		watch: {
 			$route(to) {
 				document.title = to.meta.title || "Default Title";
@@ -17,6 +18,7 @@
 
 			"$route.path"() {
 				//* срабатывает при переходе по router-link
+				unlockScroll();
 			},
 		},
 	};
@@ -33,7 +35,6 @@
 
 	#app,
 	.theme-container {
-		height: 100%;
 		min-height: 100vh;
 	}
 
@@ -41,6 +42,9 @@
 		font-family: "Montserrat", sans-serif;
 		background-color: #eff5f6;
 		overflow-x: hidden;
+		&.locked {
+			overflow: hidden;
+		}
 	}
 
 	img,

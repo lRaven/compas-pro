@@ -1,7 +1,7 @@
 <template>
 	<div class="page-portfolio theme-container">
 		<div class="page-portfolio__top">
-			<the-header></the-header>
+			<the-header />
 
 			<h1 class="page-portfolio__title center">Портфолио</h1>
 		</div>
@@ -45,6 +45,7 @@
 					v-for="card in portfolio_filtered"
 					:key="card.id"
 					:card="card"
+					@open_modal="open_modal"
 				></portfolio-card>
 			</template>
 			<p class="page-portfolio__empty" v-else-if="filters.length > 0">
@@ -52,6 +53,14 @@
 			</p>
 			<p v-else>Ничего не выбрано</p>
 		</main>
+
+		<transition mode="out-in">
+			<portfolio-modal
+				:image="selected_project"
+				v-if="isModalOpen"
+				@close_modal="close_modal"
+			></portfolio-modal>
+		</transition>
 	</div>
 </template>
 
@@ -59,6 +68,9 @@
 	import TheHeader from "@/components/TheHeader.vue";
 
 	import PortfolioCard from "@/components/portfolio/PortfolioCard.vue";
+	import PortfolioModal from "@/components/portfolio/PortfolioModal.vue";
+
+	import { unlockScroll } from "@/js/scrollControl";
 	import { mapState, mapMutations } from "vuex";
 
 	export default {
@@ -67,6 +79,7 @@
 			TheHeader,
 
 			PortfolioCard,
+			PortfolioModal,
 		},
 		watch: {
 			filters: {
@@ -82,9 +95,24 @@
 					state.Portfolio.portfolio_filtered,
 			}),
 		},
-		data: () => ({ filters: ["online-resources"] }),
+		data: () => ({
+			isModalOpen: false,
+			filters: ["online-resources"],
+
+			selected_project: "",
+		}),
 		methods: {
 			...mapMutations(["filterByTagsPortfolio"]),
+
+			open_modal(img) {
+				this.selected_project = img;
+				this.isModalOpen = true;
+			},
+			close_modal() {
+				unlockScroll();
+				this.selected_project = "";
+				this.isModalOpen = false;
+			},
 		},
 		created() {
 			this.filterByTagsPortfolio(this.filters);
