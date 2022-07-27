@@ -59,33 +59,33 @@
 						class="the-training__btn"
 					>
 						<v-button
-							:color="'purple'"
-							:text="'Оставить заявку'"
-							:icon="'img/icon/tg.svg'"
+							color="purple"
+							text="Оставить заявку"
+							icon="/img/icon/tg.svg"
 						></v-button>
 					</a>
 				</div>
 			</div>
 			<div class="the-training__col">
 				<condition-card
-					:icon="'img/icon/code.svg'"
-					:title="'Трудоустройство'"
-					:description="'Проводим обучение WEB-программированию с последующим трудоустройством на работу'"
+					icon="/img/icon/code.svg"
+					title="Трудоустройство"
+					description="Проводим обучение WEB-программированию с последующим трудоустройством на работу"
 				></condition-card>
 				<condition-card
-					:icon="'img/icon/code.svg'"
-					:title="'Новая работа'"
-					:description="'По результатам проведения обучения, лучших мы пригласим к нам на постоянную работу с возможностью карьерного роста'"
+					icon="/img/icon/code.svg"
+					title="Новая работа"
+					description="По результатам проведения обучения, лучших мы пригласим к нам на постоянную работу с возможностью карьерного роста"
 				></condition-card>
 				<condition-card
-					:icon="'img/icon/code.svg'"
-					:title="'Новые знания'"
-					:description="'Наши преподаватели научат вас новым профессиональным навыкам и практикам в области web-разработки'"
+					icon="/img/icon/code.svg"
+					title="Новые знания"
+					description="Наши преподаватели научат вас новым профессиональным навыкам и практикам в области web-разработки"
 				></condition-card>
 				<condition-card
-					:icon="'img/icon/code.svg'"
-					:title="'Стабильная зарплата'"
-					:description="'С нашей стороны мы обещаем вам хорошие условия труда, интересные проекты, дружную команду и высокую заработную плату'"
+					icon="/img/icon/code.svg"
+					title="Стабильная зарплата"
+					description="С нашей стороны мы обещаем вам хорошие условия труда, интересные проекты, дружную команду и высокую заработную плату"
 				></condition-card>
 			</div>
 		</div>

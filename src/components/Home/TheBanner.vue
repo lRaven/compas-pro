@@ -56,9 +56,9 @@
 				<div class="the-banner__button">
 					<transition>
 						<v-button
-							:color="'blue'"
-							:text="'Для бизнеса'"
-							:icon="'img/icon/arrow-right.svg'"
+							color="blue"
+							text="Для бизнеса"
+							icon="/img/icon/arrow-right.svg"
 							@click="
 								if (isDefaultTitle) {
 									slides('business');
@@ -72,9 +72,9 @@
 				<div class="the-banner__button">
 					<transition>
 						<v-button
-							:color="'purple'"
-							:text="'Для учёбы'"
-							:icon="'img/icon/arrow-left.svg'"
+							color="purple"
+							text="Для учёбы"
+							icon="/img/icon/arrow-left.svg"
 							:isReverse="true"
 							@click="
 								if (isDefaultTitle) {

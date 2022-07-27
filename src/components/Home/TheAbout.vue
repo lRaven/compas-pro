@@ -12,16 +12,20 @@
 					проектов. <br />
 					Мы включены в реестр аккредитованных ИТ компаний.
 				</p>
-				<a
-					href="https://telegram.im/@compass_pro"
-					class="the-about__tg"
-				>
-					<v-button
-						:color="'purple'"
-						:text="'Оставить заявку'"
-						:icon="'img/icon/tg.svg'"
-					></v-button>
-				</a>
+
+				<v-button
+					color="purple"
+					icon="/img/icon/tg.svg"
+					text="Оставить заявку"
+					@click="
+						openExternalSite('https://telegram.im/@compass_pro')
+					"
+				></v-button>
+				<v-button
+					color="blue"
+					text="Портфолио проектов"
+					@click="this.$router.push({ name: 'portfolio' })"
+				></v-button>
 			</div>
 			<div class="the-about__col">
 				<div class="the-about__address-decorative"></div>
@@ -32,8 +36,11 @@
 </template>
 
 <script>
+	import { openExternalSite } from "@/js/openExternalSite";
+
 	export default {
 		name: "TheAbout",
+		methods: { openExternalSite },
 		mounted() {
 			const script = document.createElement("script");
 
@@ -85,7 +92,9 @@
 			position: relative;
 			width: 34%;
 			.v-button {
-				margin-bottom: 6rem;
+				&:nth-child(3) {
+					margin-bottom: 2rem;
+				}
 			}
 			&:last-child {
 				display: flex;
@@ -95,7 +104,7 @@
 			}
 		}
 		&__description {
-			margin-bottom: 10rem;
+			margin-bottom: 7rem;
 		}
 		&__title {
 			width: max-content;
@@ -127,10 +136,6 @@
 				height: 40rem;
 				width: 18rem;
 			}
-		}
-		&__tg {
-			width: 100%;
-			max-width: 32rem;
 		}
 	}
 

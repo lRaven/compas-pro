@@ -29,17 +29,19 @@
 					внедрением в структуру бизнес-модели нейросетей и
 					искусственного интеллекта.
 				</p>
-				<a
-					href="https://telegram.im/@compass_pro"
-					target="_blank"
-					class="the-services__tg"
-				>
-					<v-button
-						:color="'blue'"
-						:icon="'img/icon/tg.svg'"
-						:text="'Оставить заявку'"
-					></v-button>
-				</a>
+				<v-button
+					color="blue"
+					icon="/img/icon/tg.svg"
+					text="Оставить заявку"
+					@click="
+						openExternalSite('https://telegram.im/@compass_pro')
+					"
+				></v-button>
+				<v-button
+					color="blue"
+					text="Портфолио проектов"
+					@click="this.$router.push({ name: 'portfolio' })"
+				></v-button>
 			</div>
 			<div class="the-services__col">
 				<div class="the-services__control">
@@ -138,10 +140,11 @@
 
 <script>
 	import { mapState } from "vuex";
+	import { openExternalSite } from "@/js/openExternalSite";
+	import ServiceCard from "@/components/services/ServiceCard";
 
 	import { Vue3Marquee } from "vue3-marquee";
 	import "vue3-marquee/dist/style.css";
-	import ServiceCard from "@/components/services/ServiceCard";
 
 	export default {
 		name: "TheServices",
@@ -151,15 +154,7 @@
 		},
 		watch: {
 			windowWidth() {
-				if (this.windowWidth > 767) {
-					this.repaintArrows();
-					this.getBreakpoints();
-					this.scrollSliderByButtons();
-					this.repaintDots();
-					this.showAllServices = true;
-				} else {
-					this.showAllServices = false;
-				}
+				this.sliderInit();
 			},
 		},
 		data: () => ({
@@ -192,8 +187,8 @@
 				return services;
 			},
 		},
-
 		methods: {
+			openExternalSite,
 			//*получение брейкпоинтов
 			getBreakpoints() {
 				let breakpoints = [];
@@ -351,6 +346,21 @@
 					}
 				});
 			},
+
+			sliderInit() {
+				if (this.windowWidth > 767) {
+					this.repaintArrows();
+					this.getBreakpoints();
+					this.scrollSliderByButtons();
+					this.repaintDots();
+					this.showAllServices = true;
+				} else {
+					this.showAllServices = false;
+				}
+			},
+		},
+		mounted() {
+			this.sliderInit();
 		},
 	};
 </script>
@@ -393,14 +403,16 @@
 		&__col {
 			&:first-child {
 				padding-top: 2rem;
+
+				.v-button {
+					&:nth-child(3) {
+						margin-bottom: 2rem;
+					}
+				}
 			}
 			&:last-child {
 				display: flex;
 			}
-		}
-		&__tg {
-			width: 100%;
-			max-width: 32rem;
 		}
 		&__list {
 			position: relative;
