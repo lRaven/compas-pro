@@ -7,37 +7,49 @@
 		</div>
 
 		<main class="page-portfolio__main center">
-			<div class="page-portfolio__filters">
-				<!-- //*TODO: vue не умеет добавлять в массив из компонента, пока так -->
-				<label class="text-checkbox">
-					<input
-						type="checkbox"
-						value="online-resources"
-						class="text-checkbox__real"
-						v-model="filters"
-					/>
-					<span class="text-checkbox__fake">Интернет-ресурсы</span>
-				</label>
+			<div class="page-portfolio__row">
+				<div class="page-portfolio__filters">
+					<!-- //*TODO: vue не умеет добавлять в массив из компонента, пока так -->
+					<label class="text-checkbox">
+						<input
+							type="checkbox"
+							value="online-resources"
+							class="text-checkbox__real"
+							v-model="filters"
+						/>
+						<span class="text-checkbox__fake"
+							>Интернет-ресурсы</span
+						>
+					</label>
 
-				<label class="text-checkbox">
-					<input
-						type="checkbox"
-						value="presentations"
-						class="text-checkbox__real"
-						v-model="filters"
-					/>
-					<span class="text-checkbox__fake">Презентации</span>
-				</label>
+					<label class="text-checkbox">
+						<input
+							type="checkbox"
+							value="presentations"
+							class="text-checkbox__real"
+							v-model="filters"
+						/>
+						<span class="text-checkbox__fake">Презентации</span>
+					</label>
 
-				<label class="text-checkbox">
-					<input
-						type="checkbox"
-						value="logos"
-						class="text-checkbox__real"
-						v-model="filters"
-					/>
-					<span class="text-checkbox__fake">Логотипы</span>
-				</label>
+					<label class="text-checkbox">
+						<input
+							type="checkbox"
+							value="logos"
+							class="text-checkbox__real"
+							v-model="filters"
+						/>
+						<span class="text-checkbox__fake">Логотипы</span>
+					</label>
+				</div>
+				<v-button
+					color="purple"
+					icon="/img/icon/tg.svg"
+					text="Оставить заявку"
+					@click="
+						openExternalSite('https://telegram.im/@compass_pro')
+					"
+				></v-button>
 			</div>
 
 			<template v-if="portfolio_filtered.length > 0">
@@ -188,6 +200,13 @@
 			align-items: center;
 			flex-wrap: wrap;
 			gap: 2rem;
+		}
+		&__row {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 4rem;
+			flex-wrap: wrap;
 			grid-column: 1/4;
 			@media (max-width: 1023px) {
 				grid-column: 1/3;
