@@ -57,6 +57,7 @@
 		<transition mode="out-in">
 			<portfolio-modal
 				:image="selected_project"
+				:isModalOpen="isModalOpen"
 				v-if="isModalOpen"
 				@close_modal="close_modal"
 			></portfolio-modal>

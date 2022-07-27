@@ -16,6 +16,13 @@ const state = () => ({
 		},
 		{
 			id: 3,
+			preview: '/img/portfolio/preview/3dom-concept-preview.png',
+			img: '/img/portfolio/3dom-concept.png',
+			description: 'Концепт агрегатора недвижимости\n«3DOM»',
+			tag: 'online-resources'
+		},
+		{
+			id: 3,
 			preview: '/img/portfolio/preview/kolotok-preview.png',
 			img: '/img/portfolio/kolotok.png',
 			description: 'Интернет-магазин стройматериалов\n«Колоток»',

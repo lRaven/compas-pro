@@ -53,17 +53,14 @@
 							</p>
 						</div>
 					</transition-group>
-					<a
-						href="https://telegram.im/@compass_pro"
-						target="_blank"
-						class="the-training__btn"
-					>
-						<v-button
-							color="purple"
-							text="Оставить заявку"
-							icon="/img/icon/tg.svg"
-						></v-button>
-					</a>
+					<v-button
+						color="purple"
+						icon="/img/icon/tg.svg"
+						text="Оставить заявку"
+						@click="
+							openExternalSite('https://telegram.im/@compass_pro')
+						"
+					></v-button>
 				</div>
 			</div>
 			<div class="the-training__col">
@@ -94,11 +91,13 @@
 
 <script>
 	import ConditionCard from "@/components/conditions/ConditionCard";
+	import { openExternalSite } from "@/js/openExternalSite";
 
 	export default {
 		name: "TheTraining",
 		components: { ConditionCard },
 		data: () => ({ tab: "newbie" }),
+		methods: { openExternalSite },
 	};
 </script>
 
@@ -171,6 +170,9 @@
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
 			grid-gap: 0 2rem;
+			.v-button {
+				grid-column: 1/3;
+			}
 		}
 		&__tab {
 			grid-area: 2/1/2/3;
@@ -179,11 +181,6 @@
 		}
 		&__description {
 			line-height: 2.8rem;
-		}
-		&__btn {
-			grid-column: 1/3;
-			max-width: 32rem;
-			width: 100%;
 		}
 
 		&__nav {

@@ -27,6 +27,7 @@
 <style lang="scss">
 	@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap");
 
+	@import "@/assets/scss/animations.scss";
 	@import "@/assets/scss/center.scss";
 
 	* {
@@ -85,9 +86,6 @@
 		font-size: 1rem;
 		font-weight: 400;
 	}
-	a {
-		display: block;
-	}
 
 	@media (max-width: 1023px) {
 		section {
@@ -139,28 +137,5 @@
 			font-size: 0.7rem;
 			line-height: 1;
 		}
-	}
-
-	//*transitions:
-	//*default
-	.v-enter-active,
-	.v-leave-active {
-		transition: all 0.3s ease;
-	}
-	.v-enter-from,
-	.v-leave-to {
-		opacity: 0;
-	}
-
-	//*fade-left
-	.fade-left-enter-active,
-	.fade-left-leave-active {
-		transition: all 0.35s ease;
-	}
-
-	.fade-left-enter-from,
-	.fade-left-leave-to {
-		opacity: 0;
-		transform: translateX(-5rem);
 	}
 </style>
