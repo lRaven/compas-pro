@@ -172,6 +172,7 @@
 			grid-gap: 0 2rem;
 			.v-button {
 				grid-column: 1/3;
+				max-width: 32rem;
 			}
 		}
 		&__tab {

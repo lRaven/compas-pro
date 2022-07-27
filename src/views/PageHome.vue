@@ -8,6 +8,7 @@
 			<the-technologies />
 			<the-training />
 			<the-about />
+			<the-portfolio />
 		</main>
 		<the-footer />
 	</div>
@@ -22,6 +23,7 @@
 	import TheTechnologies from "@/components/Home/TheTechnologies";
 	import TheTraining from "@/components/Home/TheTraining";
 	import TheAbout from "@/components/Home/TheAbout";
+	import ThePortfolio from "@/components/Home/ThePortfolio.vue";
 
 	import TheFooter from "@/components/TheFooter";
 
@@ -38,6 +40,7 @@
 			TheTechnologies,
 			TheTraining,
 			TheAbout,
+			ThePortfolio,
 
 			TheFooter,
 		},

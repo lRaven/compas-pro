@@ -23,6 +23,7 @@
 				></v-button>
 				<v-button
 					color="blue"
+					icon="/img/icon/arrow-right.svg"
 					text="Портфолио проектов"
 					@click="this.$router.push({ name: 'portfolio' })"
 				></v-button>
@@ -92,6 +93,7 @@
 			position: relative;
 			width: 34%;
 			.v-button {
+				max-width: 35rem;
 				&:nth-child(3) {
 					margin-bottom: 2rem;
 				}

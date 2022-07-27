@@ -285,6 +285,9 @@
 			display: flex;
 			grid-area: 1/1/1/3;
 			width: 100%;
+			.v-button {
+				max-width: 32rem;
+			}
 
 			&:first-child {
 				justify-content: flex-start;

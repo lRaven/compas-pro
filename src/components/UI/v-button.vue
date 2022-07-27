@@ -29,7 +29,6 @@
 		justify-content: center;
 		align-items: center;
 		color: $white;
-		max-width: 32rem;
 		width: 100%;
 		height: 7.2rem;
 		padding: 0.6rem 0.9rem;

@@ -39,6 +39,7 @@
 				></v-button>
 				<v-button
 					color="blue"
+					icon="/img/icon/arrow-right.svg"
 					text="Портфолио проектов"
 					@click="this.$router.push({ name: 'portfolio' })"
 				></v-button>
@@ -405,6 +406,7 @@
 				padding-top: 2rem;
 
 				.v-button {
+					max-width: 35rem;
 					&:nth-child(3) {
 						margin-bottom: 2rem;
 					}
