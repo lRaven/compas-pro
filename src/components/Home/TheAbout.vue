@@ -30,7 +30,7 @@
 			</div>
 			<div class="the-about__col">
 				<div class="the-about__address-decorative"></div>
-				<div class="the-about__address"></div>
+				<div class="the-about__address" ref="map"></div>
 			</div>
 		</div>
 	</section>
@@ -41,19 +41,20 @@
 
 	export default {
 		name: "TheAbout",
-		methods: { openExternalSite },
+		methods: {
+			openExternalSite,
+			initYaMap() {
+				const script = document.createElement("script");
+
+				script.id = "ymaps";
+				script.src =
+					"https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae55f846dc8f9b59c77b59a4cd630d23fc490894f1828da4f4b57768de6f9792b&amp;width=100%25&amp;height=100%&amp;lang=ru_RU&amp;scroll=true";
+
+				this.$refs.map.insertAdjacentElement("afterbegin", script);
+			},
+		},
 		mounted() {
-			const script = document.createElement("script");
-
-			script.onload = () => {
-				this.yaMapInit();
-			};
-
-			script.id = "ymaps";
-			script.src =
-				"https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae55f846dc8f9b59c77b59a4cd630d23fc490894f1828da4f4b57768de6f9792b&amp;width=100%25&amp;height=100%&amp;lang=ru_RU&amp;scroll=true";
-			const address = document.querySelector(".the-about__address");
-			address.insertAdjacentElement("afterbegin", script);
+			this.initYaMap();
 		},
 	};
 </script>
