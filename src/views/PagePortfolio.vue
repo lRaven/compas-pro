@@ -84,6 +84,7 @@
 	import PortfolioModal from "@/components/portfolio/PortfolioModal.vue";
 
 	import { unlockScroll } from "@/js/scrollControl";
+	import { openExternalSite } from "@/js/openExternalSite";
 	import { mapState, mapMutations } from "vuex";
 
 	export default {
@@ -115,6 +116,7 @@
 			selected_project: "",
 		}),
 		methods: {
+			openExternalSite,
 			...mapMutations(["filterByTagsPortfolio"]),
 
 			open_modal(img) {
@@ -213,6 +215,10 @@
 			}
 			@media (max-width: 650px) {
 				grid-column: 1/2;
+			}
+
+			.v-button {
+				max-width: 32rem;
 			}
 		}
 	}

@@ -29,6 +29,7 @@
 
 	@import "@/assets/scss/animations.scss";
 	@import "@/assets/scss/center.scss";
+	@import "@/assets/scss/swiper.scss";
 
 	* {
 		scroll-behavior: smooth;

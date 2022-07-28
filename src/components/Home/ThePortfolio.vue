@@ -72,6 +72,14 @@
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
+			gap: 4rem;
+			margin-bottom: 8rem;
+			@media (max-width: 767px) {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 2rem;
+				margin-bottom: 4rem;
+			}
 		}
 
 		&__description {

@@ -1,0 +1,42 @@
+@import "@/assets/scss/variables";
+
+.swiper {
+	overflow: visible !important;
+
+	&-slide {
+		height: auto !important;
+		width: max-content !important;
+	}
+
+	&-button {
+		&-prev,
+		&-next {
+			position: static !important;
+			margin-top: 0 !important;
+			height: 3rem !important;
+			background-color: transparent;
+			z-index: inherit !important;
+			&:after {
+				color: $purple;
+				font-size: 3rem !important;
+			}
+		}
+	}
+
+	&-pagination {
+		position: static !important;
+		z-index: inherit !important;
+
+		&-bullet {
+			transition: all 0.2s ease;
+			height: 0.5rem !important;
+			width: 0.5rem !important;
+			margin: 0 0.3rem !important;
+			&-active {
+				width: 2rem !important;
+				border-radius: 1rem !important;
+				background-color: $purple !important;
+			}
+		}
+	}
+}
