@@ -7,22 +7,6 @@
 		/>
 		<div class="portfolio-card__body">
 			<p class="portfolio-card__description">{{ card.description }}</p>
-			<router-link to="/" class="portfolio-card__link" @click.stop>
-				<svg
-					width="42"
-					height="20"
-					viewBox="0 0 42 20"
-					fill="none"
-					xmlns="http://www.w3.org/2000/svg"
-					class="portfolio-card__link-arrow"
-				>
-					<path
-						d="M40.0002 10L40.7304 10.6832L41.3696 10L40.7304 9.31677L40.0002 10ZM30.8489 1.68323L39.27 10.6832L40.7304 9.31677L32.3093 0.316769L30.8489 1.68323ZM39.27 9.31677L30.8489 18.3168L32.3093 19.6832L40.7304 10.6832L39.27 9.31677Z"
-						fill="#4b4fb4"
-					/>
-					<path d="M40 10L0 10" stroke="#4b4fb4" stroke-width="2" />
-				</svg>
-			</router-link>
 		</div>
 	</div>
 </template>
@@ -62,9 +46,6 @@
 		}
 
 		&__body {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
 			padding: 2rem;
 			gap: 0.5rem;
 		}
