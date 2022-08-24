@@ -1,4 +1,4 @@
-# compas
+# Company website «Compas PRO»
 
 ## Project setup
 ```
