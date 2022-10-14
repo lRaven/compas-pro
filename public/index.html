@@ -5,29 +5,30 @@
 	<% if(htmlWebpackPlugin.options.metaYandexVerif) { %>
 		<meta name="yandex-verification" content="2525e6e9399482fb" />
 		<% } %>
-		<% if(htmlWebpackPlugin.options.yandexMetrica) { %>
-			<script type="text/javascript" >
-				(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-				m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-				(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-		 
-				ym(89974905, "init", {
-						 clickmap:true,
-						 trackLinks:true,
-						 accurateTrackBounce:true,
-						 webvisor:true
-				});
-		 </script>
-		 <noscript><div><img src="https://mc.yandex.ru/watch/89974905" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-		<% } %>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<link rel="stylesheet" href="/css/nullstyle.css">
-	<link rel="icon" href="<%= BASE_URL %>favicon.ico">
-	<title>
-		<%= htmlWebpackPlugin.options.title %>
-	</title>
+			<% if(htmlWebpackPlugin.options.yandexMetrica) { %>
+				<script type="text/javascript">
+					(function (m, e, t, r, i, k, a) {
+						m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+						m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+					})
+						(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+					ym(89974905, "init", {
+						clickmap: true,
+						trackLinks: true,
+						accurateTrackBounce: true,
+						webvisor: true
+					});
+				</script>
+				<% } %>
+					<meta charset="utf-8">
+					<meta http-equiv="X-UA-Compatible" content="IE=edge">
+					<meta name="viewport" content="width=device-width,initial-scale=1.0">
+					<link rel="stylesheet" href="/css/nullstyle.css">
+					<link rel="icon" href="<%= BASE_URL %>favicon.ico">
+					<title>
+						<%= htmlWebpackPlugin.options.title %>
+					</title>
 </head>
 
 <body>
@@ -38,6 +39,8 @@
 					Please enable it to continue.
 			</strong>
 		</div>
+
+		<div><img src="https://mc.yandex.ru/watch/89974905" style="position:absolute; left:-9999px;" alt="" /></div>
 	</noscript>
 	<div id="app">
 	</div>
@@ -67,18 +70,6 @@
 			line-height: 5rem;
 		}
 	</style>
-	<!-- built files will be auto injected -->
-	<script src="/js/wow.min.js"></script>
-	<script>
-		let wow = new WOW({
-			boxClass: 'wow',      // класс блока по умолчанию
-			animateClass: 'animated', // класс анимации по умолчанию
-			offset: 0,          // смещение от нижнего края браузера по умолчанию
-			mobile: true,       // поддержка мобильных по умолчанию
-			live: true        // постоянно проверяйте наличие новых WOW-элементов на странице по умолчанию
-		});
-		wow.init();
-	</script>
 </body>
 
 </html>

@@ -5,16 +5,16 @@
 				<div class="the-services__title-wrapper">
 					<div
 						class="the-services__title-block"
-						:style="`transform: translate(${
-							125 - this.slide * 2
-						}px, ${this.slide * 5}px)`"
+						:style="`transform: translate(${125 - this.slide * 2}px, ${
+							this.slide * 5
+						}px)`"
 						v-if="windowWidth > 1023"
 					></div>
 					<div
 						class="the-services__title-block"
-						:style="`transform: translate(${
-							100 - this.slide * 2
-						}px, ${this.slide * 5}px)`"
+						:style="`transform: translate(${100 - this.slide * 2}px, ${
+							this.slide * 5
+						}px)`"
 						v-else-if="windowWidth <= 1023 && windowWidth > 540"
 					></div>
 					<div
@@ -25,21 +25,18 @@
 					<h1 class="the-services__title">Услуги</h1>
 				</div>
 				<p class="the-services__description">
-					специализируемся на направлении — интернет для бизнеса с
-					внедрением в структуру бизнес-модели нейросетей и
-					искусственного интеллекта.
+					Интернет для бизнеса — наше основное направление. Внедряем в структуру
+					бизнес-модели нейросети и искусственный интеллект.
 				</p>
 				<v-button
 					color="blue"
-					icon="/img/icon/tg.svg"
+					icon="/img/icons/tg.svg"
 					text="Оставить заявку"
-					@click="
-						openExternalSite('https://telegram.im/@compass_pro')
-					"
+					@click="openExternalSite('https://telegram.im/@compass_pro')"
 				></v-button>
 				<v-button
 					color="blue"
-					icon="/img/icon/arrow-right.svg"
+					icon="/img/icons/arrow-right.svg"
 					text="Портфолио проектов"
 					@click="this.$router.push({ name: 'portfolio' })"
 				></v-button>
@@ -74,20 +71,13 @@
 							class="the-services__control-dot"
 							v-for="service in services"
 							:key="service.id"
-							@click="
-								scrollSliderByButtons(
-									breakpoints[service.id - 1]
-								)
-							"
+							@click="scrollSliderByButtons(breakpoints[service.id - 1])"
 						></div>
 					</div>
 					<div
 						class="the-services__control-down"
 						@click="
-							if (
-								endSlider === false &&
-								slide < breakpoints.length
-							) {
+							if (endSlider === false && slide < breakpoints.length) {
 								slide++;
 								scrollSliderByButtons(breakpoints[slide]);
 							}
@@ -131,7 +121,7 @@
 			<Vue3Marquee :duration="20" :clone="true">
 				<img
 					height="100"
-					src="/img/icon/compas-pro.svg"
+					src="/img/icons/compas-pro.svg"
 					class="the-services__marquee-img"
 				/>
 			</Vue3Marquee>
@@ -140,15 +130,15 @@
 </template>
 
 <script>
-	import { mapState } from "vuex";
-	import { openExternalSite } from "@/js/openExternalSite";
-	import ServiceCard from "@/components/services/ServiceCard";
+	import { mapState } from 'vuex';
+	import { openExternalSite } from '@/js/openExternalSite';
+	import ServiceCard from '@/components/services/ServiceCard';
 
-	import { Vue3Marquee } from "vue3-marquee";
-	import "vue3-marquee/dist/style.css";
+	import { Vue3Marquee } from 'vue3-marquee';
+	import 'vue3-marquee/dist/style.css';
 
 	export default {
-		name: "TheServices",
+		name: 'TheServices',
 		components: {
 			Vue3Marquee,
 			ServiceCard,
@@ -167,7 +157,7 @@
 		}),
 		computed: {
 			...mapState({
-				windowWidth: "windowWidth",
+				windowWidth: 'windowWidth',
 				services: (state) => state.Services.services,
 			}),
 
@@ -193,24 +183,19 @@
 			//*получение брейкпоинтов
 			getBreakpoints() {
 				let breakpoints = [];
-				const services = document.querySelector(".the-services");
-				const service = services.querySelectorAll(".service");
-				const slider = services.querySelector(".the-services__list");
+				const services = document.querySelector('.the-services');
+				const service = services.querySelectorAll('.service');
+				const slider = services.querySelector('.the-services__list');
 				let paddingTop = window
 					.getComputedStyle(slider, null)
-					.getPropertyValue("padding-top");
-				paddingTop = Number(
-					paddingTop.substring(0, paddingTop.length - 2)
-				);
+					.getPropertyValue('padding-top');
+				paddingTop = Number(paddingTop.substring(0, paddingTop.length - 2));
 
 				//* получение координат слайдов
 				for (let index = 0; index < service.length; index++) {
 					if (index % 2 === 0) {
 						breakpoints.push(service[index].offsetTop - paddingTop);
-					} else
-						breakpoints.push(
-							service[index].offsetTop + 100 - paddingTop
-						);
+					} else breakpoints.push(service[index].offsetTop + 100 - paddingTop);
 				}
 
 				this.breakpoints = breakpoints;
@@ -218,58 +203,52 @@
 
 			//*функция прокрутки по брейкпоинтам
 			scrollSliderByButtons(distance) {
-				const services = document.querySelector(".the-services");
-				const slider = services.querySelector(".the-services__list");
+				const services = document.querySelector('.the-services');
+				const slider = services.querySelector('.the-services__list');
 
 				slider.scrollTo(0, distance);
 			},
 
 			//*перекраска текущей точки
 			repaintDots() {
-				const services = document.querySelector(".the-services");
-				const slider = services.querySelector(".the-services__list");
-				const dots = services.querySelectorAll(
-					".the-services__control-dot"
-				);
+				const services = document.querySelector('.the-services');
+				const slider = services.querySelector('.the-services__list');
+				const dots = services.querySelectorAll('.the-services__control-dot');
 
 				for (let index = 0; index < this.breakpoints.length; index++) {
 					if (
 						slider.scrollTop <= this.breakpoints[index] &&
 						slider.scrollTop > this.breakpoints[index - 1]
 					) {
-						dots[index].classList.add("current");
+						dots[index].classList.add('current');
 					} else if (slider.scrollTop <= this.breakpoints[0]) {
-						dots[index].classList.remove("current");
-						dots[0].classList.add("current");
+						dots[index].classList.remove('current');
+						dots[0].classList.add('current');
 					} else {
-						dots[index].classList.remove("current");
+						dots[index].classList.remove('current');
 					}
 				}
 
 				//*--------------------------------------------------------
 
-				slider.addEventListener("scroll", () => {
+				slider.addEventListener('scroll', () => {
 					dots.forEach((dot) => {
-						dot.removeAttribute("current");
+						dot.removeAttribute('current');
 					});
 
-					for (
-						let index = 0;
-						index < this.breakpoints.length;
-						index++
-					) {
+					for (let index = 0; index < this.breakpoints.length; index++) {
 						if (
 							slider.scrollTop <= this.breakpoints[index] &&
 							slider.scrollTop > this.breakpoints[index - 1]
 						) {
-							dots[index].classList.add("current");
+							dots[index].classList.add('current');
 							this.slide = index;
 						} else if (slider.scrollTop <= this.breakpoints[0]) {
-							dots[index].classList.remove("current");
-							dots[0].classList.add("current");
+							dots[index].classList.remove('current');
+							dots[0].classList.add('current');
 							this.slide = 0;
 						} else {
-							dots[index].classList.remove("current");
+							dots[index].classList.remove('current');
 						}
 					}
 				});
@@ -277,73 +256,53 @@
 
 			//*перекраска стрелок при достижении границ прокрутки
 			repaintArrows() {
-				const services = document.querySelector(".the-services");
-				const slider = services.querySelector(".the-services__list");
+				const services = document.querySelector('.the-services');
+				const slider = services.querySelector('.the-services__list');
 				const buttonDown = services.querySelector(
-					".the-services__control-down"
+					'.the-services__control-down'
 				);
-				const buttonUp = services.querySelector(
-					".the-services__control-up"
-				);
+				const buttonUp = services.querySelector('.the-services__control-up');
 
 				if (slider.scrollTop === 0) {
 					this.startSlider = true;
-					buttonUp.setAttribute(
-						"style",
-						"opacity: 0.3; cursor: default;"
-					);
+					buttonUp.setAttribute('style', 'opacity: 0.3; cursor: default;');
 				} else if (slider.scrollTop !== 0) {
 					this.startSlider = false;
-					buttonUp.removeAttribute("style");
+					buttonUp.removeAttribute('style');
 				}
 
-				if (
-					slider.scrollHeight - slider.scrollTop ===
-					slider.clientHeight
-				) {
+				if (slider.scrollHeight - slider.scrollTop === slider.clientHeight) {
 					this.endSlider = true;
-					buttonDown.setAttribute(
-						"style",
-						"opacity: 0.3; cursor: default;"
-					);
+					buttonDown.setAttribute('style', 'opacity: 0.3; cursor: default;');
 				} else if (
 					slider.scrollHeight - slider.scrollTop !==
 					slider.clientHeight
 				) {
 					this.endSlider = false;
-					buttonDown.removeAttribute("style");
+					buttonDown.removeAttribute('style');
 				}
 
-				slider.addEventListener("scroll", () => {
+				slider.addEventListener('scroll', () => {
 					if (slider.scrollTop === 0) {
 						this.startSlider = true;
 
-						buttonUp.setAttribute(
-							"style",
-							"opacity: 0.3; cursor: default;"
-						);
+						buttonUp.setAttribute('style', 'opacity: 0.3; cursor: default;');
 					} else if (slider.scrollTop !== 0) {
 						this.startSlider = false;
-						buttonUp.removeAttribute("style");
+						buttonUp.removeAttribute('style');
 					}
 
-					if (
-						slider.scrollHeight - slider.scrollTop ===
-						slider.clientHeight
-					) {
+					if (slider.scrollHeight - slider.scrollTop === slider.clientHeight) {
 						this.endSlider = true;
 
-						buttonDown.setAttribute(
-							"style",
-							"opacity: 0.3; cursor: default;"
-						);
+						buttonDown.setAttribute('style', 'opacity: 0.3; cursor: default;');
 					} else if (
 						slider.scrollHeight - slider.scrollTop !==
 						slider.clientHeight
 					) {
 						this.endSlider = false;
 
-						buttonDown.removeAttribute("style");
+						buttonDown.removeAttribute('style');
 					}
 				});
 			},
@@ -367,7 +326,7 @@
 </script>
 
 <style lang="scss" scoped>
-	@import "@/assets/scss/variables";
+	@import '@/assets/scss/variables';
 
 	.the-services {
 		min-height: 70rem;
@@ -455,13 +414,8 @@
 				bottom: 0;
 				transform: translateX(12.5rem);
 				width: 140%;
-				background: linear-gradient(
-						286.2deg,
-						$blue 10.05%,
-						$purple 82.75%
-					),
-					linear-gradient(286.2deg, $blue 10.05%, $purple 82.75%),
-					$gray;
+				background: linear-gradient(286.2deg, $blue 10.05%, $purple 82.75%),
+					linear-gradient(286.2deg, $blue 10.05%, $purple 82.75%), $gray;
 				opacity: 0.2;
 				z-index: -1;
 				transition: all 0.5s ease;

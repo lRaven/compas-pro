@@ -29,60 +29,52 @@
 					<transition-group mode="out-in">
 						<div class="the-training__tab" v-if="tab === 'newbie'">
 							<p class="the-training__description">
-								Пройдите обучение в дружном коллективе
-								профессиональных разработчиков. Гарантированная
-								помощь в изучении материала, практика на
-								реальных проектах, оценка ваших компетенций для
-								выбора индивидуальной программы обучения в
-								интересующем вас направлении WEB-разработки. По
-								прохождении курса обучения гарантированное
-								трудоустройство в уютном офисе.
+								Пройдите обучение в дружном коллективе профессиональных
+								разработчиков. Гарантированная помощь в изучении материала,
+								практика на реальных проектах, оценка ваших компетенций для
+								выбора индивидуальной программы обучения в интересующем вас
+								направлении WEB-разработки. По прохождении курса обучения
+								гарантированное трудоустройство в уютном офисе.
 							</p>
 						</div>
-						<div
-							class="the-training__tab"
-							v-else-if="tab === 'dev'"
-						>
+						<div class="the-training__tab" v-else-if="tab === 'dev'">
 							<p class="the-training__description">
-								Углубленное изучение языков программирования,
-								практика на реальных проектах, помощь
-								наставника, гарантированное трудоустройство,
-								карьерный рост, уютный офис с удобным
-								расположением, комфортное рабочее место и
-								лояльная система организации рабочего процесса.
+								Пройдите обучение в дружном коллективе разработчиков. Мы
+								гарантируем помощь в изучении материала, практику на реальных
+								проектах, оценку ваших компетенций для выбора индивидуальной
+								программы обучения в интересующем вас направлении
+								WEB-разработки.
 							</p>
 						</div>
 					</transition-group>
 					<v-button
 						color="purple"
-						icon="/img/icon/tg.svg"
+						icon="/img/icons/tg.svg"
 						text="Оставить заявку"
-						@click="
-							openExternalSite('https://telegram.im/@compass_pro')
-						"
+						@click="openExternalSite('https://telegram.im/@compass_pro')"
 					></v-button>
 				</div>
 			</div>
 			<div class="the-training__col">
 				<condition-card
-					icon="/img/icon/code.svg"
+					icon="/img/icons/code.svg"
 					title="Трудоустройство"
-					description="Проводим обучение WEB-программированию с последующим трудоустройством на работу"
+					description="По результатам обучения лучших учеников приглашаем на постоянную работу"
 				></condition-card>
 				<condition-card
-					icon="/img/icon/code.svg"
-					title="Новая работа"
-					description="По результатам проведения обучения, лучших мы пригласим к нам на постоянную работу с возможностью карьерного роста"
+					icon="/img/icons/code.svg"
+					title="Карьерный рост"
+					description="Предоставляем возможности для карьерного роста и получения ценного опыта"
 				></condition-card>
 				<condition-card
-					icon="/img/icon/code.svg"
+					icon="/img/icons/code.svg"
 					title="Новые знания"
-					description="Наши преподаватели научат вас новым профессиональным навыкам и практикам в области web-разработки"
+					description="Наши преподаватели обучат вас необходимым профессиональным навыкам в области WEB-разработки"
 				></condition-card>
 				<condition-card
-					icon="/img/icon/code.svg"
-					title="Стабильная зарплата"
-					description="С нашей стороны мы обещаем вам хорошие условия труда, интересные проекты, дружную команду и высокую заработную плату"
+					icon="/img/icons/code.svg"
+					title="Достойные условия"
+					description="Обещаем интересные проекты, дружную команду и высокую заработную плату"
 				></condition-card>
 			</div>
 		</div>
@@ -90,19 +82,19 @@
 </template>
 
 <script>
-	import ConditionCard from "@/components/conditions/ConditionCard";
-	import { openExternalSite } from "@/js/openExternalSite";
+	import ConditionCard from '@/components/conditions/ConditionCard';
+	import { openExternalSite } from '@/js/openExternalSite';
 
 	export default {
-		name: "TheTraining",
+		name: 'TheTraining',
 		components: { ConditionCard },
-		data: () => ({ tab: "newbie" }),
+		data: () => ({ tab: 'newbie' }),
 		methods: { openExternalSite },
 	};
 </script>
 
 <style lang="scss" scoped>
-	@import "@/assets/scss/variables";
+	@import '@/assets/scss/variables';
 
 	.the-training {
 		padding-top: 6rem;
@@ -140,8 +132,8 @@
 				height: 11rem;
 				width: fit-content;
 				padding-right: 2.5rem;
-				background: url(/public/img/icon/decorative-block.svg) center
-					right / contain no-repeat;
+				background: url('/public/img/icons/decorative-block.svg') center right /
+					contain no-repeat;
 				margin-bottom: 10rem;
 			}
 		}
@@ -157,9 +149,6 @@
 				.condition-card {
 					&:nth-child(odd) {
 						transform: translateY(8rem);
-					}
-					&:nth-child(3) {
-						transform: translateY(6rem);
 					}
 				}
 			}
@@ -199,7 +188,7 @@
 				color: $light-purple;
 				padding: 0 1rem;
 				&::after {
-					content: "";
+					content: '';
 					position: absolute;
 					left: 0;
 					bottom: -1rem;
@@ -227,13 +216,8 @@
 
 				&.moved {
 					transform: translateX(17rem);
-					background: linear-gradient(
-							286.2deg,
-							$blue 10.05%,
-							$purple 82.75%
-						),
-						linear-gradient(286.2deg, $blue 10.05%, $purple 82.75%),
-						$gray;
+					background: linear-gradient(286.2deg, $blue 10.05%, $purple 82.75%),
+						linear-gradient(286.2deg, $blue 10.05%, $purple 82.75%), $gray;
 
 					@media (max-width: 1023px) {
 						transform: translateX(100%);

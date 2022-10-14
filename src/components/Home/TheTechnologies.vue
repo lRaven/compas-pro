@@ -7,27 +7,23 @@
 		</div>
 		<div class="the-technologies__lists">
 			<div class="the-technologies__list">
-				<Vue3Marquee
-					:duration="20"
-					:clone="true"
-					v-if="windowWidth > 767"
-				>
-					<img height="120" src="/img/icon/laravel.svg" class="" />
-					<img height="120" src="/img/icon/react.svg" class="" />
-					<img height="120" src="/img/icon/python.svg" class="" />
-					<img height="120" src="/img/icon/csharp.svg" class="" />
-					<img height="120" src="/img/icon/nodejs.svg" class="" />
-					<img height="120" src="/img/icon/vue.svg" class="" />
-					<img height="120" src="/img/icon/bootstrap.svg" class="" />
+				<Vue3Marquee :duration="20" :clone="true" v-if="windowWidth > 767">
+					<img height="120" src="/img/icons/laravel.svg" class="" />
+					<img height="120" src="/img/icons/react.svg" class="" />
+					<img height="120" src="/img/icons/python.svg" class="" />
+					<img height="120" src="/img/icons/csharp.svg" class="" />
+					<img height="120" src="/img/icons/nodejs.svg" class="" />
+					<img height="120" src="/img/icons/vue.svg" class="" />
+					<img height="120" src="/img/icons/bootstrap.svg" class="" />
 				</Vue3Marquee>
 				<Vue3Marquee :duration="20" :clone="true" v-else>
-					<img height="50" src="/img/icon/laravel.svg" class="" />
-					<img height="50" src="/img/icon/react.svg" class="" />
-					<img height="50" src="/img/icon/python.svg" class="" />
-					<img height="50" src="/img/icon/csharp.svg" class="" />
-					<img height="50" src="/img/icon/nodejs.svg" class="" />
-					<img height="50" src="/img/icon/vue.svg" class="" />
-					<img height="50" src="/img/icon/bootstrap.svg" class="" />
+					<img height="50" src="/img/icons/laravel.svg" class="" />
+					<img height="50" src="/img/icons/react.svg" class="" />
+					<img height="50" src="/img/icons/python.svg" class="" />
+					<img height="50" src="/img/icons/csharp.svg" class="" />
+					<img height="50" src="/img/icons/nodejs.svg" class="" />
+					<img height="50" src="/img/icons/vue.svg" class="" />
+					<img height="50" src="/img/icons/bootstrap.svg" class="" />
 				</Vue3Marquee>
 			</div>
 			<div class="the-technologies__list">
@@ -37,25 +33,20 @@
 					:direction="'reverse'"
 					v-if="windowWidth > 767"
 				>
-					<img height="100" src="/img/icon/ibm.svg" class="" />
-					<img height="100" src="/img/icon/mysql.svg" class="" />
-					<img height="100" src="/img/icon/npm.svg" class="" />
-					<img height="100" src="/img/icon/postgresql.svg" class="" />
-					<img height="100" src="/img/icon/aws.svg" class="" />
-					<img height="100" src="/img/icon/airflow.svg" class="" />
+					<img height="100" src="/img/icons/ibm.svg" class="" />
+					<img height="100" src="/img/icons/mysql.svg" class="" />
+					<img height="100" src="/img/icons/npm.svg" class="" />
+					<img height="100" src="/img/icons/postgresql.svg" class="" />
+					<img height="100" src="/img/icons/aws.svg" class="" />
+					<img height="100" src="/img/icons/airflow.svg" class="" />
 				</Vue3Marquee>
-				<Vue3Marquee
-					:duration="20"
-					:clone="true"
-					:direction="'reverse'"
-					v-else
-				>
-					<img height="50" src="/img/icon/ibm.svg" class="" />
-					<img height="50" src="/img/icon/mysql.svg" class="" />
-					<img height="50" src="/img/icon/npm.svg" class="" />
-					<img height="50" src="/img/icon/postgresql.svg" class="" />
-					<img height="50" src="/img/icon/aws.svg" class="" />
-					<img height="50" src="/img/icon/airflow.svg" class="" />
+				<Vue3Marquee :duration="20" :clone="true" :direction="'reverse'" v-else>
+					<img height="50" src="/img/icons/ibm.svg" class="" />
+					<img height="50" src="/img/icons/mysql.svg" class="" />
+					<img height="50" src="/img/icons/npm.svg" class="" />
+					<img height="50" src="/img/icons/postgresql.svg" class="" />
+					<img height="50" src="/img/icons/aws.svg" class="" />
+					<img height="50" src="/img/icons/airflow.svg" class="" />
 				</Vue3Marquee>
 			</div>
 		</div>
@@ -63,24 +54,24 @@
 </template>
 
 <script>
-	import { Vue3Marquee } from "vue3-marquee";
-	import "vue3-marquee/dist/style.css";
+	import { Vue3Marquee } from 'vue3-marquee';
+	import 'vue3-marquee/dist/style.css';
 
-	import { mapState } from "vuex";
+	import { mapState } from 'vuex';
 
 	export default {
-		name: "TheTechnologies",
+		name: 'TheTechnologies',
 		components: {
 			Vue3Marquee,
 		},
 		computed: {
-			...mapState(["windowWidth"]),
+			...mapState(['windowWidth']),
 		},
 	};
 </script>
 
 <style lang="scss" scoped>
-	@import "@/assets/scss/variables";
+	@import '@/assets/scss/variables';
 
 	.the-technologies {
 		display: flex;
@@ -96,8 +87,8 @@
 				align-items: center;
 				height: 11rem;
 				width: fit-content;
-				background: url(/public/img/icon/decorative-block.svg) center
-					right / contain no-repeat;
+				background: url('/public/img/icons/decorative-block.svg') center right /
+					contain no-repeat;
 				margin-bottom: 10rem;
 				padding-right: 7rem;
 			}

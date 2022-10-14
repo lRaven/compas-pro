@@ -1,7 +1,7 @@
 <template>
 	<header class="the-header center">
 		<router-link :to="{ name: 'home' }" class="the-header__col">
-			<img src="/img/icon/logo.svg" alt="logo" class="the-header__logo" />
+			<img src="/img/icons/logo.svg" alt="logo" class="the-header__logo" />
 			<div class="the-header__slogan">
 				<span class="the-header__slogan-row">с нами</span>
 				<span class="the-header__slogan-row">в правильном</span>
@@ -15,7 +15,7 @@
 				target="_blank"
 				class="the-header__minciphras"
 			>
-				<img src="/img/icon/minciphras.png" alt="Минцифры России" />
+				<img src="/img/icons/minciphras.png" alt="Минцифры России" />
 				<span
 					class="the-header__minciphras-description"
 					v-if="windowWidth > 630 || windowWidth <= 425"
@@ -33,23 +33,23 @@
 				target="_blank"
 				class="the-header__telegram"
 			>
-				<img src="/img/icon/tg.svg" alt="" />
+				<img src="/img/icons/tg.svg" alt="" />
 			</a>
 		</div>
 	</header>
 </template>
 
 <script>
-	import { mapState } from "vuex";
+	import { mapState } from 'vuex';
 
 	export default {
-		name: "TheHeader",
-		computed: { ...mapState(["windowWidth"]) },
+		name: 'TheHeader',
+		computed: { ...mapState(['windowWidth']) },
 	};
 </script>
 
 <style lang="scss" scoped>
-	@import "@/assets/scss/variables";
+	@import '@/assets/scss/variables';
 
 	.the-header {
 		position: absolute;

@@ -7,23 +7,21 @@
 					<h1 class="the-about__title">О компании</h1>
 				</div>
 				<p class="the-about__description">
-					Компас-про на рынке веб консалтинга находится с 2015 года.
-					Мы имеем собственную проектную деятельность с портфолио
-					проектов. <br />
-					Мы включены в реестр аккредитованных ИТ компаний.
+					Наша компания находится на рынке веб-консалтинга с 2015 года. Мы ведем
+					собственную проектную деятельность и постоянно пополняем наше
+					портфолио новыми разработками. “Компас ПРО” включен в реестр
+					аккредитованных IT-компаний.
 				</p>
 
 				<v-button
 					color="purple"
-					icon="/img/icon/tg.svg"
+					icon="/img/icons/tg.svg"
 					text="Оставить заявку"
-					@click="
-						openExternalSite('https://telegram.im/@compass_pro')
-					"
+					@click="openExternalSite('https://telegram.im/@compass_pro')"
 				></v-button>
 				<v-button
 					color="blue"
-					icon="/img/icon/arrow-right.svg"
+					icon="/img/icons/arrow-right.svg"
 					text="Портфолио проектов"
 					@click="this.$router.push({ name: 'portfolio' })"
 				></v-button>
@@ -37,20 +35,20 @@
 </template>
 
 <script>
-	import { openExternalSite } from "@/js/openExternalSite";
+	import { openExternalSite } from '@/js/openExternalSite';
 
 	export default {
-		name: "TheAbout",
+		name: 'TheAbout',
 		methods: {
 			openExternalSite,
 			initYaMap() {
-				const script = document.createElement("script");
+				const script = document.createElement('script');
 
-				script.id = "ymaps";
+				script.id = 'ymaps';
 				script.src =
-					"https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae55f846dc8f9b59c77b59a4cd630d23fc490894f1828da4f4b57768de6f9792b&amp;width=100%25&amp;height=100%&amp;lang=ru_RU&amp;scroll=true";
+					'https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae55f846dc8f9b59c77b59a4cd630d23fc490894f1828da4f4b57768de6f9792b&amp;width=100%25&amp;height=100%&amp;lang=ru_RU&amp;scroll=true';
 
-				this.$refs.map.insertAdjacentElement("afterbegin", script);
+				this.$refs.map.insertAdjacentElement('afterbegin', script);
 			},
 		},
 		mounted() {
@@ -60,7 +58,7 @@
 </script>
 
 <style lang="scss" scoped>
-	@import "@/assets/scss/variables";
+	@import '@/assets/scss/variables';
 
 	.the-about {
 		display: flex;
@@ -117,14 +115,15 @@
 				height: 11rem;
 				width: fit-content;
 				padding-right: 3.5rem;
-				background: url(/public/img/icon/decorative-block.svg) center
-					right / contain no-repeat;
+				background: url('/public/img/icons/decorative-block.svg') center right /
+					contain no-repeat;
 				margin-bottom: 10rem;
 			}
 		}
 		&__address {
 			width: 100%;
 			height: 40rem;
+			z-index: 1;
 			&-decorative {
 				position: absolute;
 				bottom: 2.5rem;

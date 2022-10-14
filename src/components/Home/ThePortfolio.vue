@@ -7,9 +7,8 @@
 					<h1 class="the-portfolio__title">Портфолио</h1>
 				</div>
 				<p class="the-portfolio__description">
-					Пройдите обучение в дружном коллективе профессиональных
-					разработчиков. Гарантированная помощь в изучении материала,
-					практика на реальных проектах, оценка ваших компетенций
+					Чтобы вы могли объективно понять, на что мы способны,<br />
+					предлагаем вам познакомиться с нашими успешными проектами.
 				</p>
 			</div>
 
@@ -19,11 +18,11 @@
 </template>
 
 <script>
-	import PortfolioSlider from "@/components/portfolio/PortfolioSlider.vue";
-	import { mapState } from "vuex";
+	import PortfolioSlider from '@/components/portfolio/PortfolioSlider.vue';
+	import { mapState } from 'vuex';
 
 	export default {
-		name: "ThePortfolio",
+		name: 'ThePortfolio',
 		components: { PortfolioSlider },
 		computed: {
 			...mapState({ portfolio: (state) => state.Portfolio.portfolio }),
@@ -32,7 +31,7 @@
 </script>
 
 <style lang="scss" scoped>
-	@import "@/assets/scss/variables";
+	@import '@/assets/scss/variables';
 
 	.the-portfolio {
 		display: flex;
@@ -94,8 +93,8 @@
 				height: 11rem;
 				width: fit-content;
 				padding-right: 3.5rem;
-				background: url(/public/img/icon/decorative-block-wide.svg)
-					center right / contain no-repeat;
+				background: url('/public/img/icons/decorative-block-wide.svg') center
+					right / contain no-repeat;
 
 				@media (max-width: 1023px) {
 					height: 9.5rem;

@@ -18,7 +18,7 @@
 		></div>
 		<div class="the-banner__container center">
 			<img
-				src="/img/icon/logo-big.svg"
+				src="/img/icons/logo-big.svg"
 				alt="big logo"
 				class="the-banner__logo"
 			/>
@@ -29,8 +29,7 @@
 						class="the-banner__title the-banner__title-left"
 						v-if="isBusinessTitle"
 					>
-						Компетентная цифровизация бизнеса и автоматизация бизнес
-						процессов
+						Компетентная цифровизация бизнеса и автоматизация бизнес-процессов
 					</h2>
 				</transition>
 				<transition name="fade-left" mode="out-in">
@@ -38,7 +37,7 @@
 						class="the-banner__title the-banner__title-default"
 						v-if="isDefaultTitle"
 					>
-						Бизнес проводник в цифровом мире
+						Бизнес-проводник в цифровом мире
 					</h2>
 				</transition>
 				<transition name="fade-left" mode="out-in">
@@ -46,8 +45,8 @@
 						class="the-banner__title the-banner__title-right"
 						v-if="isLearnTitle"
 					>
-						Квалифицирован<wbr />ное обучение всем необходимым
-						навыкам веб-разработки
+						Квалифицирован<wbr />ное обучение всем необходимым навыкам
+						веб-разработки
 					</h2>
 				</transition>
 			</div>
@@ -58,7 +57,7 @@
 						<v-button
 							color="blue"
 							text="Для бизнеса"
-							icon="/img/icon/arrow-right.svg"
+							icon="/img/icons/arrow-right.svg"
 							@click="
 								if (isDefaultTitle) {
 									slides('business');
@@ -74,7 +73,7 @@
 						<v-button
 							color="purple"
 							text="Для учёбы"
-							icon="/img/icon/arrow-left.svg"
+							icon="/img/icons/arrow-left.svg"
 							:isReverse="true"
 							@click="
 								if (isDefaultTitle) {
@@ -92,12 +91,12 @@
 </template>
 
 <script>
-	import { mapState } from "vuex";
+	import { mapState } from 'vuex';
 
 	export default {
-		name: "TheBanner",
+		name: 'TheBanner',
 		computed: {
-			...mapState(["windowWidth"]),
+			...mapState(['windowWidth']),
 		},
 		data: () => ({
 			isDefaultTitle: true,
@@ -106,90 +105,70 @@
 		}),
 		methods: {
 			slides(direction) {
-				const banner = document.querySelector(".the-banner");
-				const slideLeft = banner.querySelector(
-					".the-banner__slide-left"
-				);
-				const slideRight = banner.querySelector(
-					".the-banner__slide-right"
-				);
-				const btnBusiness = banner.querySelector(
-					".the-banner__btn-business"
-				);
-				const btnLearn = banner.querySelector(".the-banner__btn-learn");
+				const banner = document.querySelector('.the-banner');
+				const slideLeft = banner.querySelector('.the-banner__slide-left');
+				const slideRight = banner.querySelector('.the-banner__slide-right');
+				const btnBusiness = banner.querySelector('.the-banner__btn-business');
+				const btnLearn = banner.querySelector('.the-banner__btn-learn');
 
 				this.isDefaultTitle = false;
 
 				switch (direction) {
-					case "business": {
+					case 'business': {
 						//* смена текста заголовка
 						this.isBusinessTitle = true;
 						this.isLearnTitle = false;
 
 						//*манипуляция фоном
-						slideLeft.setAttribute("style", "width: 90%");
-						slideRight.setAttribute(
-							"style",
-							"width: 10%; cursor: pointer;"
-						);
+						slideLeft.setAttribute('style', 'width: 90%');
+						slideRight.setAttribute('style', 'width: 10%; cursor: pointer;');
 
 						//*движение кнопок
 						if (this.windowWidth > 767) {
 							btnBusiness.setAttribute(
-								"style",
-								`transform: translateX(${
-									btnBusiness.clientWidth / 2 + 40
-								}px)`
+								'style',
+								`transform: translateX(${btnBusiness.clientWidth / 2 + 40}px)`
 							);
 						} else {
 							btnBusiness.setAttribute(
-								"style",
-								`transform: translateY(${
-									btnBusiness.clientHeight / 2 + 20
-								}px)`
+								'style',
+								`transform: translateY(${btnBusiness.clientHeight / 2 + 20}px)`
 							);
 						}
 
 						break;
 					}
-					case "learn": {
+					case 'learn': {
 						//* смена текста заголовка
 						this.isBusinessTitle = false;
 						this.isLearnTitle = true;
 
 						//*манипуляция фоном
-						slideRight.setAttribute("style", "width: 90%");
-						slideLeft.setAttribute(
-							"style",
-							"width: 10%; cursor: pointer;"
-						);
+						slideRight.setAttribute('style', 'width: 90%');
+						slideLeft.setAttribute('style', 'width: 10%; cursor: pointer;');
 
 						//*движение кнопок
 						if (this.windowWidth > 767) {
 							btnLearn.setAttribute(
-								"style",
-								`transform: translateX(-${
-									btnBusiness.clientWidth / 2 + 40
-								}px)`
+								'style',
+								`transform: translateX(-${btnBusiness.clientWidth / 2 + 40}px)`
 							);
 						} else {
 							btnLearn.setAttribute(
-								"style",
-								`transform: translateY(-${
-									btnBusiness.clientHeight / 2 + 12
-								}px)`
+								'style',
+								`transform: translateY(-${btnBusiness.clientHeight / 2 + 12}px)`
 							);
 						}
 						break;
 					}
-					case "reset": {
+					case 'reset': {
 						//*сброс фона
-						slideRight.removeAttribute("style");
-						slideLeft.removeAttribute("style");
+						slideRight.removeAttribute('style');
+						slideLeft.removeAttribute('style');
 
 						//*сброс кнопок
-						btnBusiness.removeAttribute("style");
-						btnLearn.removeAttribute("style");
+						btnBusiness.removeAttribute('style');
+						btnLearn.removeAttribute('style');
 
 						//*сброс текста заголовка
 						this.isBusinessTitle = false;
@@ -202,10 +181,10 @@
 
 			//*функция анимации поворота блока в сторону курсора
 			mouseEffect() {
-				const banner = document.querySelector(".the-banner");
-				const logo = document.querySelector(".the-banner__logo");
+				const banner = document.querySelector('.the-banner');
+				const logo = document.querySelector('.the-banner__logo');
 
-				banner.addEventListener("mousemove", (event) => {
+				banner.addEventListener('mousemove', (event) => {
 					const logoRect = logo.getBoundingClientRect();
 
 					const logoPosition = {
@@ -223,9 +202,7 @@
 
 					const degree = {
 						x: (logoDistance.y / 1920) * (maxDegree * 3),
-						y:
-							baseDegree +
-							(logoDistance.x / 1920) * (maxDegree * 2),
+						y: baseDegree + (logoDistance.x / 1920) * (maxDegree * 2),
 					};
 
 					logo.style.transform = `perspective(800px) rotateX(${-degree.x}deg) rotateY(${
@@ -241,7 +218,7 @@
 </script>
 
 <style lang="scss" scoped>
-	@import "@/assets/scss/variables";
+	@import '@/assets/scss/variables';
 
 	.the-banner {
 		position: relative;
@@ -314,13 +291,13 @@
 			transition: width 0.7s ease;
 			&-left {
 				left: 0;
-				background: url(/public/img/banner-bg-left.png) center left /
-					cover no-repeat;
+				background: url(/public/img/banner-bg-left.png) center left / cover
+					no-repeat;
 			}
 			&-right {
 				right: 0;
-				background: url(/public/img/banner-bg-right.png) center right /
-					cover no-repeat;
+				background: url(/public/img/banner-bg-right.png) center right / cover
+					no-repeat;
 			}
 		}
 	}

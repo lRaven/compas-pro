@@ -6,52 +6,48 @@
 					<h1 class="the-consulting__title">Web-Consulting</h1>
 				</div>
 				<p class="the-consulting__description">
-					Обсудим ваш проект, бесплатно составим техническое задание,
-					сформируем цену, закрепим за проектом специалистов и
-					приступим к работе, осуществляя контроль за всеми
-					последующими этапами работ.
+					Обсудим ваш проект, бесплатно составим техническое задание, сформируем
+					цену, закрепим за проектом специалистов и приступим к работе,
+					осуществляя контроль за всеми последующими этапами работ.
 				</p>
 			</div>
 			<div class="the-consulting__col the-consulting__benefits">
 				<div class="the-consulting__benefit">
 					<img
-						src="/img/icon/code.svg"
+						src="/img/icons/code.svg"
 						class="the-consulting__benefit-icon"
 						alt=""
 					/>
 
 					<h4 class="the-consulting__benefit-title">Качество</h4>
 					<p class="the-consulting__benefit-description">
-						Профессиональный подход к каждому проекту и выполнению
-						отдельных задач. Реализуем все идеи и сделаем Ваш бизнес
-						доходным.
+						Профессиональный подход к каждому проекту. Реализуем все идеи и
+						сделаем ваш бизнес более доходным.
 					</p>
 				</div>
 				<div class="the-consulting__benefit">
 					<img
-						src="/img/icon/price.svg"
+						src="/img/icons/price.svg"
 						class="the-consulting__benefit-icon"
 						alt=""
 					/>
 
 					<h4 class="the-consulting__benefit-title">Цена</h4>
 					<p class="the-consulting__benefit-description">
-						Вы сэкономите свой бюджет и получите отличный результат
-						в приемлемые сроки
+						Вы экономите свой бюджет и получаете отличный результат в приемлемые
+						сроки.
 					</p>
 				</div>
 				<div class="the-consulting__benefit">
 					<img
-						src="/img/icon/code.svg"
+						src="/img/icons/code.svg"
 						class="the-consulting__benefit-icon"
 						alt=""
 					/>
-					<h4 class="the-consulting__benefit-title">
-						Получение прибыли
-					</h4>
+					<h4 class="the-consulting__benefit-title">Получение прибыли</h4>
 					<p class="the-consulting__benefit-description">
-						Грамотно сделанный проект будет приносить вам прибыль,
-						благодаря слаженной работе нашей команды
+						Благодаря мастерству и слаженной работе нашей команды вы получите
+						проект, который точно принесет вам прибыль.
 					</p>
 				</div>
 			</div>
@@ -61,12 +57,12 @@
 
 <script>
 	export default {
-		name: "TheConsulting",
+		name: 'TheConsulting',
 	};
 </script>
 
 <style lang="scss" scoped>
-	@import "@/assets/scss/variables";
+	@import '@/assets/scss/variables';
 
 	.the-consulting {
 		display: flex;
@@ -113,8 +109,8 @@
 				height: 11rem;
 				width: fit-content;
 				padding-right: 6rem;
-				background: url(/public/img/icon/decorative-block.svg) center
-					right / contain no-repeat;
+				background: url('/public/img/icons/decorative-block.svg') center right /
+					contain no-repeat;
 				margin-bottom: 10rem;
 			}
 		}

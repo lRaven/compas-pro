@@ -12,12 +12,12 @@
 			</div>
 			<div class="the-footer__col the-footer__middle">
 				<img
-					src="/img/icon/huawei.png"
+					src="/img/icons/huawei.png"
 					alt=""
 					class="the-footer__partner"
 				/>
 				<img
-					src="/img/icon/ibm-business.png"
+					src="/img/icons/ibm-business.png"
 					alt=""
 					class="the-footer__partner"
 				/>
@@ -28,7 +28,7 @@
 					class="the-footer__minciphras"
 				>
 					<img
-						src="/img/icon/minciphras-dark.png"
+						src="/img/icons/minciphras-dark.png"
 						alt="Минцифры России"
 						class="the-footer__minciphras-icon"
 					/>

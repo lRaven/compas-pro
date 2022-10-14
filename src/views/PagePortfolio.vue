@@ -17,9 +17,7 @@
 							class="text-checkbox__real"
 							v-model="filters"
 						/>
-						<span class="text-checkbox__fake"
-							>Интернет-ресурсы</span
-						>
+						<span class="text-checkbox__fake">Интернет-ресурсы</span>
 					</label>
 
 					<label class="text-checkbox">
@@ -44,11 +42,9 @@
 				</div>
 				<v-button
 					color="purple"
-					icon="/img/icon/tg.svg"
+					icon="/img/icons/tg.svg"
 					text="Оставить заявку"
-					@click="
-						openExternalSite('https://telegram.im/@compass_pro')
-					"
+					@click="openExternalSite('https://telegram.im/@compass_pro')"
 				></v-button>
 			</div>
 
@@ -78,17 +74,17 @@
 </template>
 
 <script>
-	import TheHeader from "@/components/TheHeader.vue";
+	import TheHeader from '@/components/TheHeader.vue';
 
-	import PortfolioCard from "@/components/portfolio/PortfolioCard.vue";
-	import PortfolioModal from "@/components/portfolio/PortfolioModal.vue";
+	import PortfolioCard from '@/components/portfolio/PortfolioCard.vue';
+	import PortfolioModal from '@/components/portfolio/PortfolioModal.vue';
 
-	import { unlockScroll } from "@/js/scrollControl";
-	import { openExternalSite } from "@/js/openExternalSite";
-	import { mapState, mapMutations } from "vuex";
+	import { unlockScroll } from '@/js/scrollControl';
+	import { openExternalSite } from '@/js/openExternalSite';
+	import { mapState, mapMutations } from 'vuex';
 
 	export default {
-		name: "PagePortfolio",
+		name: 'PagePortfolio',
 		components: {
 			TheHeader,
 
@@ -105,19 +101,18 @@
 		},
 		computed: {
 			...mapState({
-				portfolio_filtered: (state) =>
-					state.Portfolio.portfolio_filtered,
+				portfolio_filtered: (state) => state.Portfolio.portfolio_filtered,
 			}),
 		},
 		data: () => ({
 			isModalOpen: false,
-			filters: ["online-resources"],
+			filters: ['online-resources'],
 
-			selected_project: "",
+			selected_project: '',
 		}),
 		methods: {
 			openExternalSite,
-			...mapMutations(["filterByTagsPortfolio"]),
+			...mapMutations(['filterByTagsPortfolio']),
 
 			open_modal(img) {
 				this.selected_project = img;
@@ -125,7 +120,7 @@
 			},
 			close_modal() {
 				unlockScroll();
-				this.selected_project = "";
+				this.selected_project = '';
 				this.isModalOpen = false;
 			},
 		},
@@ -136,7 +131,7 @@
 </script>
 
 <style lang="scss" scoped>
-	@import "@/assets/scss/variables";
+	@import '@/assets/scss/variables';
 
 	.page-portfolio {
 		background: radial-gradient(
@@ -167,8 +162,7 @@
 			$white;
 
 		&__top {
-			background: url(/public/img/banner-bg-right.png) center / cover
-				no-repeat;
+			background: url(/public/img/banner-bg-right.png) center / cover no-repeat;
 
 			.the-header {
 				position: static;
