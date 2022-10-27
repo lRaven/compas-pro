@@ -1,14 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import PageHome from '@/views/PageHome';
-import PagePortfolio from '@/views/PagePortfolio';
-
-import PageNotFound from '@/views/PageNotFound';
 
 const routes = [
 	{
 		path: '/',
 		name: 'home',
-		component: PageHome,
+		component: () => import(/* webpackChunkName: "home" */ '@/views/PageHome.vue'),
 		meta: {
 			title: 'Compas Pro',
 		}
@@ -16,16 +12,24 @@ const routes = [
 	{
 		path: '/portfolio',
 		name: 'portfolio',
-		component: PagePortfolio,
+		component: () => import(/* webpackChunkName: "portfolio" */ '@/views/PagePortfolio.vue'),
 		meta: {
 			title: 'Портфолио'
+		}
+	},
+	{
+		path: '/yourbuh',
+		name: 'yourbuh',
+		component: () => import(/* webpackChunkName: "lawyer_accountant" */ '@/views/PageLawyerAccountant.vue'),
+		meta: {
+			title: 'ПО юристибухгалтер.рф'
 		}
 	},
 
 	{
 		path: '/404',
 		name: '404',
-		component: PageNotFound,
+		component: () => import(/* webpackChunkName: "not_found" */ '@/views/PageNotFound.vue'),
 		meta: {
 			title: '404',
 		}

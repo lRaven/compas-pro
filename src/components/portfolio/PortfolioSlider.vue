@@ -20,12 +20,20 @@
 			</swiper-slide>
 		</swiper>
 		<div class="portfolio-slider__bottom">
-			<v-button
-				color="purple"
-				icon="/img/icons/arrow-right.svg"
-				text="Смотреть всё"
-				@click="this.$router.push({ name: 'portfolio' })"
-			></v-button>
+			<div class="portfolio-slider__buttons">
+				<v-button
+					color="purple"
+					icon="/img/icons/arrow-right.svg"
+					text="Смотреть всё"
+					@click="$router.push({ name: 'portfolio' })"
+				></v-button>
+				<v-button
+					color="purple"
+					icon="/img/icons/arrow-right.svg"
+					text="ПО юристибухгалтер.рф"
+					@click="$router.push({ name: 'yourbuh' })"
+				></v-button>
+			</div>
 
 			<div class="portfolio-slider__control">
 				<button
@@ -100,7 +108,7 @@
 		}
 		&__bottom {
 			display: flex;
-			align-items: center;
+			align-items: baseline;
 			justify-content: space-between;
 			gap: 4rem;
 			@media (max-width: 767px) {
@@ -108,8 +116,13 @@
 				margin-bottom: 4rem;
 			}
 			.v-button {
-				max-width: 32rem;
+				max-width: 38rem;
 			}
+		}
+		&__buttons {
+			display: flex;
+			flex-direction: column;
+			gap: 3rem;
 		}
 		&__control {
 			display: flex;
@@ -127,6 +140,15 @@
 			}
 			@media (max-width: 650px) {
 				grid-template-rows: 23rem 1fr;
+			}
+		}
+		&__bottom {
+			.v-button {
+				&:nth-child(2) {
+					.v-button__text {
+						text-transform: inherit;
+					}
+				}
 			}
 		}
 	}

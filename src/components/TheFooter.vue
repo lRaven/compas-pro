@@ -3,19 +3,13 @@
 		<div class="the-footer__container center">
 			<div class="the-footer__col the-footer__left">
 				<div class="the-footer__left-inner">
-					<img class="the-footer__logo" src="/favicon.ico" />
+					<img class="the-footer__logo" src="/favicon.svg" />
 					<p class="the-footer__name">Компас Про</p>
-					<p class="the-footer__slogan">
-						с нами в правильном направлении
-					</p>
+					<p class="the-footer__slogan">с нами в правильном направлении</p>
 				</div>
 			</div>
 			<div class="the-footer__col the-footer__middle">
-				<img
-					src="/img/icons/huawei.png"
-					alt=""
-					class="the-footer__partner"
-				/>
+				<img src="/img/icons/huawei.png" alt="" class="the-footer__partner" />
 				<img
 					src="/img/icons/ibm-business.png"
 					alt=""
@@ -52,7 +46,7 @@
 
 <script>
 	export default {
-		name: "TheFooter",
+		name: 'TheFooter',
 		computed: {
 			current_year: () => {
 				return new Date().getFullYear();
@@ -62,7 +56,7 @@
 </script>
 
 <style lang="scss" scoped>
-	@import "@/assets/scss/variables";
+	@import '@/assets/scss/variables';
 
 	.the-footer {
 		padding: 0 4rem;
@@ -73,7 +67,7 @@
 			align-items: center;
 			height: 100%;
 			&::before {
-				content: "";
+				content: '';
 				position: absolute;
 				right: 100%;
 				top: 0;
